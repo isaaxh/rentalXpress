@@ -1,3 +1,8 @@
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
 import javax.swing.JOptionPane;
 
 /*
@@ -76,7 +81,15 @@ public class Registration extends javax.swing.JFrame {
         createUserButton.setText("Create User");
         createUserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createUserButtonActionPerformed(evt);
+                try {
+                    createUserButtonActionPerformed(evt);
+                } catch (FileNotFoundException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         });
         getContentPane().add(createUserButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 260, 50));
@@ -156,7 +169,7 @@ public class Registration extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTextInputActionPerformed
 
-    private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
+    private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) throws FileNotFoundException, IOException {//GEN-FIRST:event_createUserButtonActionPerformed
         String Password = passwordTextInput.getText().toString();
         String ConfirmPassword = confirmPasswordTextInput.getText().toString();
         String Name = nameTextInput.getText().toString();
@@ -175,6 +188,10 @@ public class Registration extends javax.swing.JFrame {
         else if(!Password.equals(ConfirmPassword)){
 
             JOptionPane.showMessageDialog(null, "Passwords don't match ");
+        } else{
+            Customer newCustomer = new Customer(Name, Email, Password);
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Customers.txt"));
+            out.writeObject(newCustomer);
         }
     }//GEN-LAST:event_createUserButtonActionPerformed
 
