@@ -17,13 +17,13 @@ import javax.swing.JOptionPane;
  *
  * @author isaaxh
  */
-public class notepad extends javax.swing.JFrame {
+public class main extends javax.swing.JFrame {
 
-    File f = new File("/home/isaaxh/school_y02s01/OOPJ/Assignment/project/files");
+    File f = new File("Login.txt");
 
     String Username, Password, Email;
 
-    public notepad() {
+    public main() {
         initComponents();
     }
 
@@ -42,7 +42,7 @@ public class notepad extends javax.swing.JFrame {
                 FileWriter fw = new FileWriter(f + "/login.txt");
                 System.out.println("File created...");
             } catch (IOException ex1) {
-                Logger.getLogger(notepad.class.getName()).log(Level.SEVERE, null, ex1);
+                Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex1);
             }
         }
 
@@ -56,9 +56,9 @@ public class notepad extends javax.swing.JFrame {
             raf.writeBytes("Email:" + mail);
 
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(notepad.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(notepad.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -79,9 +79,9 @@ public class notepad extends javax.swing.JFrame {
 
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(notepad.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(notepad.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -269,7 +269,7 @@ public class notepad extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         createFolder();
         readFile();
-        addData("isaaxh", "123", "isaachussain@gmail.com");
+        addData("yomama", "123", "yomama@gmail.com");
         checkData("isaaxh", "123");
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -290,20 +290,20 @@ public class notepad extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(notepad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(notepad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(notepad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(notepad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new notepad().setVisible(true);
+                new main().setVisible(true);
             }
         });
     }
