@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -28,15 +30,18 @@ public class Registration extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        pasword = new javax.swing.JTextField();
-        userType = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        name = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        createUserButton = new javax.swing.JButton();
+        passwordTextInput = new javax.swing.JTextField();
+        passwordLabel = new javax.swing.JLabel();
+        nameTextInput = new javax.swing.JTextField();
+        emailTextInput = new javax.swing.JTextField();
+        emailLabel = new javax.swing.JLabel();
+        pasword1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        confirmPasswordTextInput = new javax.swing.JTextField();
+        confirmPasswordLabel = new javax.swing.JLabel();
+        pasword3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,75 +69,126 @@ public class Registration extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 70));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setText("Name");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 20));
+        nameLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        nameLabel.setText("Name");
+        getContentPane().add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 20));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("User Type");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, 40));
-
-        jButton1.setText("Create User");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 260, 50));
-
-        pasword.setText("password");
-        pasword.addActionListener(new java.awt.event.ActionListener() {
+        createUserButton.setText("Create User");
+        createUserButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paswordActionPerformed(evt);
+                createUserButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(pasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 110, 30));
+        getContentPane().add(createUserButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 260, 50));
 
-        userType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "admin", "user" }));
-        userType.addActionListener(new java.awt.event.ActionListener() {
+        passwordTextInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userTypeActionPerformed(evt);
+                passwordTextInputActionPerformed(evt);
             }
         });
-        getContentPane().add(userType, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 110, 30));
+        getContentPane().add(passwordTextInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 110, 30));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setText("Password");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, 20));
+        passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        passwordLabel.setText("Password");
+        getContentPane().add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, 20));
 
-        name.setText("name");
-        name.addActionListener(new java.awt.event.ActionListener() {
+        nameTextInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
+                nameTextInputActionPerformed(evt);
             }
         });
-        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 110, 30));
+        getContentPane().add(nameTextInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 110, 30));
 
-        email.setText("email");
-        email.addActionListener(new java.awt.event.ActionListener() {
+        emailTextInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
+                emailTextInputActionPerformed(evt);
             }
         });
-        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 110, 30));
+        getContentPane().add(emailTextInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 110, 30));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setText("Email");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, 20));
+        emailLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        emailLabel.setText("Email");
+        getContentPane().add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, 20));
+
+        pasword1.setText("password");
+        pasword1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pasword1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(pasword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 110, 30));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setText("Password");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, 20));
+
+        confirmPasswordTextInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmPasswordTextInputActionPerformed(evt);
+            }
+        });
+        getContentPane().add(confirmPasswordTextInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 110, 30));
+
+        confirmPasswordLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        confirmPasswordLabel.setText("Confirm Password");
+        getContentPane().add(confirmPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, -1, 20));
+
+        pasword3.setText("password");
+        pasword3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pasword3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(pasword3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 110, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void paswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paswordActionPerformed
+    private void passwordTextInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_paswordActionPerformed
+    }//GEN-LAST:event_passwordTextInputActionPerformed
 
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
+    private void nameTextInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
+    }//GEN-LAST:event_nameTextInputActionPerformed
 
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+    private void emailTextInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
+    }//GEN-LAST:event_emailTextInputActionPerformed
 
-    private void userTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTypeActionPerformed
+    private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
+        String Password = passwordTextInput.getText().toString();
+        String ConfirmPassword = confirmPasswordTextInput.getText().toString();
+        String Name = nameTextInput.getText().toString();
+        String Email = emailTextInput.getText().toString();
+
+        if(Name.equals("")){
+            JOptionPane.showMessageDialog(null, "Name is mandatory");
+        }
+        
+        else if(Email.equals("")){
+            JOptionPane.showMessageDialog(null, "Email is mandatory");
+        }
+        else if(Password.equals("")){
+            JOptionPane.showMessageDialog(null, "Password is mandatory");
+        }
+        else if(!Password.equals(ConfirmPassword)){
+
+            JOptionPane.showMessageDialog(null, "Passwords don't match ");
+        }
+    }//GEN-LAST:event_createUserButtonActionPerformed
+
+    private void pasword1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasword1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_userTypeActionPerformed
+    }//GEN-LAST:event_pasword1ActionPerformed
+
+    private void confirmPasswordTextInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordTextInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confirmPasswordTextInputActionPerformed
+
+    private void pasword3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasword3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pasword3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,17 +226,20 @@ public class Registration extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField email;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel confirmPasswordLabel;
+    private javax.swing.JTextField confirmPasswordTextInput;
+    private javax.swing.JButton createUserButton;
+    private javax.swing.JLabel emailLabel;
+    private javax.swing.JTextField emailTextInput;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField name;
-    private javax.swing.JTextField pasword;
-    private javax.swing.JComboBox<String> userType;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JTextField nameTextInput;
+    private javax.swing.JLabel passwordLabel;
+    private javax.swing.JTextField passwordTextInput;
+    private javax.swing.JTextField pasword1;
+    private javax.swing.JTextField pasword3;
     // End of variables declaration//GEN-END:variables
 }
