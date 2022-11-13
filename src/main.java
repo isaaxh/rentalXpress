@@ -19,8 +19,8 @@ import javax.swing.JOptionPane;
  */
 public class main extends javax.swing.JFrame {
 
-    File f = new File("Login.txt");
-
+    File f = new File("/home/isaaxh/school_y02s01/OOPJ/Assignment/project/files");
+    int ln;
     String Username, Password, Email;
 
     public main() {
@@ -51,6 +51,11 @@ public class main extends javax.swing.JFrame {
     void addData(String usr, String pswd, String mail) {
         try {
             RandomAccessFile raf = new RandomAccessFile(f + "/login.txt", "rw");
+            for (int i = 0; i < ln; i++) {
+                raf.readLine();
+            }
+            raf.writeBytes("\r\n");
+            raf.writeBytes("\r\n");
             raf.writeBytes("Username:" + usr + "\r\n");
             raf.writeBytes("Password:" + pswd + "\r\n");
             raf.writeBytes("Email:" + mail);
@@ -84,6 +89,21 @@ public class main extends javax.swing.JFrame {
             Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    void countLines() {
+        try {
+            ln = 1;
+            RandomAccessFile raf = new RandomAccessFile(f + "/login.txt", "rw");
+            for (int i = 0; raf.readLine() != null; i++) {
+                ln++;
+            }
+            System.out.println("Number of lines:" + ln);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(notepad.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(notepad.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -141,8 +161,18 @@ public class main extends javax.swing.JFrame {
         });
 
         btnRegister.setText("Register");
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
+            }
+        });
 
         btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         btnClearAll.setText("Clear all ");
         btnClearAll.addActionListener(new java.awt.event.ActionListener() {
@@ -269,9 +299,21 @@ public class main extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         createFolder();
         readFile();
-        addData("yomama", "123", "yomama@gmail.com");
-        checkData("isaaxh", "123");
+        countLines();
+        addData(tfUsername.getText(), tfPassword.getText(), tfEmail.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+
+    }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        createFolder();
+        readFile();
+        countLines();
+        checkData(tfUsername.getText(), tfPassword.getText());
+
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
