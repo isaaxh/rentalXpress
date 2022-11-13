@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class main extends javax.swing.JFrame {
 
-    File f = new File("/home/isaaxh/school_y02s01/OOPJ/Assignment/project/files");
+    File f = new File("Login.txt");
     int ln;
     String Username, Password, Email;
 
@@ -100,9 +100,9 @@ public class main extends javax.swing.JFrame {
             }
             System.out.println("Number of lines:" + ln);
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(notepad.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(notepad.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
