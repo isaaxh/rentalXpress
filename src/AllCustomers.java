@@ -3,7 +3,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,17 +14,14 @@ public class AllCustomers {
     getUserData();
     System.out.println("customers");
    }
-   private void storeUserData(){
-    System.out.println("customer size ===>>" + customers.size());
-    System.out.println("customers ===>>" + customers);
+
+   private void storeUserData() {
     PrintWriter writer;
     try {
         writer = new PrintWriter("Customers.txt");
         writer.print("");
-        // other operations
         writer.close();
     } catch (FileNotFoundException e1) {
-        // TODO Auto-generated catch block
         e1.printStackTrace();
     }
 
@@ -54,7 +50,6 @@ public class AllCustomers {
             customers.add(currCus);
         }
     } catch (FileNotFoundException e) {
-        // TODO Auto-generated catch block
         e.printStackTrace();
     }
 
@@ -88,8 +83,7 @@ public class AllCustomers {
     storeUserData();
    }
 
-   public Customer getCustomer(String customerId){
-    
+   public Customer getCustomer(String customerId) {
     int arrSize = customers.size();
     for(int i = 0; i < arrSize; i++){
         Customer currentCus = customers.get(i);
@@ -100,5 +94,15 @@ public class AllCustomers {
     return null;
    }
 
+   public Customer customerLogin(String email, String password) {
+       int arrSize = customers.size();
+       for (int i = 0; i < arrSize; i++) {
+           Customer currentCus = customers.get(i);
+           if (currentCus.getEmail().equals(email) && currentCus.checkPassword(password)) {
+               return currentCus;
+           }
+       }
+       return null;
+   }
 
 }
