@@ -11,10 +11,10 @@ import java.util.Scanner;
 public class AllCustomers {
    private ArrayList<Customer> customers = new ArrayList<Customer>() ;
    
-   public void main(){
+   public AllCustomers(){
     getUserData();
+    System.out.println("customers");
    }
-
    private void storeUserData(){
     System.out.println("customer size ===>>" + customers.size());
     System.out.println("customers ===>>" + customers);
@@ -62,15 +62,9 @@ public class AllCustomers {
   
    private static void saveToFile(String text) throws IOException{
     BufferedWriter outStream= new BufferedWriter(new FileWriter("Customers.txt", true));
-    outStream.newLine();
     outStream.write(text);
+    outStream.newLine();
     outStream.close();
-    // FileWriter fw = new FileWriter(customers,);
-    // PrintWriter pw = new PrintWriter(fw);
-    // pw.println(text);
-    // pw.println(text);
-    // pw.println(text);
-    // pw.close();
    }
    
 
