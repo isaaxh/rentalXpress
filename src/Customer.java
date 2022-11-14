@@ -22,6 +22,10 @@ public class Customer implements Serializable {
     return email; 
   } 
 
+  public String getId(){
+    return userId;
+  }
+
   public Boolean checkPassword(String aPassword){
     if(aPassword.equals(password)) {
         return true;

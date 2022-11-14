@@ -1,7 +1,13 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.Writer;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -192,6 +198,25 @@ public class Registration extends javax.swing.JFrame {
             Customer newCustomer = new Customer(Name, Email, Password);
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Customers.txt"));
             out.writeObject(newCustomer);
+            BufferedReader br = new BufferedReader(new FileReader("Customers.txt"));     
+
+            if (br.readLine() == null) {
+                File fileName = new File("Customers.txt");
+                ArrayList<Customer> aList = new ArrayList<Customer>();
+                aList.add(newCustomer);
+                try {
+                   FileWriter fw = new FileWriter("Customers.txt");
+                   Writer output = new BufferedWriter(fw); 
+                   int arraySize = aList.size();
+                   for( int i = 0; i < sz; i++){
+                    output.write(aList.get(i).to));
+                   }
+                } catch (Exception e) {
+                    // TODO: handle exception
+                }
+            }
+            
+
         }
     }//GEN-LAST:event_createUserButtonActionPerformed
 
