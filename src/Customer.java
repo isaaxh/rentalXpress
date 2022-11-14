@@ -5,12 +5,13 @@ public class Customer implements Serializable {
    private String name;
    private String email;
    private String password;
-   private String userId = UUID.randomUUID().toString();
+   private String userId ;
 
-   public Customer (String aName, String anEmail, String aPassword) {
+   public Customer (String aUserId, String aName, String anEmail, String aPassword) {
     name = aName;
     email = anEmail;
     password = aPassword;
+    userId = aUserId;
 
    }
 
@@ -26,6 +27,9 @@ public class Customer implements Serializable {
     return userId;
   }
 
+  public String getPassword(){
+    return password;
+  }
   public Boolean checkPassword(String aPassword){
     if(aPassword.equals(password)) {
         return true;
