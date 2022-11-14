@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import javax.swing.JOptionPane;
 
@@ -174,7 +175,7 @@ public class Registration extends javax.swing.JFrame {
     private void emailTextInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTextInputActionPerformed
-
+    AllCustomers customers = new AllCustomers(); 
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) throws FileNotFoundException, IOException {//GEN-FIRST:event_createUserButtonActionPerformed
         String Password = passwordTextInput.getText().toString();
         String ConfirmPassword = confirmPasswordTextInput.getText().toString();
@@ -195,28 +196,9 @@ public class Registration extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "Passwords don't match ");
         } else{
-            Customer newCustomer = new Customer(Name, Email, Password);
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Customers.txt"));
-            out.writeObject(newCustomer);
-            BufferedReader br = new BufferedReader(new FileReader("Customers.txt"));     
-
-            if (br.readLine() == null) {
-                File fileName = new File("Customers.txt");
-                ArrayList<Customer> aList = new ArrayList<Customer>();
-                aList.add(newCustomer);
-                try {
-                   FileWriter fw = new FileWriter("Customers.txt");
-                   Writer output = new BufferedWriter(fw); 
-                   int arraySize = aList.size();
-                   for( int i = 0; i < sz; i++){
-                    output.write(aList.get(i).to));
-                   }
-                } catch (Exception e) {
-                    // TODO: handle exception
-                }
-            }
-            
-
+            String newUserId = UUID.randomUUID().toString();
+            Customer newCustomer = new Customer(Name, Email, Password,newUserId); 
+            customers.addCustomer(newCustomer);
         }
     }//GEN-LAST:event_createUserButtonActionPerformed
 
