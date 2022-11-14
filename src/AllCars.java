@@ -11,7 +11,7 @@ public class AllCars {
     private ArrayList<Car> allCars = new ArrayList<Car>();
 
     public AllCars() {
-        getUserData();
+        getCars();
         System.out.println("customers");
     }
 
@@ -28,7 +28,8 @@ public class AllCars {
         for (int i = 0; i < allCars.size(); i++) {
 
             Car currCar = allCars.get(i);
-            String carData = currCar.getMake() + "|" + currCar.getModel() + "|" + currCar.getYear();
+            String carData = currCar.getId() + "|" + currCar.getMake() + "|" + currCar.getModel() + "|"
+                    + currCar.getYear();
             try {
                 saveToFile(carData);
             } catch (IOException e) {
@@ -38,17 +39,17 @@ public class AllCars {
         }
     }
 
-    private void getUserData() {
+    private void getCars() {
         File file = new File("Cars.txt");
         Scanner s;
         try {
             s = new Scanner(file);
-            // while (s.hasNextLine()) {
-            // String line = s.nextLine();
-            // String[] items = line.split("\\|");
-            // Customer currCus = new Customer(items[0], items[1], items[2], items[3]);
-            // customers.add(currCus);
-            // }
+            while (s.hasNextLine()) {
+                String line = s.nextLine();
+                String[] items = line.split("\\|");
+                Car currCar = new Car(items[0], items[1], items[2], items[3]);
+                allCars.add(currCar);
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -66,42 +67,32 @@ public class AllCars {
         return allCars;
     }
 
-    public void addCar(Customer newCustomer) {
-        allCars.add(newCustomer);
+    public void addCar(Car newCar) {
+        allCars.add(newCar);
         storeUserData();
     }
 
-    public void removeCustomer(String customerId) {
+    public void removeCar(String carId) {
         int arrSize = allCars.size();
         for (int i = 0; i < arrSize; i++) {
-            Customer currentCus = allCars.get(i);
-            if (currentCus.getId().equals(customerId)) {
+            Car currCar = allCars.get(i);
+            if (currCar.getId().equals(carId)) {
                 allCars.remove(i);
             }
         }
         storeUserData();
     }
 
-    public Customer getCustomer(String customerId) {
+    public Car getCar(String carId) {
         int arrSize = allCars.size();
         for (int i = 0; i < arrSize; i++) {
-            Customer currentCus = allCars.get(i);
-            if (currentCus.getId().equals(customerId)) {
-                return currentCus;
+            Car currCar = allCars.get(i);
+            if (currCar.getId().equals(carId)) {
+                return currCar;
             }
         }
         return null;
     }
 
-    public Customer customerLogin(String email, String password) {
-        int arrSize = allCars.size();
-        for (int i = 0; i < arrSize; i++) {
-            Customer currentCus = allCars.get(i);
-            if (currentCus.getEmail().equals(email) && currentCus.checkPassword(password)) {
-                return currentCus;
-            }
-        }
-        return null;
-    }
 
 }

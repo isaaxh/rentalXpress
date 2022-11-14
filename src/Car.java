@@ -1,16 +1,15 @@
-import java.util.UUID;
 
 public class Car {
     private String make;
     private String model;
-    private Number year;
+    private String year;
     private String carId;
 
-    public Car(String aMake, String aModel, Number aYear) {
+    public Car(String aCarId, String aMake, String aModel, String aYear) {
         make = aMake;
         model = aModel;
         year = aYear;
-        carId = UUID.randomUUID().toString();
+        carId = aCarId;
 
     }
     public String getMake() {
@@ -29,12 +28,12 @@ public class Car {
         this.model = model;
     }
 
-    public Number getYear() {
+    public String getYear() {
         return year;
     }
 
 
-    public void setYear(Number year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
