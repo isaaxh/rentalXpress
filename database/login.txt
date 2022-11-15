@@ -26,6 +26,3 @@ Username:hello
 Password:there
 Email:bla bla bal
 
-Username:hello
-Password:there
-Email:bla bla bal

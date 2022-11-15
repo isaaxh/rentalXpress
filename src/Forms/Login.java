@@ -1,5 +1,6 @@
 package Forms;
 
+import java.io.RandomAccessFile;
 import javax.swing.JOptionPane;
 
 /*
@@ -203,15 +204,16 @@ public class Login extends javax.swing.JFrame {
     }
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        String user = textFieldUsername.getText();
-        String pass = passFieldPassword.getText();
+        username = textFieldUsername.getText();
+        password = passFieldPassword.getText();
 
-        if (user.equals("")) {
+        if (username.equals("")) {
             JOptionPane.showMessageDialog(null, "Enter username");
-        } else if (pass.equals("")) {
+        } else if (password.equals("")) {
             JOptionPane.showMessageDialog(null, "Enter password");
         }
 
+        RandomAccessFile raf = new RandomAccessFile()
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
