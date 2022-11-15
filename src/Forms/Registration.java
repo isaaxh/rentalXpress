@@ -1,3 +1,5 @@
+package Forms;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -9,8 +11,12 @@ import java.io.ObjectOutputStream;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
+
+import HelperClasses.AllCustomers;
+import HelperClasses.Customer;
 
 public class Registration extends javax.swing.JFrame {
 
@@ -19,7 +25,8 @@ public class Registration extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         headerPanel = new javax.swing.JPanel();
@@ -50,16 +57,14 @@ public class Registration extends javax.swing.JFrame {
         javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
         headerPanel.setLayout(headerPanelLayout);
         headerPanelLayout.setHorizontalGroup(
-            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerPanelLayout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(formTitle)
-                .addContainerGap(384, Short.MAX_VALUE))
-        );
+                headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(headerPanelLayout.createSequentialGroup()
+                                .addGap(107, 107, 107)
+                                .addComponent(formTitle)
+                                .addContainerGap(384, Short.MAX_VALUE)));
         headerPanelLayout.setVerticalGroup(
-            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(formTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-        );
+                headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(formTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE));
 
         getContentPane().add(headerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 70));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
@@ -130,7 +135,8 @@ public class Registration extends javax.swing.JFrame {
                 confirmPasswordTextInputActionPerformed(evt);
             }
         });
-        getContentPane().add(confirmPasswordTextInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 110, 30));
+        getContentPane().add(confirmPasswordTextInput,
+                new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 110, 30));
 
         confirmPasswordLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         confirmPasswordLabel.setText("Confirm Password");
@@ -147,64 +153,77 @@ public class Registration extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void passwordTextInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextInputActionPerformed
+    private void passwordTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_passwordTextInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwordTextInputActionPerformed
+    }// GEN-LAST:event_passwordTextInputActionPerformed
 
-    private void nameTextInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextInputActionPerformed
+    private void nameTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_nameTextInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameTextInputActionPerformed
+    }// GEN-LAST:event_nameTextInputActionPerformed
 
-    private void emailTextInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextInputActionPerformed
+    private void emailTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_emailTextInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailTextInputActionPerformed
-    AllCustomers customers = new AllCustomers(); 
-    private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) throws FileNotFoundException, IOException {//GEN-FIRST:event_createUserButtonActionPerformed
+    }// GEN-LAST:event_emailTextInputActionPerformed
+
+    AllCustomers customers = new AllCustomers();
+
+    private Boolean validateEmail(String emailAddress) {
+        String regexPattern = "^(.+)@(\\S+)$";
+        return Pattern.compile(regexPattern).matcher(emailAddress).matches();
+    }
+
+    private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt)
+            throws FileNotFoundException, IOException {// GEN-FIRST:event_createUserButtonActionPerformed
         String Password = passwordTextInput.getText().toString();
         String ConfirmPassword = confirmPasswordTextInput.getText().toString();
         String Name = nameTextInput.getText().toString();
         String Email = emailTextInput.getText().toString();
 
-        if(Name.equals("")){
+        if (Name.equals("")) {
             JOptionPane.showMessageDialog(null, "Name is mandatory");
-        }
-        
-        else if(Email.equals("")){
+        } else if (Email.equals("")) {
             JOptionPane.showMessageDialog(null, "Email is mandatory");
-        }
-        else if(Password.equals("")){
+        } else if (Password.equals("")) {
             JOptionPane.showMessageDialog(null, "Password is mandatory");
-        }
-        else if(!Password.equals(ConfirmPassword)){
+        } else if (!Password.equals(ConfirmPassword)) {
 
             JOptionPane.showMessageDialog(null, "Passwords don't match ");
-        } else{
+        } else if (!validateEmail(Email)) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid Email");
+        } else if (customers.customerEmailExists(Email)) {
+            JOptionPane.showMessageDialog(null, "This customer already exists");
+
+        } else {
             String newUserId = UUID.randomUUID().toString();
-            Customer newCustomer = new Customer(Name, Email, Password,newUserId); 
+            Customer newCustomer = new Customer(Name, Email, Password, newUserId);
             customers.addCustomer(newCustomer);
         }
-    }//GEN-LAST:event_createUserButtonActionPerformed
+    }// GEN-LAST:event_createUserButtonActionPerformed
 
-    private void pasword1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasword1ActionPerformed
+    private void pasword1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pasword1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pasword1ActionPerformed
+    }// GEN-LAST:event_pasword1ActionPerformed
 
-    private void confirmPasswordTextInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPasswordTextInputActionPerformed
+    private void confirmPasswordTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmPasswordTextInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_confirmPasswordTextInputActionPerformed
+    }// GEN-LAST:event_confirmPasswordTextInputActionPerformed
 
-    private void pasword3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasword3ActionPerformed
+    private void pasword3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pasword3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pasword3ActionPerformed
+    }// GEN-LAST:event_pasword3ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+        // (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
+         * look and feel.
+         * For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -214,15 +233,19 @@ public class Registration extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         }
-        //</editor-fold>
+        // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

@@ -1,3 +1,5 @@
+package HelperClasses;
+
 import java.io.Serializable;
 import java.util.UUID;
 

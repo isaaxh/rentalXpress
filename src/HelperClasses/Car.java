@@ -1,3 +1,4 @@
+package HelperClasses;
 
 public class Car {
     private String make;
@@ -12,6 +13,7 @@ public class Car {
         carId = aCarId;
 
     }
+
     public String getMake() {
         return make;
     }
@@ -31,7 +33,6 @@ public class Car {
     public String getYear() {
         return year;
     }
-
 
     public void setYear(String year) {
         this.year = year;

@@ -1,3 +1,5 @@
+package HelperClasses;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -53,7 +55,6 @@ public class AllCars {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
     private static void saveToFile(String text) throws IOException {
@@ -93,6 +94,5 @@ public class AllCars {
         }
         return null;
     }
-
 
 }
