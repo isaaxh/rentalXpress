@@ -17,7 +17,6 @@ public class AllCustomers {
 
     public AllCustomers() {
         getUserData();
-        System.out.println("customers");
     }
 
     private void storeUserData() {

@@ -3,15 +3,15 @@ package HelperClasses;
 import java.io.Serializable;
 import java.util.UUID;
 
-public class Customer extends AllCustomers implements Serializable {
+public class Customer implements Serializable {
 
     private String name;
     private String email;
     private String password;
     private String userId;
 
-    public Customer(String anEmail, String aPassword) {
-        email = anEmail;
+    public Customer(String aEmail, String aPassword) {
+        email = aEmail;
         password = aPassword;
     }
 

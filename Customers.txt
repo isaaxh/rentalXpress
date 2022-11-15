@@ -2,3 +2,4 @@ tom|tom@gmail.com|123tom|ae73042d-8483-4390-bef3-b8ce6a10df5e
 tom|tom@gmail.com|123tom|ef7d9f39-08f5-4c59-b004-7472cdc662fc
 isaac|isaac@gmail.com|123|5257bf21-f2be-4864-a84b-e05ee114c22b
 tom|tom@gmail.com|tom123|a2387acc-358f-421d-b60b-d2bf567af92e
+jaber|jaber@gmail.com|12345|41fbf0fb-5474-4a6e-89bd-0064cff6d0c4

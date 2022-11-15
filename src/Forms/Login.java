@@ -1,6 +1,7 @@
 package Forms;
 
-import HelperClasses.*;
+import HelperClasses.AllCustomers;
+import HelperClasses.Customer;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -16,6 +17,8 @@ public class Login extends javax.swing.JFrame {
     String email;
     String password;
     Customer loggedCustomer;
+
+    AllCustomers customers = new AllCustomers();
 
     public Login() {
         initComponents();
@@ -218,8 +221,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        email = textFieldEmail.getText();
-        password = passFieldPassword.getText();
+        email = textFieldEmail.getText().toString();
+        password = passFieldPassword.getText().toString();
 
         if (email.equals("")) {
             JOptionPane.showMessageDialog(null, "Enter username");
@@ -228,28 +231,16 @@ public class Login extends javax.swing.JFrame {
         }
 
         Customer currentCustomer = new Customer(email, password);
+        loggedCustomer = customers.customerLogin(email, password);
 
-        loggedCustomer = currentCustomer.customerLogin(email, password);
-
+        System.out.println(loggedCustomer);
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestActionPerformed
-//        File file = new File("./Customers.txt");
-//        int counter = 0;
-//        //Arraylist fileItems = new ArrayList();
-//
-//        try {
-//            Scanner scan = new Scanner(file);
-//
-//            while (scan.hasNextLine()) {
-//                System.out.println(scan.nextLine());
-//                fileItems[counter++] = scan.nextLine();
-//            }
-//        } catch (FileNotFoundException ex) {
-//            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        System.out.println(fileItems[3]);
-//
+//        email = textFieldEmail.getText();
+//        password = passFieldPassword.getText();
+//        Customer newCus = new Customer();
+//        System.out.println(newCus);
     }//GEN-LAST:event_btnTestActionPerformed
 
     private void textFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldEmailActionPerformed
