@@ -10,6 +10,8 @@
 import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.UUID;
+
 import javax.swing.table.DefaultTableModel;
 import HelperClasses.AllCars;
 import HelperClasses.AllCustomers;
@@ -575,25 +577,27 @@ AllCustomers customers = new AllCustomers();
         private void setCarIdCombo() {
                 ArrayList<Car> allCars = cars.getAllCars();
                 int arrSize = allCars.size();
-                String customerIds[] = new String[arrSize];
+                String carIds[] = new String[arrSize];
                 for (int i = 0; i < arrSize; i++) {
-                        customerIds[i] = allCars.get(i).getId();
+                        if (allCars.get(i).isAvailable()) {
+                                carIds[i] = allCars.get(i).getId();
+                        }
                 }
                 carIdCombo.setModel(new javax.swing.DefaultComboBoxModel<>(
-                                customerIds));
+                                carIds));
         }
 
         private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSaveActionPerformed
-                // String rentalId = textFieldRentalID.getText();
-                // String customerId = customerIdTextInput.getText();
+                String rentalId = UUID.randomUUID().toString();
+                String carId = carIdCombo.getSelectedItem().toString();
+                String customerId = customerIdCombo.getSelectedItem().toString();
                 String rentStartDate = rentDateTextInput.getText();
                 String rentEndDate = rentDateEndTextInput.getText();
-                // String carId = carIdTextInput.getText();
                 String currentDate = LocalDate.now().toString();
-                // Rental newRental = new Rental(rentalId, carId, customerId, rentStartDate,
-                // rentEndDate, currentDate);
-                // allRentals.addRental(newRental);
-                // addRentalDataToTable();
+                Rental newRental = new Rental(rentalId, carId, customerId, rentStartDate,
+                                rentEndDate, currentDate);
+                allRentals.addRental(newRental);
+                addRentalDataToTable();
         }
 
         private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {
@@ -601,11 +605,8 @@ AllCustomers customers = new AllCustomers();
         }
 
         private void resetTextFields() {
-                // textFieldRentalID.setText("");
-                // customerIdTextInput.setText("");
                 rentDateTextInput.setText("");
                 rentDateEndTextInput.setText("");
-                // carIdTextInput.setText("");
         }
 
 
