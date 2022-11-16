@@ -195,7 +195,7 @@ public class Registration extends javax.swing.JFrame {
 
         } else {
             String newUserId = UUID.randomUUID().toString();
-            Customer newCustomer = new Customer(Name, Email, Password, newUserId);
+            Customer newCustomer = new Customer(newUserId, Name, Email, Password);
             customers.addCustomer(newCustomer);
             JOptionPane.showMessageDialog(null, "new user created");
         }

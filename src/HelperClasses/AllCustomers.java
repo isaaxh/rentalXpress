@@ -110,9 +110,13 @@ public class AllCustomers {
     }
 
     public Customer customerLogin(String email, String password) {
+        System.out.print(password);
+        System.out.print(email);
         int arrSize = customers.size();
+        System.out.println("\n \n emails \n");
         for (int i = 0; i < arrSize; i++) {
             Customer currentCus = customers.get(i);
+            System.out.println("\n" + currentCus.getEmail());
             if (currentCus.getEmail().equals(email) && currentCus.checkPassword(password)) {
                 return currentCus;
             }
