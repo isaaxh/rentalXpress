@@ -4,8 +4,11 @@
  */
 package Forms;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 import javax.swing.plaf.TreeUI;
+import javax.swing.table.DefaultTableModel;
 
 import HelperClasses.AllCars;
 import HelperClasses.Car;
@@ -21,6 +24,7 @@ public class CarManagement extends javax.swing.JFrame {
      */
     public CarManagement() {
         initComponents();
+        addDataToTable();
     }
 
     /**
@@ -121,13 +125,9 @@ public class CarManagement extends javax.swing.JFrame {
 
         deleteCarBtn.setText("Delete Car");
 
-        carTable.setForeground(new java.awt.Color(255, 255, 255));
+        carTable.setForeground(new java.awt.Color(0, 0, 0));
         carTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                new Object[][] {
             },
             new String [] {
                 "Reg Num", "Make", "Model", "Status", "Price"
@@ -322,12 +322,28 @@ public class CarManagement extends javax.swing.JFrame {
 
     AllCars cars = new AllCars();
 
+    private void addDataToTable() {
+        DefaultTableModel carTableModel = (DefaultTableModel) carTable.getModel();
+
+        ArrayList<Car> allCars = cars.getAllCars();
+        int carArrSize = allCars.size();
+        carTableModel.getDataVector().removeAllElements();
+        for (int i = 0; i < carArrSize; i++) {
+            Car currCar = allCars.get(i);
+            String tableData[] = { currCar.getId(), currCar.getMake(), currCar.getModel(),
+                    currCar.isAvailable() == true ? "Available" : "Booked", String.valueOf(currCar.getPrice()) };
+            carTableModel.addRow(tableData);
+        }
+
+    }
+
     private void addCarBtnActionPerformed(java.awt.event.ActionEvent evt) {
         String CarId = carIdTextInput.getText().toString();
         String Make = carMakeTextInput.getText().toString();
         String Model = carModelTextInput.getText().toString();
         String Year = carYearTextInput.getText().toString();
         String isAvailable = carIsAvailable.getSelectedItem().toString();
+        String price = rentalPriceTextInput.getText().toString();
         if (CarId.equals("")) {
             JOptionPane.showMessageDialog(null, "Please enter a valid car registration number");
         } else if (Make.equals("")) {
@@ -337,8 +353,9 @@ public class CarManagement extends javax.swing.JFrame {
         } else if (Year.equals("")) {
             JOptionPane.showMessageDialog(null, "Please enter a valid car Year");
         } else {
-            Car newCar = new Car(CarId, Make, Model, Year, isAvailable == "true");
+            Car newCar = new Car(CarId, Make, Model, Year, isAvailable == "true", Integer.parseInt(price));
             cars.addCar(newCar);
+            addDataToTable();
             JOptionPane.showMessageDialog(null, "new car created");
         }
     }// GEN-LAST:event_addCarBtnActionPerformed

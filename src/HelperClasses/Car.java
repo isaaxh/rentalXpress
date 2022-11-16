@@ -5,6 +5,16 @@ public class Car {
     private String model;
     private String year;
     private String carId;
+    private Number price;
+
+    public Number getPrice() {
+        return price;
+    }
+
+    public void setPrice(Number price) {
+        this.price = price;
+    }
+
     private Boolean isAvailable;
 
     public Boolean isAvailable() {
@@ -15,13 +25,13 @@ public class Car {
         this.isAvailable = isAvailable;
     }
 
-    public Car(String aCarId, String aMake, String aModel, String aYear, Boolean carAvailable) {
+    public Car(String aCarId, String aMake, String aModel, String aYear, Boolean carAvailable, Number Price) {
         make = aMake;
         model = aModel;
         year = aYear;
         carId = aCarId;
         isAvailable = carAvailable;
-
+        price = Price;
     }
 
     public String getMake() {

@@ -49,7 +49,8 @@ public class AllCars {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String[] items = line.split("\\|");
-                Car currCar = new Car(items[0], items[1], items[2], items[3], items[4] == "true");
+                Car currCar = new Car(items[0], items[1], items[2], items[3], items[4] == "true",
+                        Integer.parseInt(items[5]));
                 allCars.add(currCar);
             }
         } catch (FileNotFoundException e) {

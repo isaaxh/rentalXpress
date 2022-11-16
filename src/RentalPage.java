@@ -46,8 +46,8 @@ public class RentalPage extends javax.swing.JFrame {
         labelReturnDate = new javax.swing.JLabel();
         labelFees = new javax.swing.JLabel();
         textFieldFees = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        // jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        // jDateChooser2 = new com.toedter.calendar.JDateChooser();
         comboBoxCustomerID = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
@@ -185,55 +185,65 @@ public class RentalPage extends javax.swing.JFrame {
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelRentalID)
-                    .addComponent(textFieldRentalID, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelCustomerID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(comboBoxCustomerID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelRentDate)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelReturnDate))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textFieldFees, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelFees))
-                .addContainerGap(59, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelRentalID)
-                            .addComponent(labelCustomerID)
-                            .addComponent(labelRentDate))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboBoxCustomerID)
-                            .addComponent(textFieldRentalID))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(labelFees)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textFieldFees))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(labelReturnDate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+        // jPanel2Layout.setHorizontalGroup(
+        // jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        // .addGroup(jPanel2Layout.createSequentialGroup()
+        // .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        // .addComponent(labelRentalID)
+        // .addComponent(textFieldRentalID, javax.swing.GroupLayout.PREFERRED_SIZE, 85,
+        // javax.swing.GroupLayout.PREFERRED_SIZE))
+        // .addGap(18, 18, 18)
+        // .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
+        // false)
+        // .addComponent(labelCustomerID, javax.swing.GroupLayout.DEFAULT_SIZE,
+        // javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        // .addComponent(comboBoxCustomerID, 0, javax.swing.GroupLayout.DEFAULT_SIZE,
+        // Short.MAX_VALUE))
+        // .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        // .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        // .addComponent(labelRentDate)
+        // // .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 160,
+        // javax.swing.GroupLayout.PREFERRED_SIZE))
+        // .addGap(18, 18, 18)
+        // .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        // // .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 160,
+        // javax.swing.GroupLayout.PREFERRED_SIZE)
+        // .addComponent(labelReturnDate))
+        // .addGap(31, 31, 31)
+        // .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        // .addComponent(textFieldFees, javax.swing.GroupLayout.PREFERRED_SIZE, 87,
+        // javax.swing.GroupLayout.PREFERRED_SIZE)
+        // .addComponent(labelFees))
+        // // .addContainerGap(59, Short.MAX_VALUE))
+        // );
+        // jPanel2Layout.setVerticalGroup(
+        // jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        // .addGroup(jPanel2Layout.createSequentialGroup()
+        // .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        // .addGroup(jPanel2Layout.createSequentialGroup()
+        // .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        // .addComponent(labelRentalID)
+        // .addComponent(labelCustomerID)
+        // .addComponent(labelRentDate))
+        // .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        // .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
+        // false)
+        // // .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE,
+        // javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        // .addComponent(comboBoxCustomerID)
+        // .addComponent(textFieldRentalID))
+        // .addGap(0, 0, Short.MAX_VALUE))
+        // .addGroup(jPanel2Layout.createSequentialGroup()
+        // .addComponent(labelFees)
+        // .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        // .addComponent(textFieldFees))
+        // .addGroup(jPanel2Layout.createSequentialGroup()
+        // .addComponent(labelReturnDate)
+        // .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        // // .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE,
+        // javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        // .addContainerGap())
+        // );
 
         jPanel3.setBackground(new java.awt.Color(200, 200, 200));
 
@@ -473,8 +483,8 @@ public class RentalPage extends javax.swing.JFrame {
     private javax.swing.JLabel carRentalTitle;
     private javax.swing.JComboBox<String> comboBoxCustomerID;
     private javax.swing.JPanel headerPanel;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    // private com.toedter.calendar.JDateChooser jDateChooser1;
+    // private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
