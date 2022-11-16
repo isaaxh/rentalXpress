@@ -1,8 +1,10 @@
+
+import java.util.Calendar;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author isaaxh
@@ -46,8 +48,8 @@ public class RentalPage extends javax.swing.JFrame {
         labelReturnDate = new javax.swing.JLabel();
         labelFees = new javax.swing.JLabel();
         textFieldFees = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        dateChooserRentDate = new com.toedter.calendar.JDateChooser();
+        dateChooserReturnDate = new com.toedter.calendar.JDateChooser();
         comboBoxCustomerID = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         btnSave = new javax.swing.JButton();
@@ -96,10 +98,8 @@ public class RentalPage extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(900, 700));
         setMinimumSize(new java.awt.Dimension(900, 700));
         setName("rentalPage"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(900, 700));
 
         backgroundPanel.setBackground(new java.awt.Color(200, 200, 200));
         backgroundPanel.setPreferredSize(new java.awt.Dimension(850, 528));
@@ -198,10 +198,10 @@ public class RentalPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelRentDate)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dateChooserRentDate, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateChooserReturnDate, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelReturnDate))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,7 +220,7 @@ public class RentalPage extends javax.swing.JFrame {
                             .addComponent(labelRentDate))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dateChooserRentDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(comboBoxCustomerID)
                             .addComponent(textFieldRentalID))
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -231,7 +231,7 @@ public class RentalPage extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(labelReturnDate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(dateChooserReturnDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -242,6 +242,11 @@ public class RentalPage extends javax.swing.JFrame {
         btnEdit.setText("Edit");
 
         btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         jPanel4.setBackground(new java.awt.Color(200, 200, 200));
 
@@ -428,6 +433,17 @@ public class RentalPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxCustomerIDActionPerformed
 
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        Calendar today = Calendar.getInstance();
+        today.set(Calendar.HOUR_OF_DAY, 0);
+        textFieldRentalID.setText("");
+        comboBoxCustomerID.setSelectedIndex(0);
+        dateChooserRentDate.setCalendar(null);
+        dateChooserReturnDate.setCalendar(null);
+        textFieldFees.setText("");
+
+    }//GEN-LAST:event_btnResetActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -472,9 +488,9 @@ public class RentalPage extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel carRentalTitle;
     private javax.swing.JComboBox<String> comboBoxCustomerID;
+    private com.toedter.calendar.JDateChooser dateChooserRentDate;
+    private com.toedter.calendar.JDateChooser dateChooserReturnDate;
     private javax.swing.JPanel headerPanel;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
