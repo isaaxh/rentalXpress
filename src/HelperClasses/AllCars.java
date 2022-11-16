@@ -31,7 +31,7 @@ public class AllCars {
 
             Car currCar = allCars.get(i);
             String carData = currCar.getId() + "|" + currCar.getMake() + "|" + currCar.getModel() + "|"
-                    + currCar.getYear();
+                    + currCar.getYear() + "|" + currCar.isAvailable();
             try {
                 saveToFile(carData);
             } catch (IOException e) {
@@ -49,7 +49,7 @@ public class AllCars {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String[] items = line.split("\\|");
-                Car currCar = new Car(items[0], items[1], items[2], items[3]);
+                Car currCar = new Car(items[0], items[1], items[2], items[3], items[4] == "true");
                 allCars.add(currCar);
             }
         } catch (FileNotFoundException e) {

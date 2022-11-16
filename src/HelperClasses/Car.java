@@ -5,12 +5,22 @@ public class Car {
     private String model;
     private String year;
     private String carId;
+    private Boolean isAvailable;
 
-    public Car(String aCarId, String aMake, String aModel, String aYear) {
+    public Boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setIsAvailable(Boolean isAvailable) {
+        this.isAvailable = isAvailable;
+    }
+
+    public Car(String aCarId, String aMake, String aModel, String aYear, Boolean carAvailable) {
         make = aMake;
         model = aModel;
         year = aYear;
         carId = aCarId;
+        isAvailable = carAvailable;
 
     }
 
