@@ -221,8 +221,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        email = textFieldEmail.getText().toString();
-        password = passFieldPassword.getText().toString();
+        email = textFieldEmail.getText();
+        password = passFieldPassword.getText();
 
         if (email.equals("")) {
             JOptionPane.showMessageDialog(null, "Enter username");
@@ -230,7 +230,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Enter password");
         }
 
-        Customer currentCustomer = new Customer(email, password);
+        //Customer currentCustomer = new Customer(email, password);
         loggedCustomer = customers.customerLogin(email, password);
 
         System.out.println(loggedCustomer);
