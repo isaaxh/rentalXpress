@@ -31,7 +31,7 @@ public class AllCars {
 
             Car currCar = allCars.get(i);
             String carData = currCar.getId() + "|" + currCar.getMake() + "|" + currCar.getModel() + "|"
-                    + currCar.getYear() + "|" + currCar.isAvailable();
+                    + currCar.getYear() + "|" + currCar.isAvailable() + "|" + currCar.getPrice();
             try {
                 saveToFile(carData);
             } catch (IOException e) {

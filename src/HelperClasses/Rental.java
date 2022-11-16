@@ -34,9 +34,9 @@ public class Rental {
         return rentalId;
     }
 
-    public Rental(String rentalId, String aCarId, String aUserId, String aStartDate, String aEndDate,
+    public Rental(String aRentalId, String aCarId, String aUserId, String aStartDate, String aEndDate,
             String aDateBooked) {
-        rentalId = aEndDate;
+        rentalId = aRentalId;
         carId = aCarId;
         userId = aUserId;
         startDate = aStartDate;
