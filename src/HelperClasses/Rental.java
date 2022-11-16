@@ -34,14 +34,14 @@ public class Rental {
         return rentalId;
     }
 
-    public Rental(String rentalId, String aCarId, String aUserId, String aStartDate, String aEndDate, String items,
-            String items2) {
+    public Rental(String rentalId, String aCarId, String aUserId, String aStartDate, String aEndDate,
+            String aDateBooked) {
         rentalId = aEndDate;
         carId = aCarId;
         userId = aUserId;
         startDate = aStartDate;
         endDate = aEndDate;
-        dateBooked = LocalDate.now().toString();
+        dateBooked = aDateBooked;
     }
 
 }

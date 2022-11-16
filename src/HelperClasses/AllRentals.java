@@ -53,7 +53,7 @@ public class AllRentals {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String[] items = line.split("\\|");
-                Rental currRental = new Rental(items[0], items[1], items[2], items[3], items[4], items[5], items[6]);
+                Rental currRental = new Rental(items[0], items[1], items[2], items[3], items[4], items[5]);
                 allRentals.add(currRental);
             }
         } catch (FileNotFoundException e) {
