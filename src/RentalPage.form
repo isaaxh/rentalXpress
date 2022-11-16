@@ -117,14 +117,29 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Component id="sidebarPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="headerPanel" max="32767" attributes="0"/>
-                      <Component id="jPanel2" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace pref="7" max="32767" attributes="0"/>
+                          <Component id="headerPanel" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel3" max="32767" attributes="0"/>
-                              <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jPanel3" max="32767" attributes="0"/>
+                                      <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="textFieldRentalID" min="-2" pref="85" max="-2" attributes="0"/>
+                                      <Component id="labelRentalID" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jPanel2" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -135,14 +150,22 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="headerPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="labelRentalID" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="textFieldRentalID" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="57" max="32767" attributes="0"/>
+                  <EmptySpace pref="91" max="32767" attributes="0"/>
               </Group>
               <Component id="sidebarPanel" alignment="0" max="32767" attributes="0"/>
           </Group>
@@ -197,7 +220,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
                       <Component id="carRentalTitle" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="330" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -238,32 +261,26 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelRentalID" min="-2" max="-2" attributes="0"/>
-                          <Component id="textFieldRentalID" min="-2" pref="85" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="labelCustomerID" max="32767" attributes="0"/>
-                          <Component id="comboBoxCustomerID" max="32767" attributes="0"/>
+                          <Component id="labelCustomerID" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <Component id="customerIdTextInput" min="-2" pref="105" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelRentDate" min="-2" max="-2" attributes="0"/>
-                          <Component id="dateChooserRentDate" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="labelRentDate" max="32767" attributes="0"/>
+                          <Component id="rentDateTextInput" min="-2" pref="138" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="dateChooserReturnDate" min="-2" pref="160" max="-2" attributes="0"/>
-                          <Component id="labelReturnDate" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="labelReturnDate" max="32767" attributes="0"/>
+                          <Component id="rentDateEndTextInput" min="-2" pref="141" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="textFieldFees" min="-2" pref="87" max="-2" attributes="0"/>
-                          <Component id="labelFees" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="59" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -272,28 +289,20 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="labelReturnDate" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelRentDate" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="labelRentalID" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelCustomerID" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelRentDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rentDateTextInput" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rentDateEndTextInput" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="dateChooserRentDate" max="32767" attributes="0"/>
-                                  <Component id="comboBoxCustomerID" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="textFieldRentalID" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="labelFees" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="textFieldFees" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="labelReturnDate" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="dateChooserReturnDate" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelCustomerID" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="customerIdTextInput" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -302,22 +311,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="labelRentalID">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="fa" green="fa" red="ff" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Ubuntu" size="20" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="3" green="c" red="ad" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Rental ID"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="textFieldRentalID">
-            </Component>
             <Component class="javax.swing.JLabel" name="labelCustomerID">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -343,7 +336,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="3" green="c" red="ad" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Rent date"/>
+                <Property name="text" type="java.lang.String" value="Rent Start Date"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelReturnDate">
@@ -357,46 +350,20 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="3" green="c" red="ad" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Return date"/>
+                <Property name="text" type="java.lang.String" value="Return date end"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelFees">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="fa" green="fa" red="ff" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Ubuntu" size="20" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="3" green="c" red="ad" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Fees"/>
-              </Properties>
+            <Component class="javax.swing.JTextField" name="rentDateEndTextInput">
             </Component>
-            <Component class="javax.swing.JTextField" name="textFieldFees">
-            </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="dateChooserRentDate">
-            </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="dateChooserReturnDate">
-            </Component>
-            <Component class="javax.swing.JComboBox" name="comboBoxCustomerID">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
-                </Property>
-              </Properties>
+            <Component class="javax.swing.JTextField" name="rentDateTextInput">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxCustomerIDActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rentDateTextInputActionPerformed"/>
               </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="customerIdTextInput">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="customerIdTextInputActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -430,14 +397,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnSave" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnReset" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnSave" alignment="1" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnEdit" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnReset" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -447,6 +416,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Save"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnEdit">
               <Properties>
@@ -622,6 +594,22 @@
             </Container>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JTextField" name="textFieldRentalID">
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelRentalID">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="fa" green="fa" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Ubuntu" size="20" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="3" green="c" red="ad" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Rental ID"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
