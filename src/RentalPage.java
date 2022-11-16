@@ -581,16 +581,20 @@ public class RentalPage extends javax.swing.JFrame {
                 String currentDate = LocalDate.now().toString();
                 Rental newRental = new Rental(rentalId, carId, customerId, rentStartDate, rentEndDate, currentDate);
                 allRentals.addRental(newRental);
+                addRentalDataToTable();
         }
 
         private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {
-                // TODO add your handling code here:
+                resetTextFields();
+        }
+
+        private void resetTextFields() {
                 textFieldRentalID.setText("");
                 customerIdTextInput.setText("");
                 rentDateTextInput.setText("");
                 rentDateEndTextInput.setText("");
                 carIdTextInput.setText("");
-                addRentalDataToTable();
+
         }
 
         AllCars cars = new AllCars();
@@ -610,25 +614,23 @@ public class RentalPage extends javax.swing.JFrame {
                                 carTableModel.addRow(tableData);
                         }
                 }
-
         }
 
-        AllRentals rentals = new AllRentals();
 
         private void addRentalDataToTable() {
                 DefaultTableModel carsOnRentModel = (DefaultTableModel) tableCarsOnRent.getModel();
 
-                ArrayList<Rental> allRentals = rentals.getAllRental();
-                int carArrSize = allRentals.size();
+                ArrayList<Rental> rentals = allRentals.getAllRental();
+                int carArrSize = rentals.size();
                 carsOnRentModel.getDataVector().removeAllElements();
                 for (int i = 0; i < carArrSize; i++) {
-                        Rental currRental = allRentals.get(i);
+                        Rental currRental = rentals.get(i);
                         String tableData[] = { currRental.getRentalId(), currRental.getCarId(), currRental.getUserId(),
                                         currRental.getStartDate(), currRental.getEndDate()
                         };
                         carsOnRentModel.addRow(tableData);
                 }
-
+                resetTextFields();
         }
 
         public static void main(String args[]) {
