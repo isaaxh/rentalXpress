@@ -230,10 +230,15 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Enter password");
         }
 
-        Customer currentCustomer = new Customer(email, password);
         loggedCustomer = customers.customerLogin(email, password);
-
         System.out.println(loggedCustomer);
+
+        if (loggedCustomer == null) {
+            JOptionPane.showMessageDialog(null, "Incorrect credentials, please try again!");
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Login successful!");
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestActionPerformed
