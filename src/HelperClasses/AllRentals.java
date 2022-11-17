@@ -6,7 +6,11 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class AllRentals {
@@ -33,9 +37,13 @@ public class AllRentals {
         for (int i = 0; i < allRentals.size(); i++) {
 
             Rental currRental = allRentals.get(i);
+            SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+            String startDateStr = formatter.format(currRental.getStartDate());
+            String endDateStr = formatter.format(currRental.getEndDate());
+            String bookedDate = formatter.format(currRental.getDateBooked());
             String rentalData = currRental.getRentalId() + "|" + currRental.getCarId() + "|" + currRental.getUserId()
                     + "|"
-                    + currRental.getStartDate() + "|" + currRental.getEndDate() + "|" + currRental.getDateBooked();
+                    + startDateStr + "|" + endDateStr + "|" + bookedDate;
             try {
                 saveToFile(rentalData);
             } catch (IOException e) {
@@ -53,8 +61,17 @@ public class AllRentals {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String[] items = line.split("\\|");
-                Rental currRental = new Rental(items[0], items[1], items[2], items[3], items[4], items[5]);
-                allRentals.add(currRental);
+                SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
+                try {
+                    Date startDate = formatter.parse(items[3]);
+                    Date endDate = formatter.parse(items[4]);
+                    Date bookingDate = formatter.parse(items[5]);
+                    Rental currRental = new Rental(items[0], items[1], items[2], startDate, endDate, bookingDate);
+                    allRentals.add(currRental);
+                } catch (ParseException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
