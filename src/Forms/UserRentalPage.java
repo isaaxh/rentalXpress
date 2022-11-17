@@ -297,7 +297,7 @@ public class UserRentalPage extends javax.swing.JFrame {
             System.out.println(rentalStartDate.getDate());
             System.out.println(rentalEndDate.getDate());
             System.out.println(currentDate);
-            Rental newRental = new Rental(rentalId, carIdSelected, "", rentalStartDate.getDate(),
+            Rental newRental = new Rental(rentalId, carIdSelected, "TESTING USER ID", rentalStartDate.getDate(),
                     rentalEndDate.getDate(), currentDate);
             rentals.addRental(newRental);
             totalPrice.setText("RM " + newRental.getTotalCost());
