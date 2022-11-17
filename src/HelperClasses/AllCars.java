@@ -49,7 +49,8 @@ public class AllCars {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String[] items = line.split("\\|");
-                Car currCar = new Car(items[0], items[1], items[2], items[3], items[4] == "true",
+                System.out.println("Available ====>>>> " + items[4].equals("true"));
+                Car currCar = new Car(items[0], items[1], items[2], items[3], items[4].equals("true"),
                         Integer.parseInt(items[5]));
                 allCars.add(currCar);
             }
@@ -67,6 +68,18 @@ public class AllCars {
 
     public ArrayList<Car> getAllCars() {
         return allCars;
+    }
+
+    public ArrayList<Car> getAvailableCars() {
+        ArrayList<Car> availableCars = new ArrayList<Car>();
+        int arrSize = allCars.size();
+        for (int i = 0; i < arrSize; i++) {
+            Car currCar = allCars.get(i);
+            if (currCar.isAvailable()) {
+                availableCars.add(currCar);
+            }
+        }
+        return availableCars;
     }
 
     public void addCar(Car newCar) {
