@@ -4,6 +4,15 @@
  */
 package Forms;
 
+import java.util.ArrayList;
+
+import javax.swing.table.DefaultTableModel;
+
+import HelperClasses.AllCars;
+import HelperClasses.AllCustomers;
+import HelperClasses.AllRentals;
+import HelperClasses.Car;
+
 /**
  *
  * @author jumpe
@@ -15,6 +24,8 @@ public class UserRentalPage extends javax.swing.JFrame {
      */
     public UserRentalPage() {
         initComponents();
+        addCarDataToTable();
+        setCarIdCombo();
     }
 
     /**
@@ -58,7 +69,6 @@ public class UserRentalPage extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Car Id");
 
-        carIdComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -245,6 +255,36 @@ public class UserRentalPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_activeRentalsActionPerformed
 
+    AllCars cars = new AllCars();
+    AllCustomers customers = new AllCustomers();
+    AllRentals allRentals = new AllRentals();
+
+    private void addCarDataToTable() {
+        DefaultTableModel carTableModel = (DefaultTableModel) carsTable.getModel();
+
+        ArrayList<Car> allCars = cars.getAllCars();
+        int carArrSize = allCars.size();
+        carTableModel.getDataVector().removeAllElements();
+        for (int i = 0; i < carArrSize; i++) {
+            Car currCar = allCars.get(i);
+            if (currCar.isAvailable()) {
+                String tableData[] = { currCar.getId(), currCar.getMake(), currCar.getModel(), currCar.getYear(),
+                        String.valueOf(currCar.getPrice()) };
+                carTableModel.addRow(tableData);
+            }
+        }
+    }
+
+    private void setCarIdCombo() {
+        ArrayList<Car> availableCars = cars.getAvailableCars();
+        int arrSize = availableCars.size();
+        String carIds[] = new String[arrSize];
+        System.out.println(arrSize);
+        for (int i = 0; i < arrSize; i++) {
+            carIds[i] = availableCars.get(i).getId();
+        }
+        carIdComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(carIds));
+    }
     /**
      * @param args the command line arguments
      */
