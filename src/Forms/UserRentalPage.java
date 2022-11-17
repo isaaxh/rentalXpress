@@ -4,8 +4,15 @@
  */
 package Forms;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.time.Duration;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -36,6 +43,10 @@ public class UserRentalPage extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    AllCars cars = new AllCars();
+    AllCustomers customers = new AllCustomers();
+    AllRentals allRentals = new AllRentals();
+
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -52,7 +63,10 @@ public class UserRentalPage extends javax.swing.JFrame {
         rentalHistoryBtn = new javax.swing.JButton();
         activeRentals = new javax.swing.JButton();
         rentalStartDate = new com.toedter.calendar.JDateChooser();
+        Date currentDate = new Date();
         rentalEndDate = new com.toedter.calendar.JDateChooser();
+        rentalStartDate.setDate(currentDate);
+        rentalEndDate.setDate(currentDate);
         jScrollPane1 = new javax.swing.JScrollPane();
         carsTable = new javax.swing.JTable();
         AvailableCarsLabel = new javax.swing.JLabel();
@@ -116,11 +130,36 @@ public class UserRentalPage extends javax.swing.JFrame {
         activeRentals.setBackground(new java.awt.Color(8, 65, 118));
         activeRentals.setForeground(new java.awt.Color(255, 255, 255));
         activeRentals.setText("Active Rentals");
-        activeRentals.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                activeRentalsActionPerformed(evt);
+
+        carIdComboBox.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent e) {
+                long RentalStartDate = rentalStartDate.getDate().getTime();
+                long RentalEndDate = rentalEndDate.getDate().getTime();
+                long diff = RentalEndDate - RentalStartDate;
+                long days = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+                String carIdSelected = carIdComboBox.getSelectedItem().toString();
+                Car carSelected = cars.getCar(carIdSelected);
+                System.out.println("CAR SELECTED ===>>>" + carIdSelected);
+                long totalCost = 100 * days;
+                totalPrice.setText("RM " + Long.toString(totalCost));
             }
         });
+        rentalEndDate.getDateEditor().addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent e) {
+                long RentalStartDate = rentalStartDate.getDate().getTime();
+                long RentalEndDate = rentalEndDate.getDate().getTime();
+                long diff = RentalEndDate - RentalStartDate;
+                long days = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+                String carIdSelected = carIdComboBox.getSelectedItem().toString();
+                Car carSelected = cars.getCar(carIdSelected);
+                System.out.println("CAR SELECTED ===>>>" + carIdSelected);
+                long totalCost = 100 * days;
+                totalPrice.setText("RM " + Long.toString(totalCost));
+            }
+        });
+
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -261,8 +300,29 @@ public class UserRentalPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void bookedCarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookedCarBtnActionPerformed
-        // TODO add your handling code here:
+        long RentalStartDate = rentalStartDate.getDate().getTime();
+        long RentalEndDate = rentalEndDate.getDate().getTime();
+        long diff = RentalEndDate - RentalStartDate;
+        long days = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+        System.out.println(days);
+        if (diff == 0) {
+            JOptionPane.showMessageDialog(null, "Your rental has to at minimum be a day long");
+        } else if (diff < 0) {
+            JOptionPane.showMessageDialog(null, "Your end date cannot be before your start date");
+        } else {
+            String carIdSelected = carIdComboBox.getSelectedItem().toString();
+            Car carSelected = cars.getCar(carIdSelected);
+            System.out.println(carIdSelected);
+            long totalCost = carSelected.getPrice() * days;
+            totalPrice.setText("RM " + Long.toString(totalCost));
+        }
+        // if any of the date are empty send messgae
+        // if start date is greater than enddate
+        // set the price based on the car chosen and the days
+        // if()
+
     }//GEN-LAST:event_bookedCarBtnActionPerformed
 
     private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
@@ -276,10 +336,6 @@ public class UserRentalPage extends javax.swing.JFrame {
     private void activeRentalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activeRentalsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_activeRentalsActionPerformed
-
-    AllCars cars = new AllCars();
-    AllCustomers customers = new AllCustomers();
-    AllRentals allRentals = new AllRentals();
 
     private void addCarDataToTable() {
         DefaultTableModel carTableModel = (DefaultTableModel) carsTable.getModel();

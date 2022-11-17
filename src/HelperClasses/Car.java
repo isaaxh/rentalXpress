@@ -5,13 +5,13 @@ public class Car {
     private String model;
     private String year;
     private String carId;
-    private Number price;
+    private long price;
 
-    public Number getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(Number price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 
@@ -25,7 +25,7 @@ public class Car {
         this.isAvailable = isAvailable;
     }
 
-    public Car(String aCarId, String aMake, String aModel, String aYear, Boolean carAvailable, Number Price) {
+    public Car(String aCarId, String aMake, String aModel, String aYear, Boolean carAvailable, long Price) {
         make = aMake;
         model = aModel;
         year = aYear;
