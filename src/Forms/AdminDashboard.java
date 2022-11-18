@@ -208,7 +208,6 @@ public class AdminDashboard extends javax.swing.JFrame {
                 EditProfile editP = new EditProfile();
                 editP.setVisible(true);
                 editP.displayCurrentDetails(loggedUser);
-
                 break;
             case "logout":
                 new Login().setVisible(true);

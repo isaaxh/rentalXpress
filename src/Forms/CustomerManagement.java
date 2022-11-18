@@ -298,31 +298,7 @@ public class CustomerManagement extends javax.swing.JFrame {
 
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt)
             throws FileNotFoundException, IOException {// GEN-FIRST:event_createUserButtonActionPerformed
-        //        String Password = textFieldPass.getText();
-        //        String ConfirmPassword = textFieldConfirmPass.getText();
-        //        String Name = textFieldName.getText();
-        //        String Email = textFieldEmail.getText();
-        //
-        //        if (Name.equals("")) {
-        //            JOptionPane.showMessageDialog(null, "Name is mandatory");
-        //        } else if (Email.equals("")) {
-        //            JOptionPane.showMessageDialog(null, "Email is mandatory");
-        //        } else if (Password.equals("")) {
-        //            JOptionPane.showMessageDialog(null, "Password is mandatory");
-        //        } else if (!Password.equals(ConfirmPassword)) {
-        //
-        //            JOptionPane.showMessageDialog(null, "Passwords don't match ");
-        //        } else if (!validateEmail(Email)) {
-        //            JOptionPane.showMessageDialog(null, "Please enter a valid Email");
-        //        } else if (customers.customerEmailExists(Email)) {
-        //            JOptionPane.showMessageDialog(null, "This customer already exists");
-        //
-        //        } else {
-        //            String newUserId = UUID.randomUUID().toString();
-        //            Customer newCustomer = new Customer(newUserId, Name, Email, Password);
-        //            customers.addCustomer(newCustomer);
-        //            JOptionPane.showMessageDialog(null, "new user created");
-        //        }
+
     }
 
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed

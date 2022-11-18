@@ -19,8 +19,6 @@ import javax.swing.JTextField;
 public class EditProfile extends javax.swing.JFrame {
 
     Customer loggedUser;
-    String pass;
-    String comfirmedPass;
 
     AllCustomers customers = new AllCustomers();
 
