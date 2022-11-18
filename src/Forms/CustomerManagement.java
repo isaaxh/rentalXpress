@@ -16,12 +16,12 @@ import javax.swing.JOptionPane;
  *
  * @author isaaxh
  */
-public class customerManagement extends javax.swing.JFrame {
+public class CustomerManagement extends javax.swing.JFrame {
 
     /**
      * Creates new form customerManagement
      */
-    public customerManagement() {
+    public CustomerManagement() {
         initComponents();
     }
 
@@ -272,7 +272,7 @@ public class customerManagement extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -289,13 +289,12 @@ public class customerManagement extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    AllCustomers customers = new AllCustomers();
-
-    private Boolean validateEmail(String emailAddress) {
-        String regexPattern = "^(.+)@(\\S+)$";
-        return Pattern.compile(regexPattern).matcher(emailAddress).matches();
-    }
-
+//    AllCustomers customers = new AllCustomers();
+//
+//    private Boolean validateEmail(String emailAddress) {
+//        String regexPattern = "^(.+)@(\\S+)$";
+//        return Pattern.compile(regexPattern).matcher(emailAddress).matches();
+//    }
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt)
             throws FileNotFoundException, IOException {// GEN-FIRST:event_createUserButtonActionPerformed
         //        String Password = textFieldPass.getText();
@@ -333,32 +332,31 @@ public class customerManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // throws FileNotFoundException, IOException {// GEN-FIRST:event_createUserButtonActionPerformed
-        String Password = textFieldPass.getText();
-        String ConfirmPassword = textFieldConfirmPass.getText();
-        String Name = textFieldName.getText();
-        String Email = textFieldEmail.getText();
-
-        if (Name.equals("")) {
-            JOptionPane.showMessageDialog(null, "Name is mandatory");
-        } else if (Email.equals("")) {
-            JOptionPane.showMessageDialog(null, "Email is mandatory");
-        } else if (Password.equals("")) {
-            JOptionPane.showMessageDialog(null, "Password is mandatory");
-        } else if (!Password.equals(ConfirmPassword)) {
-
-            JOptionPane.showMessageDialog(null, "Passwords don't match ");
-        } else if (!validateEmail(Email)) {
-            JOptionPane.showMessageDialog(null, "Please enter a valid Email");
-        } else if (customers.customerEmailExists(Email)) {
-            JOptionPane.showMessageDialog(null, "This customer already exists");
-
-        } else {
-            String newUserId = UUID.randomUUID().toString();
-            Customer newCustomer = new Customer(newUserId, Name, Email, Password);
-            customers.addCustomer(newCustomer);
-            JOptionPane.showMessageDialog(null, "new user created");
-        }
+//        String Password = textFieldPass.getText();
+//        String ConfirmPassword = textFieldConfirmPass.getText();
+//        String Name = textFieldName.getText();
+//        String Email = textFieldEmail.getText();
+//
+//        if (Name.equals("")) {
+//            JOptionPane.showMessageDialog(null, "Name is mandatory");
+//        } else if (Email.equals("")) {
+//            JOptionPane.showMessageDialog(null, "Email is mandatory");
+//        } else if (Password.equals("")) {
+//            JOptionPane.showMessageDialog(null, "Password is mandatory");
+//        } else if (!Password.equals(ConfirmPassword)) {
+//
+//            JOptionPane.showMessageDialog(null, "Passwords don't match ");
+//        } else if (!validateEmail(Email)) {
+//            JOptionPane.showMessageDialog(null, "Please enter a valid Email");
+//        } else if (customers.customerEmailExists(Email)) {
+//            JOptionPane.showMessageDialog(null, "This customer already exists");
+//
+//        } else {
+//            String newUserId = UUID.randomUUID().toString();
+//            Customer newCustomer = new Customer(newUserId, Name, Email, Password);
+//            customers.addCustomer(newCustomer);
+//            JOptionPane.showMessageDialog(null, "new user created");
+//        }
     }//GEN-LAST:event_btnAddActionPerformed
 
     /**
@@ -378,22 +376,22 @@ public class customerManagement extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(customerManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(customerManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(customerManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(customerManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustomerManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new customerManagement().setVisible(true);
-            }
-        });
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -403,26 +401,30 @@ public class customerManagement extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null,
+            java.util.logging.Logger.getLogger(CustomerManagement.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null,
+            java.util.logging.Logger.getLogger(CustomerManagement.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null,
+            java.util.logging.Logger.getLogger(CustomerManagement.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null,
+            java.util.logging.Logger.getLogger(CustomerManagement.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         }
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
         // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registration().setVisible(true);
+                new CustomerManagement().setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

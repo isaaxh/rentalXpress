@@ -1,5 +1,6 @@
 package Forms;
 
+import HelperClasses.Customer;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
@@ -14,6 +15,8 @@ import java.awt.event.WindowEvent;
  */
 public class AdminDashboard extends javax.swing.JFrame {
 
+    Customer loggedUser;
+
     /**
      * Creates new form AdminDashboard
      */
@@ -21,6 +24,9 @@ public class AdminDashboard extends javax.swing.JFrame {
         initComponents();
     }
 
+//    public AdminDashboard(Customer aLoggedUser) {
+//        loggedUser = aLoggedUser;
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,7 +43,7 @@ public class AdminDashboard extends javax.swing.JFrame {
         btnCarRental = new javax.swing.JButton();
         btnLogOut = new javax.swing.JButton();
         btnEditProfile = new javax.swing.JButton();
-        btnCustomerRegistration = new javax.swing.JButton();
+        btnCustomerManagement = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,13 +103,18 @@ public class AdminDashboard extends javax.swing.JFrame {
         btnEditProfile.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
         btnEditProfile.setText("Edit Profile");
         btnEditProfile.setPreferredSize(new java.awt.Dimension(250, 30));
-
-        btnCustomerRegistration.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
-        btnCustomerRegistration.setText("Customer Management");
-        btnCustomerRegistration.setPreferredSize(new java.awt.Dimension(250, 30));
-        btnCustomerRegistration.addActionListener(new java.awt.event.ActionListener() {
+        btnEditProfile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCustomerRegistrationActionPerformed(evt);
+                btnEditProfileActionPerformed(evt);
+            }
+        });
+
+        btnCustomerManagement.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
+        btnCustomerManagement.setText("Customer Management");
+        btnCustomerManagement.setPreferredSize(new java.awt.Dimension(250, 30));
+        btnCustomerManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCustomerManagementActionPerformed(evt);
             }
         });
 
@@ -116,7 +127,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEditProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCustomerRegistration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCustomerManagement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCarRental, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCarManagement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -131,7 +142,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCarRental, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCustomerRegistration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCustomerManagement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEditProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -162,12 +173,16 @@ public class AdminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCarManagementActionPerformed
 
     private void btnCarRentalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarRentalActionPerformed
-        changeWindow("carRental");
+        changeWindow("adminCarRental");
     }//GEN-LAST:event_btnCarRentalActionPerformed
 
-    private void btnCustomerRegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerRegistrationActionPerformed
-        changeWindow("customerRegistration");
-    }//GEN-LAST:event_btnCustomerRegistrationActionPerformed
+    private void btnCustomerManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerManagementActionPerformed
+        changeWindow("customerManagement");
+    }//GEN-LAST:event_btnCustomerManagementActionPerformed
+
+    private void btnEditProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProfileActionPerformed
+        changeWindow("editProfile");
+    }//GEN-LAST:event_btnEditProfileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,30 +196,22 @@ public class AdminDashboard extends javax.swing.JFrame {
         dispose();
         switch (windowName) {
             case "carManagement":
-                CarManagement carM = new CarManagement();
-                carM.setVisible(true);
+                new CarManagement().setVisible(true);
                 break;
-//            case "carRegistration":
-//                CarRegistration carRegPage = new CarRegistration();
-//                System.out.println(carRegPage instanceof CarRegistration);
-//                carRegPage.setVisible(true);
-//                break;
-            case "carRental":
-                AdminRentalPage carRental = new AdminRentalPage();
-                carRental.setVisible(true);
+            case "adminCarRental":
+                new AdminRentalPage().setVisible(true);
                 break;
-            case "customerRegistration":
-                Registration cusRegistration = new Registration();
-                cusRegistration.setVisible(true);
+            case "customerManagement":
+                new CustomerManagement().setVisible(true);
                 break;
-//            case "editProfile":
-//                // code block
-//                EditProfile profilePage = new EditProfile();
-//                profilePage.setVisible(true);
-//                break;
+            case "editProfile":
+                EditProfile editP = new EditProfile();
+                editP.setVisible(true);
+                editP.displayCurrentDetails(loggedUser);
+
+                break;
             case "logout":
-                Login loginPage = new Login();
-                loginPage.setVisible(true);
+                new Login().setVisible(true);
                 break;
             default:
             // code block
@@ -248,7 +255,7 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JButton btnCarManagement;
     private javax.swing.JButton btnCarRental;
-    private javax.swing.JButton btnCustomerRegistration;
+    private javax.swing.JButton btnCustomerManagement;
     private javax.swing.JButton btnEditProfile;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JLabel labelWelcomeMessage;

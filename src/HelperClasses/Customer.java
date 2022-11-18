@@ -27,8 +27,16 @@ public class Customer implements Serializable {
         return name;
     }
 
+    public void setName(String aName) {
+        name = aName;
+    }
+
     public String getEmail() {
         return email;
+    }
+
+    public void setEmail(String aEmail) {
+        email = aEmail;
     }
 
     public String getId() {
@@ -37,6 +45,10 @@ public class Customer implements Serializable {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String aPassword) {
+        password = aPassword;
     }
 
     public Boolean checkPassword(String aPassword) {

@@ -222,7 +222,6 @@ public class Login extends javax.swing.JFrame {
 
         // Customer currentCustomer = new Customer(email, password);
         loggedCustomer = customers.customerLogin(email, password);
-        System.out.println(loggedCustomer);
 
         if (loggedCustomer == null) {
             JOptionPane.showMessageDialog(null, "Incorrect credentials, please try again!");
@@ -231,6 +230,7 @@ public class Login extends javax.swing.JFrame {
 //            JOptionPane.showMessageDialog(null, "Login successful!");
             dispose();
             AdminDashboard adminDB = new AdminDashboard();
+            adminDB.loggedUser = loggedCustomer;
             adminDB.setVisible(true);
 
         }
