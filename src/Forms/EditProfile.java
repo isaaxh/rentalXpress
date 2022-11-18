@@ -8,14 +8,6 @@ import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-/**
- *
- * @author isaaxh
- */
 public class EditProfile extends javax.swing.JFrame {
 
     Customer loggedUser;
@@ -411,13 +403,14 @@ public class EditProfile extends javax.swing.JFrame {
 
     }
 
-//    public void addPlaceholder(JTextField textField) {
-//        Font font = textField.getFont();
-//        font = font.deriveFont(Font.ITALIC);
-//        textField.setFont(font);
-//        textField.setForeground(Color.gray);
-//
-//    }
+    public void addPlaceholder(JTextField textField) {
+        Font font = textField.getFont();
+        font = font.deriveFont(Font.ITALIC);
+        textField.setFont(font);
+        textField.setForeground(Color.gray);
+
+    }
+
     public void removePlaceholder(JTextField textField) {
         Font font = textField.getFont();
         font = font.deriveFont(Font.PLAIN);
