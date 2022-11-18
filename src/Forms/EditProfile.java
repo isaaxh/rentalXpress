@@ -377,6 +377,9 @@ public class EditProfile extends javax.swing.JFrame {
         try {
             if (!nameTextInput.getText().equals("")) {
                 loggedUser.setName(nameTextInput.getText());
+                Customer editedCustomer = new Customer(loggedUser.getId(), nameTextInput.getText(),
+                        loggedUser.getEmail(), loggedUser.getPassword());
+                customers.EditCustomer(loggedUser.getId(), editedCustomer);
 
             }
             if (!emailTextInput.getText().equals("")) {

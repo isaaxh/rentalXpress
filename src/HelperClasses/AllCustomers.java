@@ -122,4 +122,15 @@ public class AllCustomers {
         return null;
     }
 
+    public void EditCustomer(String customerId, Customer editedCustomer) {
+        for (int i = 0; i < customers.size(); i++) {
+            Customer currCus = customers.get(i);
+            if (currCus.getId().equals(customerId)) {
+                customers.remove(i);
+                customers.add(i, editedCustomer);
+            }
+            storeUserData();
+        }
+    }
+
 }
