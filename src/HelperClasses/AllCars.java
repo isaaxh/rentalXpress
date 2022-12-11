@@ -98,6 +98,11 @@ public class AllCars {
         storeUserData();
     }
 
+    public void EditCar(String carId, Car EditedCar) {
+        removeCar(carId);
+        addCar(EditedCar);
+    }
+
     public Car getCar(String carId) {
         int arrSize = allCars.size();
         for (int i = 0; i < arrSize; i++) {

@@ -245,6 +245,7 @@ public class CarRegistration extends javax.swing.JPanel {
 
     private void editCarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCarBtnActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_editCarBtnActionPerformed
 
     public static void main(String args[]) {

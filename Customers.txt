@@ -1,4 +1,0 @@
-9aaf2c67-33a7-4a96-a3c0-4de3324743d2|Isaac|isaac@gmail.com|123
-b7f99610-8d3e-4100-8612-9b8d7661fdc8|ayman|adil@gmail.com|112233
-e64e533c-b375-40f7-90d3-69ebb2340f2a|jafar|j@gmail.com|1234
-66a93f12-7c60-4e37-86db-c377bc61ec71|ayman|adil@a.com|1234

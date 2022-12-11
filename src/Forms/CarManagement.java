@@ -1,6 +1,8 @@
 package Forms;
 
 import java.util.ArrayList;
+import java.util.UUID;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import HelperClasses.AllCars;
@@ -14,6 +16,16 @@ public class CarManagement extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -22,11 +34,9 @@ public class CarManagement extends javax.swing.JFrame {
         makeLabel = new javax.swing.JLabel();
         modelLabel = new javax.swing.JLabel();
         yearLabel = new javax.swing.JLabel();
-        carMakeTextInput = new javax.swing.JTextField();
+        carIdTextInput = new javax.swing.JTextField();
         carModelTextInput = new javax.swing.JTextField();
         carYearTextInput = new javax.swing.JTextField();
-        regNumLabel = new javax.swing.JLabel();
-        carIdTextInput = new javax.swing.JTextField();
         modelLabel1 = new javax.swing.JLabel();
         yearLabel1 = new javax.swing.JLabel();
         rentalPriceTextInput = new javax.swing.JTextField();
@@ -37,6 +47,8 @@ public class CarManagement extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         carTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
+        carMakeTextInput = new javax.swing.JTextField();
+        makeLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,19 +81,18 @@ public class CarManagement extends javax.swing.JFrame {
 
         yearLabel.setText("Year");
 
-        carMakeTextInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                carMakeTextActionPerformed(evt);
-            }
-        });
+        carIdTextInput.setEditable(false);
+        // carIdTextInput.addActionListener(new java.awt.event.ActionListener() {
+        // public void actionPerformed(java.awt.event.ActionEvent evt) {
+        // carIdTextInputActionPerformed(evt);
+        // }
+        // });
 
-        carYearTextInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                carYearTextActionPerformed(evt);
-            }
-        });
-
-        regNumLabel.setText("Registration");
+        // carYearTextInput.addActionListener(new java.awt.event.ActionListener() {
+        // public void actionPerformed(java.awt.event.ActionEvent evt) {
+        // carYearTextInputActionPerformed(evt);
+        // }
+        // });
 
         modelLabel1.setText("Status");
 
@@ -105,20 +116,35 @@ public class CarManagement extends javax.swing.JFrame {
 
         deleteCarBtn.setText("Delete Car");
 
-        carTable.setForeground(new java.awt.Color(0, 0, 0));
+        carTable.setBackground(new java.awt.Color(204, 204, 204));
+        carTable.setForeground(new java.awt.Color(255, 255, 255));
         carTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][] {
+
             },
             new String [] {
-                "Reg Num", "Make", "Model", "Status", "Price"
+                        "Reg Num", "Make", "Model", "Year", "Status", "Price"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                    java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                    java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean[] {
+                    false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+        });
+        carTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carTableMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(carTable);
@@ -136,6 +162,14 @@ public class CarManagement extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        // carMakeTextInput.addActionListener(new java.awt.event.ActionListener() {
+        // public void actionPerformed(java.awt.event.ActionEvent evt) {
+        // carMakeTextInputActionPerformed(evt);
+        // }
+        // });
+
+        makeLabel1.setText("CarID");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -143,60 +177,72 @@ public class CarManagement extends javax.swing.JFrame {
             .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(addCarBtn)
-                        .addGap(40, 40, 40)
-                        .addComponent(editCarBtn)
-                        .addGap(38, 38, 38)
-                        .addComponent(deleteCarBtn)
-                        .addGap(153, 153, 153))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(jPanel1Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING,
+                                                                false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(regNumLabel)
-                                                                        .addComponent(carIdTextInput,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                79,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(makeLabel)
-                                                                        .addComponent(carMakeTextInput,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                84,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(modelLabel)
-                                                                        .addComponent(carModelTextInput,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                85,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(yearLabel)
-                                                                        .addComponent(carYearTextInput,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                84,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(modelLabel1)
-                                                                        .addComponent(carIsAvailable,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(rentalPriceTextInput,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                79,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(yearLabel1))))
+                                                                .addComponent(makeLabel1)
+                                                                .addPreferredGap(
+                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                        Short.MAX_VALUE)
+                                                                .addComponent(makeLabel)
+                                                                .addGap(67, 67, 67))
+                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                .addComponent(carIdTextInput,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 84,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(7, 7, 7)
+                                                                .addComponent(carMakeTextInput,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 84,
+                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(
+                                                                        javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                                .addGroup(jPanel1Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(modelLabel)
+                                                        .addComponent(carModelTextInput,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 85,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(jPanel1Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(yearLabel)
+                                                        .addComponent(carYearTextInput,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 84,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(jPanel1Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(modelLabel1)
+                                                        .addComponent(carIsAvailable,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(jPanel1Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(rentalPriceTextInput,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 79,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(yearLabel1))
+                                                .addGap(33, 33, 33))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                .addGap(91, 91, 91)
+                                                                .addComponent(addCarBtn)
+                                                                .addGap(40, 40, 40)
+                                                                .addComponent(editCarBtn)
+                                                                .addGap(38, 38, 38)
+                                                                .addComponent(deleteCarBtn))
+                                                        .addComponent(jScrollPane1,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 559,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -206,59 +252,82 @@ public class CarManagement extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                .addComponent(rentalPriceTextInput,
-                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(carIsAvailable,
-                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(modelLabel1)
-                                                .addComponent(yearLabel1))
-                                            .addGap(28, 28, 28)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(yearLabel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                .addComponent(carYearTextInput,
-                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(modelLabel)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                        .addComponent(carModelTextInput,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(makeLabel)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                        .addComponent(carMakeTextInput,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(regNumLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(carIdTextInput,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addCarBtn)
-                            .addComponent(deleteCarBtn)
-                            .addComponent(editCarBtn))
-                        .addGap(18, 18, 18)
+                                                .addGroup(jPanel1Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                .addGroup(jPanel1Layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addGroup(jPanel1Layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                .addGroup(jPanel1Layout
+                                                                                        .createParallelGroup(
+                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                        .addComponent(
+                                                                                                rentalPriceTextInput,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addComponent(carIsAvailable,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addGroup(
+                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                                jPanel1Layout
+                                                                                                        .createSequentialGroup()
+                                                                                                        .addGroup(
+                                                                                                                jPanel1Layout
+                                                                                                                        .createParallelGroup(
+                                                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                        .addComponent(
+                                                                                                                                modelLabel1)
+                                                                                                                        .addComponent(
+                                                                                                                                yearLabel1))
+                                                                                                        .addGap(28, 28,
+                                                                                                                28)))
+                                                                                .addGroup(jPanel1Layout
+                                                                                        .createSequentialGroup()
+                                                                                        .addComponent(yearLabel)
+                                                                                        .addPreferredGap(
+                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                        .addComponent(carYearTextInput,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                                .addGroup(jPanel1Layout
+                                                                                        .createParallelGroup(
+                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                        .addComponent(modelLabel)
+                                                                                        .addComponent(makeLabel1,
+                                                                                                javax.swing.GroupLayout.Alignment.TRAILING))
+                                                                                .addPreferredGap(
+                                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                .addGroup(jPanel1Layout
+                                                                                        .createParallelGroup(
+                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                        .addComponent(carModelTextInput,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addComponent(carMakeTextInput,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                        .addComponent(carIdTextInput,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                                .addGap(18, 18, 18)
+                                                                .addGroup(jPanel1Layout.createParallelGroup(
+                                                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(addCarBtn)
+                                                                        .addComponent(deleteCarBtn)
+                                                                        .addComponent(editCarBtn)))
+                                                        .addComponent(makeLabel))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
-                        .addContainerGap())
+                                                .addGap(12, 12, 12))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -298,28 +367,8 @@ public class CarManagement extends javax.swing.JFrame {
 
     private void editCarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCarBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_editCarBtnActionPerformed
-
-    AllCars cars = new AllCars();
-
-    private void addDataToTable() {
-        DefaultTableModel carTableModel = (DefaultTableModel) carTable.getModel();
-
-        ArrayList<Car> allCars = cars.getAllCars();
-        int carArrSize = allCars.size();
-        carTableModel.getDataVector().removeAllElements();
-        for (int i = 0; i < carArrSize; i++) {
-            Car currCar = allCars.get(i);
-            String tableData[] = { currCar.getId(), currCar.getMake(), currCar.getModel(),
-                    currCar.isAvailable() == true ? "Available" : "Booked", String.valueOf(currCar.getPrice()) };
-            carTableModel.addRow(tableData);
-        }
-
-    }
-
-    private void addCarBtnActionPerformed(java.awt.event.ActionEvent evt) {
         String CarId = carIdTextInput.getText();
-        String Make = carMakeTextInput.getText();
+        String Make = carIdTextInput.getText();
         String Model = carModelTextInput.getText();
         String Year = carYearTextInput.getText();
         String isAvailable = carIsAvailable.getSelectedItem().toString();
@@ -333,6 +382,69 @@ public class CarManagement extends javax.swing.JFrame {
         } else if (Year.equals("")) {
             JOptionPane.showMessageDialog(null, "Please enter a valid car Year");
         } else {
+            Car newCar = new Car(CarId, Make, Model, Year, isAvailable == "true", Integer.parseInt(price));
+            cars.EditCar(CarId, newCar);
+            addDataToTable();
+            JOptionPane.showMessageDialog(null, "new car created");
+        }
+    }//GEN-LAST:event_editCarBtnActionPerformed
+
+    private void carMakeTextInput1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_carMakeTextInput1ActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_carMakeTextInput1ActionPerformed
+
+    private void carTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_carTableMouseClicked
+        // TODO add your handling code here:
+        // setting the contained data to the text field
+        int SelectedRow = carTable.getSelectedRow();
+        String RegNum = carTable.getValueAt(SelectedRow, 0).toString();
+        String Make = carTable.getValueAt(SelectedRow, 1).toString();
+        String Model = carTable.getValueAt(SelectedRow, 2).toString();
+        String Year = carTable.getValueAt(SelectedRow, 3).toString();
+        String Status = carTable.getValueAt(SelectedRow, 4).toString();
+        String Price = carTable.getValueAt(SelectedRow, 5).toString();
+
+        carIdTextInput.setText(RegNum);
+        carMakeTextInput.setText(Make);
+        carModelTextInput.setText(Model);
+        carYearTextInput.setText(Year);
+        carIsAvailable.setSelectedItem(Status == "Available" ? "true" : "false");
+        ;
+        rentalPriceTextInput.setText(Price);
+    }// GEN-LAST:event_carTableMouseClicked
+
+    AllCars cars = new AllCars();
+
+    private void addDataToTable() {
+        DefaultTableModel carTableModel = (DefaultTableModel) carTable.getModel();
+
+        ArrayList<Car> allCars = cars.getAllCars();
+        int carArrSize = allCars.size();
+        carTableModel.getDataVector().removeAllElements();
+        for (int i = 0; i < carArrSize; i++) {
+            Car currCar = allCars.get(i);
+            String tableData[] = { currCar.getId(), currCar.getMake(), currCar.getModel(),
+                    currCar.getYear(), currCar.isAvailable() == true ? "Available" : "Booked",
+                    String.valueOf(currCar.getPrice()) };
+            carTableModel.addRow(tableData);
+        }
+
+    }
+
+    private void addCarBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        String Make = carIdTextInput.getText();
+        String Model = carModelTextInput.getText();
+        String Year = carYearTextInput.getText();
+        String isAvailable = carIsAvailable.getSelectedItem().toString();
+        String price = rentalPriceTextInput.getText();
+        if (Make.equals("")) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid car Make");
+        } else if (Model.equals("")) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid car Model");
+        } else if (Year.equals("")) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid car Year");
+        } else {
+            String CarId = UUID.randomUUID().toString();
             Car newCar = new Car(CarId, Make, Model, Year, isAvailable == "true", Integer.parseInt(price));
             cars.addCar(newCar);
             addDataToTable();
@@ -386,9 +498,9 @@ public class CarManagement extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel makeLabel;
+    private javax.swing.JLabel makeLabel1;
     private javax.swing.JLabel modelLabel;
     private javax.swing.JLabel modelLabel1;
-    private javax.swing.JLabel regNumLabel;
     private javax.swing.JTextField rentalPriceTextInput;
     private javax.swing.JLabel yearLabel;
     private javax.swing.JLabel yearLabel1;

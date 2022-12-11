@@ -1,13 +1,18 @@
-honda123|Honda|crv|2002|true|20234
-honda123|Honda|crv|2002|false|20234
-another|one |2022|2022|true|20222
-honda123|Honda|crv|2002|false|20234
-another|one |2022|2022|true|20222
-another|one |2022|2022|true|20222
-honda123|Honda|crv|2002|true|20234
-honda123|Honda|crv|2002|false|20234
-another|one |2022|2022|true|20222
-honda123|Honda|crv|2002|false|20234
-another|one |2022|2022|true|20222
-another|one |2022|2022|true|20222
-MomyMilker123|BMW|AQ6|1988|true|1200
+honda123|Hond|crv|2002|true|20234
+honda123|Hond|crv|2002|true|20234
+honda1234|Hond|crv|2002|true|20234
+honda123|Hond|crv|2002|true|20234
+honda123|Hond|crv|2002|true|20234
+honda123|Hond|crv|2002|true|20234
+honda123|Hond|crv|2002|true|20234
+honda1234|honda1234|crv|2002|true|20234
+honda123|Hond|crv|2002|true|20234
+honda123|Hond|crv|2002|true|20234
+honda123|Hond|crv|2002|true|20234
+honda123|Hond|crv|2002|true|20234
+honda1234|honda1234|crv|2003|true|20234
+honda123|Hond|crv|2002|true|20234
+honda123|Hond|crv|2002|true|20234
+honda123|Hond|crv|2002|true|20234
+honda123|Hond|crv|2002|true|20234
+honda1234|honda1234|crv|2003|false|20234
