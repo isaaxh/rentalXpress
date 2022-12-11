@@ -43,7 +43,7 @@ public class AllRentals {
             String bookedDate = formatter.format(currRental.getDateBooked());
             String rentalData = currRental.getRentalId() + "|" + currRental.getCarId() + "|" + currRental.getUserId()
                     + "|"
-                    + startDateStr + "|" + endDateStr + "|" + bookedDate;
+                    + startDateStr + "|" + endDateStr + "|" + bookedDate + "|" + currRental.getTotalCost();
             try {
                 saveToFile(rentalData);
             } catch (IOException e) {

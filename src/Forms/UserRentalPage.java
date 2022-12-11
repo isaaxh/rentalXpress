@@ -239,7 +239,11 @@ public class UserRentalPage extends javax.swing.JFrame {
         AvailableCarsLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         AvailableCarsLabel.setForeground(new java.awt.Color(8, 65, 118));
         AvailableCarsLabel.setText("Available Cars");
-
+        carsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carsTableMouseClicked(evt);
+            }
+        });
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -321,6 +325,13 @@ public class UserRentalPage extends javax.swing.JFrame {
     private void activeRentalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activeRentalsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_activeRentalsActionPerformed
+
+    private void carsTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_carsTableMouseClicked
+        // TODO add your handling code here:
+        int row = carsTable.getSelectedRow();
+        String carId = carsTable.getValueAt(row, 0).toString();
+        carIdComboBox.setSelectedItem(carId);
+    }// GEN-LAST:event_carsTableMouseClicked
 
     private void addCarDataToTable() {
         DefaultTableModel carTableModel = (DefaultTableModel) carsTable.getModel();
