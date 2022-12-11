@@ -377,13 +377,14 @@ public class CarManagement extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void carMakeTextActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_carMakeTextActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_carMakeTextActionPerformed
-
-    private void carYearTextActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_carYearTextActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_carYearTextActionPerformed
+    public static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 
     private void editCarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCarBtnActionPerformed
         // TODO add your handling code here:
@@ -397,8 +398,10 @@ public class CarManagement extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter a valid car Make");
         } else if (Model.equals("")) {
             JOptionPane.showMessageDialog(null, "Please enter a valid car Model");
-        } else if (Year.equals("")) {
+        } else if (Year.equals("") && isNumeric(Year)) {
             JOptionPane.showMessageDialog(null, "Please enter a valid car Year");
+        } else if (price.equals("") && isNumeric(price)) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid price");
         } else {
             Car newCar = new Car(CarId, Make, Model, Year, isAvailable == "true", Integer.parseInt(price));
             cars.EditCar(CarId, newCar);
@@ -493,8 +496,10 @@ public class CarManagement extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter a valid car Make");
         } else if (Model.equals("")) {
             JOptionPane.showMessageDialog(null, "Please enter a valid car Model");
-        } else if (Year.equals("")) {
+        } else if (Year.equals("") || !isNumeric(Year)) {
             JOptionPane.showMessageDialog(null, "Please enter a valid car Year");
+        } else if (price.equals("") || !isNumeric(price)) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid price");
         } else {
             String CarId = UUID.randomUUID().toString();
             Car newCar = new Car(CarId, Make, Model, Year, isAvailable == "true", Integer.parseInt(price));
