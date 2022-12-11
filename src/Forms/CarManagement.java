@@ -27,6 +27,7 @@ public class CarManagement extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -129,6 +130,11 @@ public class CarManagement extends javax.swing.JFrame {
         });
 
         deleteCarBtn.setText("Delete Car");
+        deleteCarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteCarBtnActionPerformed(evt);
+            }
+        });
 
         carTable.setBackground(new java.awt.Color(204, 204, 204));
         carTable.setForeground(new java.awt.Color(255, 255, 255));
@@ -245,17 +251,19 @@ public class CarManagement extends javax.swing.JFrame {
                                                         .addComponent(yearLabel1))
                                                 .addGap(33, 33, 33))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(23, 23, 23))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(91, 91, 91)
-                                                .addComponent(addCarBtn)
-                                                .addGap(40, 40, 40)
-                                                .addComponent(editCarBtn)
-                                                .addGap(38, 38, 38)
-                                                .addComponent(deleteCarBtn)
-                                                .addGap(56, 56, 56))))
+                                                .addGroup(jPanel1Layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jScrollPane1,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 559,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                .addGap(91, 91, 91)
+                                                                .addComponent(addCarBtn)
+                                                                .addGap(40, 40, 40)
+                                                                .addComponent(editCarBtn)
+                                                                .addGap(38, 38, 38)
+                                                                .addComponent(deleteCarBtn)))
+                                                .addGap(23, 23, 23))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -399,6 +407,17 @@ public class CarManagement extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_editCarBtnActionPerformed
 
+    private void deleteCarBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteCarBtnActionPerformed
+        // TODO add your handling code here:
+        String CarId = carIdTextInput.getText();
+        int SelectedRow = carTable.getSelectedRow();
+        System.out.println(CarId);
+        cars.removeCar(CarId);
+        ((DefaultTableModel) carTable.getModel()).removeRow(SelectedRow);
+        // addDataToTable();
+        JOptionPane.showMessageDialog(null, "Car deleted successfully");
+    }// GEN-LAST:event_deleteCarBtnActionPerformed
+
     private void carModelTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_carModelTextInputActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_carModelTextInputActionPerformed
@@ -447,14 +466,20 @@ public class CarManagement extends javax.swing.JFrame {
 
         ArrayList<Car> allCars = cars.getAllCars();
         int carArrSize = allCars.size();
+        System.out.println("CAr size=>");
+        System.out.println(carArrSize);
         carTableModel.getDataVector().removeAllElements();
+        if (carArrSize > 0) {
+
         for (int i = 0; i < carArrSize; i++) {
             Car currCar = allCars.get(i);
-            String tableData[] = { currCar.getId(), currCar.getMake(), currCar.getModel(),
+            String tableData[] = { currCar.getId(), currCar.getMake(),
+                    currCar.getModel(),
                     currCar.getYear(), currCar.isAvailable() == true ? "Available" : "Booked",
                     String.valueOf(currCar.getPrice()) };
             carTableModel.addRow(tableData);
         }
+    }
 
     }
 

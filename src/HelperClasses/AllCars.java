@@ -17,7 +17,7 @@ public class AllCars {
         System.out.println("customers");
     }
 
-    private void storeUserData() {
+    private void storeCarData() {
         PrintWriter writer;
         try {
             writer = new PrintWriter("Cars.txt");
@@ -35,7 +35,7 @@ public class AllCars {
             try {
                 saveToFile(carData);
             } catch (IOException e) {
-                System.out.println("could not add customer: " + currCar.getId());
+                System.out.println("could store car data: " + currCar.getId());
                 e.printStackTrace();
             }
         }
@@ -84,18 +84,22 @@ public class AllCars {
 
     public void addCar(Car newCar) {
         allCars.add(newCar);
-        storeUserData();
+        storeCarData();
     }
 
     public void removeCar(String carId) {
         int arrSize = allCars.size();
-        for (int i = 0; i < arrSize - 1; i++) {
+        System.out.println(arrSize);
+        for (int i = 0; i < arrSize; i++) {
+            System.out.println("I ran");
             Car currCar = allCars.get(i);
+
             if (currCar.getId().equals(carId)) {
                 allCars.remove(i);
             }
+            arrSize--;
         }
-        storeUserData();
+        storeCarData();
     }
 
     public void EditCar(String carId, Car EditedCar) {
