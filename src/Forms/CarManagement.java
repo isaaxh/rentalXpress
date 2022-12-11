@@ -25,6 +25,8 @@ public class CarManagement extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -82,21 +84,33 @@ public class CarManagement extends javax.swing.JFrame {
         yearLabel.setText("Year");
 
         carIdTextInput.setEditable(false);
-        // carIdTextInput.addActionListener(new java.awt.event.ActionListener() {
-        // public void actionPerformed(java.awt.event.ActionEvent evt) {
-        // carIdTextInputActionPerformed(evt);
-        // }
-        // });
+        carIdTextInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carIdTextInputActionPerformed(evt);
+            }
+        });
 
-        // carYearTextInput.addActionListener(new java.awt.event.ActionListener() {
-        // public void actionPerformed(java.awt.event.ActionEvent evt) {
-        // carYearTextInputActionPerformed(evt);
-        // }
-        // });
+        carModelTextInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carModelTextInputActionPerformed(evt);
+            }
+        });
+
+        carYearTextInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carYearTextInputActionPerformed(evt);
+            }
+        });
 
         modelLabel1.setText("Status");
 
         yearLabel1.setText("Price");
+
+        rentalPriceTextInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentalPriceTextInputActionPerformed(evt);
+            }
+        });
 
         carIsAvailable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "true", "false" }));
 
@@ -162,11 +176,11 @@ public class CarManagement extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        // carMakeTextInput.addActionListener(new java.awt.event.ActionListener() {
-        // public void actionPerformed(java.awt.event.ActionEvent evt) {
-        // carMakeTextInputActionPerformed(evt);
-        // }
-        // });
+        carMakeTextInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                carMakeTextInputActionPerformed(evt);
+            }
+        });
 
         makeLabel1.setText("CarID");
 
@@ -231,19 +245,17 @@ public class CarManagement extends javax.swing.JFrame {
                                                         .addComponent(yearLabel1))
                                                 .addGap(33, 33, 33))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGroup(jPanel1Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                .addGap(91, 91, 91)
-                                                                .addComponent(addCarBtn)
-                                                                .addGap(40, 40, 40)
-                                                                .addComponent(editCarBtn)
-                                                                .addGap(38, 38, 38)
-                                                                .addComponent(deleteCarBtn))
-                                                        .addComponent(jScrollPane1,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 559,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23))))
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(23, 23, 23))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(91, 91, 91)
+                                                .addComponent(addCarBtn)
+                                                .addGap(40, 40, 40)
+                                                .addComponent(editCarBtn)
+                                                .addGap(38, 38, 38)
+                                                .addComponent(deleteCarBtn)
+                                                .addGap(56, 56, 56))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -368,14 +380,12 @@ public class CarManagement extends javax.swing.JFrame {
     private void editCarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCarBtnActionPerformed
         // TODO add your handling code here:
         String CarId = carIdTextInput.getText();
-        String Make = carIdTextInput.getText();
+        String Make = carMakeTextInput.getText();
         String Model = carModelTextInput.getText();
         String Year = carYearTextInput.getText();
         String isAvailable = carIsAvailable.getSelectedItem().toString();
         String price = rentalPriceTextInput.getText();
-        if (CarId.equals("")) {
-            JOptionPane.showMessageDialog(null, "Please enter a valid car registration number");
-        } else if (Make.equals("")) {
+        if (Make.equals("")) {
             JOptionPane.showMessageDialog(null, "Please enter a valid car Make");
         } else if (Model.equals("")) {
             JOptionPane.showMessageDialog(null, "Please enter a valid car Model");
@@ -385,13 +395,30 @@ public class CarManagement extends javax.swing.JFrame {
             Car newCar = new Car(CarId, Make, Model, Year, isAvailable == "true", Integer.parseInt(price));
             cars.EditCar(CarId, newCar);
             addDataToTable();
-            JOptionPane.showMessageDialog(null, "new car created");
+            JOptionPane.showMessageDialog(null, "Car edited successfully");
         }
     }//GEN-LAST:event_editCarBtnActionPerformed
 
-    private void carMakeTextInput1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_carMakeTextInput1ActionPerformed
+    private void carModelTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_carModelTextInputActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_carModelTextInputActionPerformed
+
+    private void rentalPriceTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_rentalPriceTextInputActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_rentalPriceTextInputActionPerformed
+
+    private void carMakeTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_carMakeTextInput1ActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_carMakeTextInput1ActionPerformed
+
+    private void carYearTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_carMakeTextInput1ActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_carMakeTextInput1ActionPerformed
+
+    private void carIdTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_carMakeTextInput1ActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_carMakeTextInput1ActionPerformed
+
 
     private void carTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_carTableMouseClicked
         // TODO add your handling code here:
@@ -432,7 +459,7 @@ public class CarManagement extends javax.swing.JFrame {
     }
 
     private void addCarBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        String Make = carIdTextInput.getText();
+        String Make = carMakeTextInput.getText();
         String Model = carModelTextInput.getText();
         String Year = carYearTextInput.getText();
         String isAvailable = carIsAvailable.getSelectedItem().toString();

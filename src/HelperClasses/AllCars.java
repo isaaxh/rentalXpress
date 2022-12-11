@@ -20,7 +20,7 @@ public class AllCars {
     private void storeUserData() {
         PrintWriter writer;
         try {
-            writer = new PrintWriter("Customers.txt");
+            writer = new PrintWriter("Cars.txt");
             writer.print("");
             writer.close();
         } catch (FileNotFoundException e1) {
@@ -89,7 +89,7 @@ public class AllCars {
 
     public void removeCar(String carId) {
         int arrSize = allCars.size();
-        for (int i = 0; i < arrSize; i++) {
+        for (int i = 0; i < arrSize - 1; i++) {
             Car currCar = allCars.get(i);
             if (currCar.getId().equals(carId)) {
                 allCars.remove(i);
