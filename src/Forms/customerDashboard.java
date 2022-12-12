@@ -10,7 +10,7 @@ import HelperClasses.Customer;
  *
  * @author isaaxh
  */
-public class CustomerDashboard extends javax.swing.JFrame {
+public class CustomerDashboard extends CommonFunctionality {
 
     /**
      * Creates new form customerDashboard
@@ -18,8 +18,7 @@ public class CustomerDashboard extends javax.swing.JFrame {
     private Customer loggedInUser;
 
     public CustomerDashboard(Customer aLoggedInUser) {
-        loggedInUser = aLoggedInUser;
-        System.out.print("user name ===>> " + loggedInUser.getName());
+        loggedInCustomer = aLoggedInUser;
         initComponents();
     }
 
@@ -42,7 +41,7 @@ public class CustomerDashboard extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         logoutBtn = new javax.swing.JButton();
-        title.setText("Hello " + loggedInUser.getName() + ",");
+        title.setText("Hello " + loggedInCustomer.getName() + ",");
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(236, 236, 236));
@@ -150,6 +149,9 @@ public class CustomerDashboard extends javax.swing.JFrame {
 
     private void bookACarBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bookACarBtnActionPerformed
         // TODO add your handling code here:
+        UserRentalPage userRentalPage = new UserRentalPage(loggedInCustomer);
+        userRentalPage.setVisible(true);
+
     }// GEN-LAST:event_bookACarBtnActionPerformed
 
     /**
