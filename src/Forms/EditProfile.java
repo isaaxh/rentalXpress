@@ -338,6 +338,7 @@ public class EditProfile extends CommonFunctionality {
                 customers.EditCustomer(loggedInCustomer.getId(), editedCustomer);
                 loggedInCustomer = editedCustomer;
                 JOptionPane.showMessageDialog(null, "Changes saved!");
+                backToMainMenu();
             }
 
         } catch (HeadlessException e) {

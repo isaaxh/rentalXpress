@@ -221,8 +221,8 @@ public class Login extends javax.swing.JFrame {
 
             dispose();
             if (email.equals("admin@a.com")) {
-                AdminDashboard adminDB = new AdminDashboard();
-                adminDB.loggedUser = loggedCustomer;
+                AdminDashboard adminDB = new AdminDashboard(loggedCustomer);
+                adminDB.loggedInCustomer = loggedCustomer;
                 adminDB.setVisible(true);
             } else {
                 CustomerDashboard customerDB = new CustomerDashboard(loggedCustomer);

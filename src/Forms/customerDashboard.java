@@ -152,6 +152,9 @@ public class CustomerDashboard extends CommonFunctionality {
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
+        dispose();
+        Login login = new Login();
+        login.setVisible(true);
     }// GEN-LAST:event_logoutBtnActionPerformed
 
     private void bookACarBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bookACarBtnActionPerformed
