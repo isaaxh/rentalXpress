@@ -141,6 +141,8 @@ public class CustomerDashboard extends CommonFunctionality {
 
     private void bookingHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bookingHistoryBtnActionPerformed
         // TODO add your handling code here:
+        CustomerBookingHistory bookingHistory = new CustomerBookingHistory(loggedInCustomer);
+        bookingHistory.setVisible(true);
     }// GEN-LAST:event_bookingHistoryBtnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_logoutBtnActionPerformed

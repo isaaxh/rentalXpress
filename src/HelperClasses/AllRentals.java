@@ -24,6 +24,18 @@ public class AllRentals {
         return allRentals;
     }
 
+    public ArrayList<Rental> getUserRentals(String userId) {
+        ArrayList<Rental> userRentals = new ArrayList<Rental>();
+        int allRentalsLength = allRentals.size();
+        for (int i = 0; i < allRentalsLength; i++) {
+            Rental currRental = allRentals.get(i);
+            if (userId.equals(currRental.getUserId())) {
+                userRentals.add(currRental);
+            }
+        }
+        return userRentals;
+    }
+
     private void storeRentalData() {
         PrintWriter writer;
         try {
