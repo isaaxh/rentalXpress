@@ -1,16 +1,5 @@
 package Forms;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-/**
- *
- * @author isaaxh
- */
-import java.awt.event.ActionEvent;
-import java.lang.reflect.Array;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
@@ -67,7 +56,6 @@ public class AdminRentalPage extends CommonFunctionality {
         backgroundPanel = new javax.swing.JPanel();
         sidebarPanel = new javax.swing.JPanel();
         mainMenuBtn = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
         labelCustomerID = new javax.swing.JLabel();
         labelRentDate = new javax.swing.JLabel();
         labelReturnDate = new javax.swing.JLabel();
@@ -77,8 +65,6 @@ public class AdminRentalPage extends CommonFunctionality {
         carRentalTitle = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
-        btnLogout1 = new javax.swing.JButton();
-        btnLogout2 = new javax.swing.JButton();
         rentalStartDate = new com.toedter.calendar.JDateChooser();
         rentalEndDate = new com.toedter.calendar.JDateChooser();
         jPanel2 = new javax.swing.JPanel();
@@ -194,25 +180,6 @@ public class AdminRentalPage extends CommonFunctionality {
                 mainMenuBtnActionPerformed(evt);
             }
         });
-        btnLogout1.setBackground(new java.awt.Color(8, 65, 118));
-        btnLogout1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnLogout1.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout1.setText("Manage Cars");
-        btnLogout1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogout1ActionPerformed(evt);
-            }
-        });
-
-        btnLogout2.setBackground(new java.awt.Color(8, 65, 118));
-        btnLogout2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnLogout2.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout2.setText("Manage  users");
-        btnLogout2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogout2ActionPerformed(evt);
-            }
-        });
 
         rentalStartDate.setMaximumSize(new java.awt.Dimension(250, 30));
         rentalStartDate.setMinimumSize(new java.awt.Dimension(250, 30));
@@ -256,10 +223,9 @@ public class AdminRentalPage extends CommonFunctionality {
                             .addGroup(sidebarPanelLayout.createSequentialGroup()
                                 .addComponent(carRentalTitle)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(sidebarPanelLayout.createSequentialGroup()
-                                .addComponent(btnLogout2)
+                                                        .addGroup(sidebarPanelLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnLogout1)))
+                                                        ))
                         .addGap(15, 15, 15))
                     .addGroup(sidebarPanelLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
@@ -276,8 +242,7 @@ public class AdminRentalPage extends CommonFunctionality {
                     .addGroup(sidebarPanelLayout.createSequentialGroup()
                         .addGroup(sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(mainMenuBtn)
-                            .addComponent(btnLogout1)
-                            .addComponent(btnLogout2))
+                                                )
                         .addGap(44, 44, 44)
                         .addComponent(carRentalTitle)
                         .addGap(28, 28, 28)
@@ -425,13 +390,6 @@ public class AdminRentalPage extends CommonFunctionality {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void btnLogout2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLogout2ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_btnLogout2ActionPerformed
-
-    private void btnLogout1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLogout1ActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_btnLogout1ActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
@@ -558,9 +516,6 @@ public class AdminRentalPage extends CommonFunctionality {
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton mainMenuBtn;
-    private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnLogout1;
-    private javax.swing.JButton btnLogout2;
     private javax.swing.JButton btnSave;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> carIdCombo;
