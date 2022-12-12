@@ -127,6 +127,7 @@ public class CustomerBookingHistory extends CommonFunctionality {
 
     private void mainMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_mainMenuBtnActionPerformed
         // TODO add your handling code here:
+        backToMainMenu();
     }// GEN-LAST:event_mainMenuBtnActionPerformed
 
     AllRentals rentals = new AllRentals();

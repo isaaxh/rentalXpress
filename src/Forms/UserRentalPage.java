@@ -4,10 +4,6 @@
  */
 package Forms;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.time.Duration;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
@@ -18,7 +14,6 @@ import javax.swing.table.DefaultTableModel;
 
 
 import HelperClasses.AllCars;
-import HelperClasses.AllCustomers;
 import HelperClasses.AllRentals;
 import HelperClasses.Car;
 import HelperClasses.Customer;
@@ -61,7 +56,7 @@ public class UserRentalPage extends CommonFunctionality {
         totalPrice = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         bookedCarBtn = new javax.swing.JButton();
-        logOutBtn = new javax.swing.JButton();
+        MainMenu = new javax.swing.JButton();
         rentalHistoryBtn = new javax.swing.JButton();
         activeRentals = new javax.swing.JButton();
         rentalStartDate = new com.toedter.calendar.JDateChooser();
@@ -108,12 +103,12 @@ public class UserRentalPage extends CommonFunctionality {
             }
         });
 
-        logOutBtn.setBackground(new java.awt.Color(8, 65, 118));
-        logOutBtn.setForeground(new java.awt.Color(255, 255, 255));
-        logOutBtn.setText("Log out");
-        logOutBtn.addActionListener(new java.awt.event.ActionListener() {
+        MainMenu.setBackground(new java.awt.Color(8, 65, 118));
+        MainMenu.setForeground(new java.awt.Color(255, 255, 255));
+        MainMenu.setText("Main Menu");
+        MainMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logOutBtnActionPerformed(evt);
+                mainMenuBtnActionPerformed(evt);
             }
         });
 
@@ -145,7 +140,7 @@ public class UserRentalPage extends CommonFunctionality {
                 .addGap(107, 107, 107))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(16, 16, 16)
-                                .addComponent(logOutBtn)
+                                .addComponent(MainMenu)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(rentalHistoryBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -196,7 +191,7 @@ public class UserRentalPage extends CommonFunctionality {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logOutBtn)
+                                        .addComponent(MainMenu)
                     .addComponent(rentalHistoryBtn)
                     .addComponent(activeRentals))
                 .addGap(18, 18, 18)
@@ -316,8 +311,9 @@ public class UserRentalPage extends CommonFunctionality {
 
     }//GEN-LAST:event_bookedCarBtnActionPerformed
 
-    private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
+    private void mainMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_logOutBtnActionPerformed
         // TODO add your handling code here:
+        backToMainMenu();
     }//GEN-LAST:event_logOutBtnActionPerformed
 
     private void rentalHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentalHistoryBtnActionPerformed
@@ -409,7 +405,7 @@ public class UserRentalPage extends CommonFunctionality {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton logOutBtn;
+    private javax.swing.JButton MainMenu;
     private com.toedter.calendar.JDateChooser rentalEndDate;
     private javax.swing.JButton rentalHistoryBtn;
     private com.toedter.calendar.JDateChooser rentalStartDate;

@@ -61,7 +61,11 @@ public class CustomerDashboard extends CommonFunctionality {
         });
 
         editProfileBtn.setText("Edit profile");
-
+        editProfileBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editProfileBtnBtnActionPerformed(evt);
+            }
+        });
         jPanel2.setBackground(new java.awt.Color(0, 0, 153));
 
         title.setBackground(new java.awt.Color(255, 255, 255));
@@ -142,6 +146,7 @@ public class CustomerDashboard extends CommonFunctionality {
     private void bookingHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bookingHistoryBtnActionPerformed
         // TODO add your handling code here:
         CustomerBookingHistory bookingHistory = new CustomerBookingHistory(loggedInCustomer);
+        dispose();
         bookingHistory.setVisible(true);
     }// GEN-LAST:event_bookingHistoryBtnActionPerformed
 
@@ -152,7 +157,16 @@ public class CustomerDashboard extends CommonFunctionality {
     private void bookACarBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bookACarBtnActionPerformed
         // TODO add your handling code here:
         UserRentalPage userRentalPage = new UserRentalPage(loggedInCustomer);
+        dispose();
         userRentalPage.setVisible(true);
+
+    }// GEN-LAST:event_bookACarBtnActionPerformed
+
+    private void editProfileBtnBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bookACarBtnActionPerformed
+        // TODO add your handling code here:
+        EditProfile EditProfile = new EditProfile(loggedInCustomer);
+        dispose();
+        EditProfile.setVisible(true);
 
     }// GEN-LAST:event_bookACarBtnActionPerformed
 
