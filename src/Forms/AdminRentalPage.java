@@ -23,9 +23,10 @@ import HelperClasses.Car;
 import HelperClasses.Customer;
 import HelperClasses.Rental;
 
-public class AdminRentalPage extends javax.swing.JFrame {
+public class AdminRentalPage extends CommonFunctionality {
 
-    public AdminRentalPage() {
+    public AdminRentalPage(Customer aLoggedInCustomer) {
+        loggedInCustomer = aLoggedInCustomer;
         initComponents();
         addCarDataToTable();
         addRentalDataToTable();
@@ -52,7 +53,7 @@ public class AdminRentalPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -65,6 +66,7 @@ public class AdminRentalPage extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         backgroundPanel = new javax.swing.JPanel();
         sidebarPanel = new javax.swing.JPanel();
+        mainMenuBtn = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         labelCustomerID = new javax.swing.JLabel();
         labelRentDate = new javax.swing.JLabel();
@@ -133,10 +135,10 @@ public class AdminRentalPage extends javax.swing.JFrame {
         sidebarPanel.setMinimumSize(new java.awt.Dimension(250, 30));
         sidebarPanel.setPreferredSize(new java.awt.Dimension(250, 30));
 
-        btnLogout.setBackground(new java.awt.Color(8, 65, 118));
-        btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Log Out");
+        mainMenuBtn.setBackground(new java.awt.Color(8, 65, 118));
+        mainMenuBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        mainMenuBtn.setForeground(new java.awt.Color(255, 255, 255));
+        mainMenuBtn.setText("Main Menu");
 
         labelCustomerID.setBackground(new java.awt.Color(255, 250, 250));
         labelCustomerID.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
@@ -187,6 +189,11 @@ public class AdminRentalPage extends javax.swing.JFrame {
             }
         });
 
+        mainMenuBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainMenuBtnActionPerformed(evt);
+            }
+        });
         btnLogout1.setBackground(new java.awt.Color(8, 65, 118));
         btnLogout1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLogout1.setForeground(new java.awt.Color(255, 255, 255));
@@ -243,7 +250,7 @@ public class AdminRentalPage extends javax.swing.JFrame {
                                             .addComponent(rentalStartDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
                     .addGroup(sidebarPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnLogout)
+                                                .addComponent(mainMenuBtn)
                         .addGap(18, 18, 18)
                         .addGroup(sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(sidebarPanelLayout.createSequentialGroup()
@@ -268,7 +275,7 @@ public class AdminRentalPage extends javax.swing.JFrame {
                 .addGroup(sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(sidebarPanelLayout.createSequentialGroup()
                         .addGroup(sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnLogout)
+                                                        .addComponent(mainMenuBtn)
                             .addComponent(btnLogout1)
                             .addComponent(btnLogout2))
                         .addGap(44, 44, 44)
@@ -418,7 +425,6 @@ public class AdminRentalPage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
     private void btnLogout2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLogout2ActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_btnLogout2ActionPerformed
@@ -429,6 +435,10 @@ public class AdminRentalPage extends javax.swing.JFrame {
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
+    }// GEN-LAST:event_btnEditActionPerformed
+
+    private void mainMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEditActionPerformed
+        backToMainMenu();
     }// GEN-LAST:event_btnEditActionPerformed
 
     // action button responders
@@ -508,45 +518,46 @@ public class AdminRentalPage extends javax.swing.JFrame {
         resetTextFields();
     }
 
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
-                    .getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminRentalPage.class.getName()).log(
-                    java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminRentalPage.class.getName()).log(
-                    java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminRentalPage.class.getName()).log(
-                    java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminRentalPage.class.getName()).log(
-                    java.util.logging.Level.SEVERE, null,
-                    ex);
-        }
-        // </editor-fold>
+    // public static void main(String args[]) {
+    // try {
+    // for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager
+    // .getInstalledLookAndFeels()) {
+    // if ("Nimbus".equals(info.getName())) {
+    // javax.swing.UIManager.setLookAndFeel(info.getClassName());
+    // break;
+    // }
+    // }
+    // } catch (ClassNotFoundException ex) {
+    // java.util.logging.Logger.getLogger(AdminRentalPage.class.getName()).log(
+    // java.util.logging.Level.SEVERE, null,
+    // ex);
+    // } catch (InstantiationException ex) {
+    // java.util.logging.Logger.getLogger(AdminRentalPage.class.getName()).log(
+    // java.util.logging.Level.SEVERE, null,
+    // ex);
+    // } catch (IllegalAccessException ex) {
+    // java.util.logging.Logger.getLogger(AdminRentalPage.class.getName()).log(
+    // java.util.logging.Level.SEVERE, null,
+    // ex);
+    // } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+    // java.util.logging.Logger.getLogger(AdminRentalPage.class.getName()).log(
+    // java.util.logging.Level.SEVERE, null,
+    // ex);
+    // }
+    // // </editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminRentalPage().setVisible(true);
-            }
-        });
-    }
+    // /* Create and display the form */
+    // java.awt.EventQueue.invokeLater(new Runnable() {
+    // public void run() {
+    // new AdminRentalPage().setVisible(true);
+    // }
+    // });
+    // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanel;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JButton mainMenuBtn;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnLogout1;
     private javax.swing.JButton btnLogout2;

@@ -21,10 +21,10 @@ public class CommonFunctionality extends javax.swing.JFrame {
                 new CarManagement(loggedInCustomer).setVisible(true);
                 break;
             case "adminCarRental":
-                new AdminRentalPage().setVisible(true);
+                new AdminRentalPage(loggedInCustomer).setVisible(true);
                 break;
             case "customerManagement":
-                new CustomerManagement().setVisible(true);
+                new CustomerManagement(loggedInCustomer).setVisible(true);
                 break;
             case "editProfile":
                 new EditProfile(loggedInCustomer).setVisible(true);
