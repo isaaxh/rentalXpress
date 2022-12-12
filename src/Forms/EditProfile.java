@@ -188,7 +188,7 @@ public class EditProfile extends CommonFunctionality {
             }
         });
         emailTextInput.setText(loggedInCustomer.getEmail());
-
+        emailTextInput.setEditable(false);
         passTextInput.setFont(new java.awt.Font("Ubuntu", 0, 16)); // NOI18N
         passTextInput.setPreferredSize(new java.awt.Dimension(90, 30));
         passTextInput.addFocusListener(new java.awt.event.FocusAdapter() {

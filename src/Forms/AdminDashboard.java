@@ -42,10 +42,10 @@ public class AdminDashboard extends CommonFunctionality {
         btnCarManagement = new javax.swing.JButton();
         btnCarRental = new javax.swing.JButton();
         btnLogOut = new javax.swing.JButton();
-        btnEditProfile = new javax.swing.JButton();
+        editProfileBtn = new javax.swing.JButton();
         btnCustomerManagement = new javax.swing.JButton();
-        btnLogOut1 = new javax.swing.JButton();
-        btnLogOut2 = new javax.swing.JButton();
+        salesReportBtn = new javax.swing.JButton();
+        logoutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,12 +102,12 @@ public class AdminDashboard extends CommonFunctionality {
             }
         });
 
-        btnEditProfile.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
-        btnEditProfile.setText("Edit Profile");
-        btnEditProfile.setPreferredSize(new java.awt.Dimension(250, 30));
-        btnEditProfile.addActionListener(new java.awt.event.ActionListener() {
+        editProfileBtn.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
+        editProfileBtn.setText("Edit Profile");
+        editProfileBtn.setPreferredSize(new java.awt.Dimension(250, 30));
+        editProfileBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditProfileActionPerformed(evt);
+                editProfileBtnActionPerformed(evt);
             }
         });
 
@@ -120,21 +120,21 @@ public class AdminDashboard extends CommonFunctionality {
             }
         });
 
-        btnLogOut1.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
-        btnLogOut1.setText("Sales reports");
-        btnLogOut1.setPreferredSize(new java.awt.Dimension(250, 30));
-        btnLogOut1.addActionListener(new java.awt.event.ActionListener() {
+        salesReportBtn.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
+        salesReportBtn.setText("Sales reports");
+        salesReportBtn.setPreferredSize(new java.awt.Dimension(250, 30));
+        salesReportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogOut1ActionPerformed(evt);
+                salesReportBtnActionPerformed(evt);
             }
         });
 
-        btnLogOut2.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
-        btnLogOut2.setText("Log out");
-        btnLogOut2.setPreferredSize(new java.awt.Dimension(250, 30));
-        btnLogOut2.addActionListener(new java.awt.event.ActionListener() {
+        logoutBtn.setFont(new java.awt.Font("Ubuntu", 1, 16)); // NOI18N
+        logoutBtn.setText("Log out");
+        logoutBtn.setPreferredSize(new java.awt.Dimension(250, 30));
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogOut2ActionPerformed(evt);
+                logoutBtnActionPerformed(evt);
             }
         });
 
@@ -146,13 +146,19 @@ public class AdminDashboard extends CommonFunctionality {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEditProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(editProfileBtn, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCustomerManagement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCarRental, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCarManagement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogOut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogOut2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(salesReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(255, 255, 255))
         );
         backgroundPanelLayout.setVerticalGroup(
@@ -166,11 +172,14 @@ public class AdminDashboard extends CommonFunctionality {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCustomerManagement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLogOut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(salesReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLogOut2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEditProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(editProfileBtn, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(78, Short.MAX_VALUE))
@@ -206,17 +215,18 @@ public class AdminDashboard extends CommonFunctionality {
         changeWindow("customerManagement");
     }//GEN-LAST:event_btnCustomerManagementActionPerformed
 
-    private void btnEditProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProfileActionPerformed
+    private void editProfileBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_editProfileBtnActionPerformed
         changeWindow("editProfile");
-    }//GEN-LAST:event_btnEditProfileActionPerformed
+    }// GEN-LAST:event_editProfileBtnActionPerformed
 
-    private void btnLogOut1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOut1ActionPerformed
+    private void salesReportBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_salesReportBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLogOut1ActionPerformed
+        changeWindow("salesReport");
+    }// GEN-LAST:event_salesReportBtnActionPerformed
 
-    private void btnLogOut2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOut2ActionPerformed
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_logoutBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLogOut2ActionPerformed
+    }// GEN-LAST:event_logoutBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,11 +283,11 @@ public class AdminDashboard extends CommonFunctionality {
     private javax.swing.JButton btnCarManagement;
     private javax.swing.JButton btnCarRental;
     private javax.swing.JButton btnCustomerManagement;
-    private javax.swing.JButton btnEditProfile;
     private javax.swing.JButton btnLogOut;
-    private javax.swing.JButton btnLogOut1;
-    private javax.swing.JButton btnLogOut2;
+    private javax.swing.JButton editProfileBtn;
     private javax.swing.JLabel labelWelcomeMessage;
+    private javax.swing.JButton logoutBtn;
+    private javax.swing.JButton salesReportBtn;
     private javax.swing.JPanel welcomeMessage;
     // End of variables declaration//GEN-END:variables
 }

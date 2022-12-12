@@ -1,37 +1,31 @@
 package Forms;
 
+import HelperClasses.AllCars;
 import HelperClasses.AllRentals;
+import HelperClasses.Car;
+import HelperClasses.Customer;
 import HelperClasses.Rental;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.net.IDN;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
-import java.util.Scanner;
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Locale;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class SalesReport extends javax.swing.JFrame {
+public class SalesReport extends CommonFunctionality {
 
-    AllRentals rentals = new AllRentals();
     ArrayList<Rental> dateRangeRentals = new ArrayList<Rental>();
     String[] columns = { "Rental ID", "Date rented", "Sale" };
     DefaultTableModel model = new DefaultTableModel();
     int row;
 
-    public SalesReport() {
+    public SalesReport(Customer aLoggedInCustomer) {
+        loggedInCustomer = aLoggedInCustomer;
         model.setColumnIdentifiers(columns);
         initComponents();
+        addDataToTable();
     }
 
     @SuppressWarnings("unchecked")
@@ -49,7 +43,7 @@ public class SalesReport extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         showReportBtn = new javax.swing.JButton();
         generateAnalysisBtn = new javax.swing.JButton();
-        backBtn = new javax.swing.JButton();
+        MainMenu = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         salesTabPanel = new javax.swing.JTabbedPane();
         reportTablePanel = new javax.swing.JPanel();
@@ -115,8 +109,12 @@ public class SalesReport extends javax.swing.JFrame {
             }
         });
 
-        backBtn.setText("Back");
-
+        MainMenu.setText("Main Menu");
+        MainMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
         javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
         sidePanel.setLayout(sidePanelLayout);
         sidePanelLayout.setHorizontalGroup(
@@ -165,7 +163,7 @@ public class SalesReport extends javax.swing.JFrame {
                                                                 javax.swing.GroupLayout.Alignment.LEADING,
                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(backBtn,
+                                                        .addComponent(MainMenu,
                                                                 javax.swing.GroupLayout.Alignment.LEADING,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE, 240,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -197,7 +195,7 @@ public class SalesReport extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(generateAnalysisBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(backBtn)
+                                .addComponent(MainMenu)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         jPanel1.add(sidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 460));
@@ -371,6 +369,13 @@ public class SalesReport extends javax.swing.JFrame {
         model.addRow(values);
     }
 
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_showReportBtnActionPerformed
+        backToMainMenu();
+    }
+
+    AllRentals rentals = new AllRentals();
+    AllCars cars = new AllCars();
+
     private void showReportBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_showReportBtnActionPerformed
 
         salesTabPanel.setSelectedIndex(0);
@@ -393,6 +398,29 @@ public class SalesReport extends javax.swing.JFrame {
         // if any of date fields are empty throw error
         // if end date is greater than start date throw error
     }// GEN-LAST:event_showReportBtnActionPerformed
+
+    private void addDataToTable() {
+        DefaultTableModel salesReportTableModel = (DefaultTableModel) salesReportTable.getModel();
+
+        ArrayList<Rental> allRentals = rentals.getAllRental();
+        int rentalArrSize = allRentals.size();
+        System.out.print("number of rentals from user: " + rentalArrSize);
+        salesReportTableModel.getDataVector().removeAllElements();
+        if (rentalArrSize > 0) {
+
+            for (int i = 0; i < rentalArrSize; i++) {
+                Rental currRental = allRentals.get(i);
+                SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+                String bookedDate = formatter.format(currRental.getDateBooked());
+                String tableData[] = { currRental.getCarId(),
+                        bookedDate,
+                        currRental.getTotalCost().toString(),
+                };
+                salesReportTableModel.addRow(tableData);
+            }
+        }
+
+    }
 
     private void generateAnalysisBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_generateAnalysisBtnActionPerformed
         // hide table & show new table
@@ -439,41 +467,46 @@ public class SalesReport extends javax.swing.JFrame {
         }
     }// GEN-LAST:event_generateAnalysisBtnActionPerformed
 
-    public static void main(String args[]) {
+    // public static void main(String args[]) {
 
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SalesReport.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SalesReport.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SalesReport.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SalesReport.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        }
+    // try {
+    // for (javax.swing.UIManager.LookAndFeelInfo info :
+    // javax.swing.UIManager.getInstalledLookAndFeels()) {
+    // if ("Nimbus".equals(info.getName())) {
+    // javax.swing.UIManager.setLookAndFeel(info.getClassName());
+    // break;
+    // }
+    // }
+    // } catch (ClassNotFoundException ex) {
+    // java.util.logging.Logger.getLogger(SalesReport.class.getName()).log(java.util.logging.Level.SEVERE,
+    // null,
+    // ex);
+    // } catch (InstantiationException ex) {
+    // java.util.logging.Logger.getLogger(SalesReport.class.getName()).log(java.util.logging.Level.SEVERE,
+    // null,
+    // ex);
+    // } catch (IllegalAccessException ex) {
+    // java.util.logging.Logger.getLogger(SalesReport.class.getName()).log(java.util.logging.Level.SEVERE,
+    // null,
+    // ex);
+    // } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+    // java.util.logging.Logger.getLogger(SalesReport.class.getName()).log(java.util.logging.Level.SEVERE,
+    // null,
+    // ex);
+    // }
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SalesReport().setVisible(true);
-            }
-        });
-    }
+    // java.awt.EventQueue.invokeLater(new Runnable() {
+    // public void run() {
+    // new SalesReport().setVisible(true);
+    // }
+    // });
+    // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel analysisTabPanel;
     private javax.swing.JLabel averageSalesDate;
     private javax.swing.JLabel averageSalesLabel;
-    private javax.swing.JButton backBtn;
+    private javax.swing.JButton MainMenu;
     private com.toedter.calendar.JDateChooser endDateChooser;
     private javax.swing.JButton generateAnalysisBtn;
     private javax.swing.JLabel highestSaleDate;

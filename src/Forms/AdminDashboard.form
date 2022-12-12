@@ -47,13 +47,13 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnEditProfile" min="-2" max="-2" attributes="0"/>
+                      <Component id="editProfileBtn" min="-2" max="-2" attributes="0"/>
                       <Component id="btnCustomerManagement" min="-2" max="-2" attributes="0"/>
                       <Component id="btnLogOut" min="-2" max="-2" attributes="0"/>
                       <Component id="btnCarRental" min="-2" max="-2" attributes="0"/>
                       <Component id="btnCarManagement" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnLogOut1" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnLogOut2" min="-2" max="-2" attributes="0"/>
+                      <Component id="salesReportBtn" min="-2" max="-2" attributes="0"/>
+                      <Component id="logoutBtn" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="255" max="-2" attributes="0"/>
               </Group>
@@ -70,11 +70,11 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnCustomerManagement" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnLogOut1" min="-2" max="-2" attributes="0"/>
+                  <Component id="salesReportBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnLogOut2" min="-2" max="-2" attributes="0"/>
+                  <Component id="logoutBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnEditProfile" min="-2" max="-2" attributes="0"/>
+                  <Component id="editProfileBtn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnLogOut" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="78" max="32767" attributes="0"/>
@@ -169,7 +169,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogOutActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnEditProfile">
+        <Component class="javax.swing.JButton" name="editProfileBtn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="16" style="1"/>
@@ -180,7 +180,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditProfileActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editProfileBtnActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnCustomerManagement">
@@ -197,7 +197,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCustomerManagementActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnLogOut1">
+        <Component class="javax.swing.JButton" name="salesReportBtn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="16" style="1"/>
@@ -208,10 +208,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogOut1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salesReportBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnLogOut2">
+        <Component class="javax.swing.JButton" name="logoutBtn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="16" style="1"/>
@@ -222,7 +222,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogOut2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutBtnActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
