@@ -2,14 +2,6 @@ package Forms;
 
 import HelperClasses.AllCustomers;
 import HelperClasses.Customer;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
@@ -233,7 +225,6 @@ public class Login extends javax.swing.JFrame {
                 adminDB.loggedUser = loggedCustomer;
                 adminDB.setVisible(true);
             } else {
-                System.out.println("LOGGED CUSTOMER ==>>   " + loggedCustomer.getName());
                 CustomerDashboard customerDB = new CustomerDashboard(loggedCustomer);
                 customerDB.setVisible(true);
             }
@@ -241,12 +232,7 @@ public class Login extends javax.swing.JFrame {
         }
     }// GEN-LAST:event_btnLoginActionPerformed
 
-    private void btnTestActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnTestActionPerformed
-        // email = textFieldEmail.getText();
-        // password = passFieldPassword.getText();
-        // Customer newCus = new Customer();
-        // System.out.println(newCus);
-    }// GEN-LAST:event_btnTestActionPerformed
+
 
     private void textFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_textFieldEmailActionPerformed
         // TODO add your handling code here:
