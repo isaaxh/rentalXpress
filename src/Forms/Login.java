@@ -227,11 +227,16 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Incorrect credentials, please try again!");
         } else {
 
-//            JOptionPane.showMessageDialog(null, "Login successful!");
             dispose();
-            AdminDashboard adminDB = new AdminDashboard();
-            adminDB.loggedUser = loggedCustomer;
-            adminDB.setVisible(true);
+            if (email.equals("admin@a.com")) {
+                AdminDashboard adminDB = new AdminDashboard();
+                adminDB.loggedUser = loggedCustomer;
+                adminDB.setVisible(true);
+            } else {
+                CustomerDashboard customerDB = new CustomerDashboard();
+                // customerDB.loggedUser = loggedCustomer;
+                customerDB.setVisible(true);
+            }
 
         }
     }// GEN-LAST:event_btnLoginActionPerformed
