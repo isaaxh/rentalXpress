@@ -233,8 +233,8 @@ public class Login extends javax.swing.JFrame {
                 adminDB.loggedUser = loggedCustomer;
                 adminDB.setVisible(true);
             } else {
-                CustomerDashboard customerDB = new CustomerDashboard();
-                // customerDB.loggedUser = loggedCustomer;
+                System.out.println("LOGGED CUSTOMER ==>>   " + loggedCustomer.getName());
+                CustomerDashboard customerDB = new CustomerDashboard(loggedCustomer);
                 customerDB.setVisible(true);
             }
 
