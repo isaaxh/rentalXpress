@@ -14,6 +14,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class AllRentals {
+
     ArrayList<Rental> allRentals = new ArrayList<Rental>();
 
     public AllRentals() {
@@ -99,6 +100,18 @@ public class AllRentals {
             }
         }
         storeRentalData();
+    }
+
+    public ArrayList<Rental> getSpecificDateRentals(Date aStartDate, Date aEndDate) {
+        ArrayList<Rental> finalRentals = new ArrayList<Rental>();
+
+        for (int i = 0; i < allRentals.size(); i++) {
+            Rental currRental = allRentals.get(i);
+            if (currRental.getDateBooked().after(aStartDate) && currRental.getDateBooked().before(aEndDate)) {
+                finalRentals.add(currRental);
+            }
+        }
+        return finalRentals;
     }
 
 }
