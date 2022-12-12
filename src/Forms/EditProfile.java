@@ -5,6 +5,8 @@ import HelperClasses.AllCustomers;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.HeadlessException;
+import java.util.UUID;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -210,7 +212,6 @@ public class EditProfile extends javax.swing.JFrame {
         });
 
         confirmPassTextInput.setFont(new java.awt.Font("Ubuntu", 0, 16)); // NOI18N
-        confirmPassTextInput.setText("Password");
         confirmPassTextInput.setPreferredSize(new java.awt.Dimension(90, 30));
         confirmPassTextInput.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -315,79 +316,66 @@ public class EditProfile extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void emailTextInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextInputActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_emailTextInputActionPerformed
 
     private void nameTextInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameTextInputFocusGained
-        if (nameTextInput.getText().equals("Name")) {
-            nameTextInput.setText(null);
-            nameTextInput.requestFocus();
-            removePlaceholder(nameTextInput);
-        }
+
     }//GEN-LAST:event_nameTextInputFocusGained
 
     private void emailTextInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailTextInputFocusGained
-        if (emailTextInput.getText().equals("email@mail.com")) {
-            emailTextInput.setText(null);
-            emailTextInput.requestFocus();
-            removePlaceholder(emailTextInput);
-        }
+
     }//GEN-LAST:event_emailTextInputFocusGained
 
     private void passTextInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passTextInputFocusGained
-        if (passTextInput.getText().equals("Password")) {
-            passTextInput.setText("");
-            removePlaceholder(passTextInput);
-        }
+
     }//GEN-LAST:event_passTextInputFocusGained
 
     private void confirmPassTextInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_confirmPassTextInputFocusGained
-        if (confirmPassTextInput.getText().equals("Password")) {
-            confirmPassTextInput.setText("");
-            removePlaceholder(confirmPassTextInput);
-        }
+
     }//GEN-LAST:event_confirmPassTextInputFocusGained
 
     private void nameTextInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameTextInputFocusLost
-//        if (nameTextInput.getText().length() == 0) {
-//            addPlaceholder(nameTextInput);
-//            nameTextInput.setText("Name");
-//        }
+
     }//GEN-LAST:event_nameTextInputFocusLost
 
     private void emailTextInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailTextInputFocusLost
-//        if (emailTextInput.getText().length() == 0) {
-//            addPlaceholder(emailTextInput);
-//            emailTextInput.setText("email@mail.com");
-//        }
+
     }//GEN-LAST:event_emailTextInputFocusLost
+
+    public Boolean validateEmail(String emailAddress) {
+        String regexPattern = "^(.+)@(\\S+)$";
+        return Pattern.compile(regexPattern).matcher(emailAddress).matches();
+    }
 
     private void btnSaveChangesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveChangesActionPerformed
 
         try {
-            if (!nameTextInput.getText().equals("")) {
-                loggedUser.setName(nameTextInput.getText());
+
+            if (nameTextInput.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Name is mandatory");
+            } else if (emailTextInput.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Email is mandatory");
+            } else if (passTextInput.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Password is mandatory");
+            } else if (!passTextInput.getText().equals(confirmPassTextInput.getText())) {
+                JOptionPane.showMessageDialog(null, "Passwords don't match ");
+            } else if (!validateEmail(emailTextInput.getText())) {
+                JOptionPane.showMessageDialog(null, "Please enter a valid Email");
+            } else if (customers.customerEmailExists(emailTextInput.getText())) {
+                JOptionPane.showMessageDialog(null, "This customer already exists");
+            } else {
                 Customer editedCustomer = new Customer(loggedUser.getId(), nameTextInput.getText(),
-                        loggedUser.getEmail(), loggedUser.getPassword());
+                        emailTextInput.getText(), passTextInput.getText());
                 customers.EditCustomer(loggedUser.getId(), editedCustomer);
-
-            }
-            if (!emailTextInput.getText().equals("")) {
-                loggedUser.setEmail(emailTextInput.getText());
-            }
-
-            if (!passTextInput.getText().equals("") && !confirmPassTextInput.getText().equals("")) {
-                if (!checkingPass(passTextInput.getText(), confirmPassTextInput.getText())) {
-                    JOptionPane.showMessageDialog(null, "Passwords do not match!");
-                } else {
-                    loggedUser.setPassword(passTextInput.getText());
-
-                }
+                displayCurrentDetails(editedCustomer);
+                JOptionPane.showMessageDialog(null, "Changes saved!");
             }
 
         } catch (HeadlessException e) {
             System.out.println("Something went wrong!");
         }
+        System.out.println("======");
         System.out.println(loggedUser.getName());
         System.out.println(loggedUser.getEmail());
         System.out.println(loggedUser.getPassword());
@@ -396,27 +384,13 @@ public class EditProfile extends javax.swing.JFrame {
 
     public void displayCurrentDetails(Customer aLoggedUser) {
         loggedUser = aLoggedUser;
-
         labelCurrentName.setText(loggedUser.getName());
+        nameTextInput.setText(loggedUser.getName());
         labelCurrentEmail.setText(loggedUser.getEmail());
-        labelCurrentPass.setText(loggedUser.getPassword());
-
-    }
-
-    public void addPlaceholder(JTextField textField) {
-        Font font = textField.getFont();
-        font = font.deriveFont(Font.ITALIC);
-        textField.setFont(font);
-        textField.setForeground(Color.gray);
-
-    }
-
-    public void removePlaceholder(JTextField textField) {
-        Font font = textField.getFont();
-        font = font.deriveFont(Font.PLAIN);
-        textField.setFont(font);
-        textField.setForeground(Color.black);
-
+        emailTextInput.setText(loggedUser.getEmail());
+        labelCurrentPass.setText(String.valueOf(loggedUser.getPassword()).replaceAll("[0-9]", "*"));
+        passTextInput.setText(loggedUser.getPassword());
+        confirmPassTextInput.setText(loggedUser.getPassword());
     }
 
     public Boolean checkingPass(String aPass, String aConfirmedPass) {

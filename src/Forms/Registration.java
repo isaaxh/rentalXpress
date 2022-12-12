@@ -167,7 +167,7 @@ public class Registration extends javax.swing.JFrame {
 
     AllCustomers customers = new AllCustomers();
 
-    private Boolean validateEmail(String emailAddress) {
+    public Boolean validateEmail(String emailAddress) {
         String regexPattern = "^(.+)@(\\S+)$";
         return Pattern.compile(regexPattern).matcher(emailAddress).matches();
     }
