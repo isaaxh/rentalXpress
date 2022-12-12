@@ -43,8 +43,8 @@ public class Login extends javax.swing.JFrame {
         textFieldEmail = new javax.swing.JTextField();
         labelEmail = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
-        btnReset = new javax.swing.JButton();
         passFieldPassword = new javax.swing.JPasswordField();
+        registerBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,37 +112,38 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        btnReset.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
-        btnReset.setText("Reset");
-        btnReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetActionPerformed(evt);
-            }
-        });
-
         passFieldPassword.setBackground(new java.awt.Color(253, 251, 251));
         passFieldPassword.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+
+        registerBtn.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        registerBtn.setText("Register");
+        registerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout loginComponentsPanelLayout = new javax.swing.GroupLayout(loginComponentsPanel);
         loginComponentsPanel.setLayout(loginComponentsPanelLayout);
         loginComponentsPanelLayout.setHorizontalGroup(
             loginComponentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginComponentsPanelLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
-            .addGroup(loginComponentsPanelLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(loginComponentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(passwordLabel)
-                    .addComponent(labelEmail))
-                .addGap(18, 18, 18)
-                .addGroup(loginComponentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(textFieldEmail)
-                    .addComponent(passFieldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(loginComponentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, loginComponentsPanelLayout.createSequentialGroup()
+                        .addGroup(loginComponentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(passwordLabel)
+                            .addComponent(labelEmail))
+                        .addGap(18, 18, 18)
+                        .addGroup(loginComponentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textFieldEmail)
+                            .addComponent(passFieldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, loginComponentsPanelLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         loginComponentsPanelLayout.setVerticalGroup(
             loginComponentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,13 +158,13 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(passwordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginComponentsPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addComponent(passFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(45, 45, 45)))
                 .addGroup(loginComponentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(81, 81, 81))
+                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(121, 121, 121))
         );
 
         javax.swing.GroupLayout usernameLabelLayout = new javax.swing.GroupLayout(usernameLabel);
@@ -188,7 +189,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(pleaseLogin_label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(loginComponentsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -205,10 +206,12 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnResetActionPerformed
-        textFieldEmail.setText("");
-        passFieldPassword.setText("");
-    }// GEN-LAST:event_btnResetActionPerformed
+    private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
+        dispose();
+        Registration registerPage = new Registration();
+        registerPage.setVisible(true);
+
+    }//GEN-LAST:event_registerBtnActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnLoginActionPerformed
         email = textFieldEmail.getText();
@@ -236,30 +239,12 @@ public class Login extends javax.swing.JFrame {
         }
     }// GEN-LAST:event_btnLoginActionPerformed
 
-    private void btnTestActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnTestActionPerformed
-        // email = textFieldEmail.getText();
-        // password = passFieldPassword.getText();
-        // Customer newCus = new Customer();
-        // System.out.println(newCus);
-    }// GEN-LAST:event_btnTestActionPerformed
-
     private void textFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_textFieldEmailActionPerformed
         // TODO add your handling code here:
-    }// GEN-LAST:event_textFieldEmailActionPerformed
+    }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-        // (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-         * look and feel.
-         * For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -288,7 +273,6 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnReset;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JLabel labelEmail;
@@ -296,6 +280,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField passFieldPassword;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JLabel pleaseLogin_label;
+    private javax.swing.JButton registerBtn;
     private javax.swing.JTextField textFieldEmail;
     private javax.swing.JPanel usernameLabel;
     // End of variables declaration//GEN-END:variables
