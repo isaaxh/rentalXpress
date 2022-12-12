@@ -28,17 +28,19 @@ public class CustomerManagement extends CommonFunctionality {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         labelName = new javax.swing.JLabel();
-        textFieldName = new javax.swing.JTextField();
+        nameTextInput = new javax.swing.JTextField();
         labelEmail = new javax.swing.JLabel();
-        textFieldEmail = new javax.swing.JTextField();
+        emailTextInput = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        textFieldPass = new javax.swing.JTextField();
+        passwordTextInput = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        textFieldConfirmPass = new javax.swing.JTextField();
+        confirmPasswordTextInput = new javax.swing.JTextField();
         mainMenuBtn = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
+        customerIdLabel = new javax.swing.JLabel();
+        customerIdTextInput = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         customerTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -60,7 +62,7 @@ public class CustomerManagement extends CommonFunctionality {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 421, Short.MAX_VALUE)
+                        .addGap(0, 426, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,32 +100,41 @@ public class CustomerManagement extends CommonFunctionality {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout
                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(textFieldName)
-                                        .addComponent(textFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(textFieldPass, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(textFieldConfirmPass, javax.swing.GroupLayout.Alignment.TRAILING,
+                                        .addComponent(nameTextInput)
+                                        .addComponent(emailTextInput, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(passwordTextInput, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(confirmPasswordTextInput,
+                                                javax.swing.GroupLayout.Alignment.TRAILING,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE, 220,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 32, Short.MAX_VALUE))
+                                .addGap(0, 34, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelName)
-                    .addComponent(textFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(nameTextInput, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelEmail)
-                    .addComponent(textFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(emailTextInput, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(textFieldPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(passwordTextInput, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(textFieldConfirmPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(confirmPasswordTextInput, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(67, 67, 67))
         );
 
@@ -137,6 +148,11 @@ public class CustomerManagement extends CommonFunctionality {
 
         btnEdit.setText("Edit");
         btnEdit.setPreferredSize(new java.awt.Dimension(90, 30));
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
         btnDelete.setPreferredSize(new java.awt.Dimension(90, 30));
@@ -148,6 +164,12 @@ public class CustomerManagement extends CommonFunctionality {
                 btnAddActionPerformed(evt);
             }
         });
+
+        customerIdLabel.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        customerIdLabel.setForeground(new java.awt.Color(254, 254, 254));
+        customerIdLabel.setText("CustomerId: ");
+
+        customerIdTextInput.setEnabled(false);
 
         javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
         sidePanel.setLayout(sidePanelLayout);
@@ -168,41 +190,52 @@ public class CustomerManagement extends CommonFunctionality {
                                                                 .addComponent(mainMenuBtn,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE, 102,
                                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(0, 0, Short.MAX_VALUE))))
+                                                                .addPreferredGap(
+                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                        Short.MAX_VALUE)
+                                                                .addComponent(lebelCustomerManagement)
+                                                                .addGap(18, 18, 18))))
                                         .addGroup(sidePanelLayout.createSequentialGroup()
-                                                .addGroup(sidePanelLayout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(sidePanelLayout.createSequentialGroup()
-                                                                .addGap(78, 78, 78)
-                                                                .addComponent(lebelCustomerManagement))
-                                                        .addGroup(sidePanelLayout.createSequentialGroup()
-                                                                .addGap(56, 56, 56)
-                                                                .addComponent(btnAdd,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(btnEdit,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(btnDelete,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(56, 56, 56)
+                                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(0, 0, Short.MAX_VALUE)))
                                 .addContainerGap())
+                        .addGroup(sidePanelLayout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(customerIdLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(customerIdTextInput, javax.swing.GroupLayout.PREFERRED_SIZE, 217,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         sidePanelLayout.setVerticalGroup(
             sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sidePanelLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(mainMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)
-                .addComponent(lebelCustomerManagement)
-                                .addGap(18, 18, 18)
+                                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(mainMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lebelCustomerManagement))
+                                .addGap(30, 30, 30)
+                                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(customerIdLabel)
+                                        .addGroup(sidePanelLayout.createSequentialGroup()
+                                                .addGap(3, 3, 3)
+                                                .addComponent(customerIdTextInput, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        28, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(37, 37, 37)
                                 .addGroup(
@@ -216,8 +249,7 @@ public class CustomerManagement extends CommonFunctionality {
                                                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49,
-                                        Short.MAX_VALUE)
+                                .addGap(48, 48, 48)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -245,6 +277,11 @@ public class CustomerManagement extends CommonFunctionality {
                 return canEdit [columnIndex];
             }
         });
+        customerTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                customerTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(customerTable);
         customerTable.getAccessibleContext().setAccessibleName("tableCustomerList");
 
@@ -263,11 +300,11 @@ public class CustomerManagement extends CommonFunctionality {
                 .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(backgroundPanelLayout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 537,
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 535,
                                                         Short.MAX_VALUE)
                                                 .addContainerGap())
                                         .addGroup(backgroundPanelLayout.createSequentialGroup()
-                                                .addGap(146, 146, 146)
+                                                .addGap(142, 142, 142)
                         .addComponent(jLabel1)
                                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
                                                         Short.MAX_VALUE))))
@@ -276,9 +313,9 @@ public class CustomerManagement extends CommonFunctionality {
             backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(sidePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundPanelLayout.createSequentialGroup()
-                                .addGap(42, 42, 42)
+                                .addContainerGap()
                 .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(48, 48, 48)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                 .addContainerGap())
         );
@@ -297,16 +334,35 @@ public class CustomerManagement extends CommonFunctionality {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEditActionPerformed
+        boolean passwordEdited = false;
+        if (!passwordTextInput.getText().equals("")) {
+            passwordEdited = true;
+        }
+        if (nameTextInput.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Name is mandatory");
+        } else if (passwordEdited && !passwordTextInput.getText().equals(confirmPasswordTextInput.getText())) {
+            JOptionPane.showMessageDialog(null, "Passwords don't match ");
+        } else {
+            Customer editedCustomer = new Customer(customerIdTextInput.getText(), nameTextInput.getText(),
+                    emailTextInput.getText(),
+                    passwordEdited ? passwordTextInput.getText() : loggedInCustomer.getPassword());
+            customers.EditCustomer(customerIdTextInput.getText(), editedCustomer);
+            JOptionPane.showMessageDialog(null, "Changes saved!");
+            addDataToTable();
+        }
+    }// GEN-LAST:event_btnEditActionPerformed
+
     private void mainMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_mainMenuBtnActionPerformed
         backToMainMenu();
     }// GEN-LAST:event_mainMenuBtnActionPerformed
 
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {
         // throws FileNotFoundException, IOException {// GEN-FIRST:event_createUserButtonActionPerformed
-        String Password = textFieldPass.getText();
-        String ConfirmPassword = textFieldConfirmPass.getText();
-        String Name = textFieldName.getText();
-        String Email = textFieldEmail.getText();
+        String Password = passwordTextInput.getText();
+        String ConfirmPassword = confirmPasswordTextInput.getText();
+        String Name = nameTextInput.getText();
+        String Email = emailTextInput.getText();
 
         if (Name.equals("")) {
             JOptionPane.showMessageDialog(null, "Name is mandatory");
@@ -328,9 +384,18 @@ public class CustomerManagement extends CommonFunctionality {
             customers.addCustomer(newCustomer);
             JOptionPane.showMessageDialog(null, "new user created");
         }
-    }//GEN-LAST:event_btnAddActionPerformed
-
+    }// GEN-LAST:event_btnAddActionPerformed
     AllCustomers customers = new AllCustomers();
+
+    private void customerTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_customerTableMouseClicked
+        int SelectedRow = customerTable.getSelectedRow();
+        String customerId = customerTable.getValueAt(SelectedRow, 0).toString();
+        Customer selectedCustomer = customers.getCustomer(customerId);
+        customerIdTextInput.setText(selectedCustomer.getId());
+        nameTextInput.setText(selectedCustomer.getName());
+        emailTextInput.setText(selectedCustomer.getEmail());
+
+    }// GEN-LAST:event_customerTableMouseClicked
 
     private void addDataToTable() {
         DefaultTableModel customerDefaultTableModel = (DefaultTableModel) customerTable.getModel();
@@ -363,7 +428,11 @@ public class CustomerManagement extends CommonFunctionality {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JTextField confirmPasswordTextInput;
+    private javax.swing.JLabel customerIdLabel;
+    private javax.swing.JTextField customerIdTextInput;
     private javax.swing.JTable customerTable;
+    private javax.swing.JTextField emailTextInput;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -374,10 +443,8 @@ public class CustomerManagement extends CommonFunctionality {
     private javax.swing.JLabel labelName;
     private javax.swing.JLabel lebelCustomerManagement;
     private javax.swing.JButton mainMenuBtn;
+    private javax.swing.JTextField nameTextInput;
+    private javax.swing.JTextField passwordTextInput;
     private javax.swing.JPanel sidePanel;
-    private javax.swing.JTextField textFieldConfirmPass;
-    private javax.swing.JTextField textFieldEmail;
-    private javax.swing.JTextField textFieldName;
-    private javax.swing.JTextField textFieldPass;
     // End of variables declaration//GEN-END:variables
 }
