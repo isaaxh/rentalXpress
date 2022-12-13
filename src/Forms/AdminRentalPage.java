@@ -492,6 +492,7 @@ public class AdminRentalPage extends CommonFunctionality {
         Rental newRental = new Rental(rentalId, carId, customerId, rentStartDate,
                 rentEndDate, currentDate);
         allRentals.addRental(newRental);
+        cars.setCarAsRented(carId);
         addRentalDataToTable();
     }
 

@@ -1,2 +1,2 @@
-7e6e2c66-0fbe-4335-ab29-a7ecc97f58e2|Honda|CRV|2022|true|2000
-6c4b8ccf-e3da-45af-921f-f7fc12c7f942|Toyoto|Land Cruiser|2012|true|2000
+7e6e2c66-0fbe-4335-ab29-a7ecc97f58e2|Honda|CRV|2022|false|2000
+6c4b8ccf-e3da-45af-921f-f7fc12c7f942|Toyoto|Land Cruiser|2012|false|2000

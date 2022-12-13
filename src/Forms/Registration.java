@@ -1,15 +1,7 @@
 package Forms;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Writer;
-import java.util.ArrayList;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
@@ -18,7 +10,7 @@ import javax.swing.JOptionPane;
 import HelperClasses.AllCustomers;
 import HelperClasses.Customer;
 
-public class Registration extends javax.swing.JFrame {
+public class Registration extends CommonFunctionality {
 
     public Registration() {
         initComponents();
@@ -198,6 +190,8 @@ public class Registration extends javax.swing.JFrame {
             Customer newCustomer = new Customer(newUserId, Name, Email, Password);
             customers.addCustomer(newCustomer);
             JOptionPane.showMessageDialog(null, "new user created");
+            loggedInCustomer = newCustomer;
+            backToMainMenu();
         }
     }// GEN-LAST:event_createUserButtonActionPerformed
 

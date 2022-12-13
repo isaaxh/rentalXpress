@@ -57,8 +57,6 @@ public class UserRentalPage extends CommonFunctionality {
         jSeparator1 = new javax.swing.JSeparator();
         bookedCarBtn = new javax.swing.JButton();
         MainMenu = new javax.swing.JButton();
-        rentalHistoryBtn = new javax.swing.JButton();
-        activeRentals = new javax.swing.JButton();
         rentalStartDate = new com.toedter.calendar.JDateChooser();
         rentalEndDate = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -112,23 +110,6 @@ public class UserRentalPage extends CommonFunctionality {
             }
         });
 
-        rentalHistoryBtn.setBackground(new java.awt.Color(8, 65, 118));
-        rentalHistoryBtn.setForeground(new java.awt.Color(255, 255, 255));
-        rentalHistoryBtn.setText("Rental History");
-        rentalHistoryBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rentalHistoryBtnActionPerformed(evt);
-            }
-        });
-
-        activeRentals.setBackground(new java.awt.Color(8, 65, 118));
-        activeRentals.setForeground(new java.awt.Color(255, 255, 255));
-        activeRentals.setText("Active Rentals");
-        activeRentals.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                activeRentalsActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -142,9 +123,7 @@ public class UserRentalPage extends CommonFunctionality {
                                 .addGap(16, 16, 16)
                                 .addComponent(MainMenu)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rentalHistoryBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(activeRentals)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -192,8 +171,7 @@ public class UserRentalPage extends CommonFunctionality {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(MainMenu)
-                    .addComponent(rentalHistoryBtn)
-                    .addComponent(activeRentals))
+                                )
                 .addGap(18, 18, 18)
                 .addComponent(FormTitle)
                 .addGap(28, 28, 28)
@@ -320,14 +298,6 @@ public class UserRentalPage extends CommonFunctionality {
         backToMainMenu();
     }//GEN-LAST:event_logOutBtnActionPerformed
 
-    private void rentalHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentalHistoryBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rentalHistoryBtnActionPerformed
-
-    private void activeRentalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activeRentalsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_activeRentalsActionPerformed
-
     private void carsTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_carsTableMouseClicked
         // TODO add your handling code here:
         int row = carsTable.getSelectedRow();
@@ -398,7 +368,6 @@ public class UserRentalPage extends CommonFunctionality {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AvailableCarsLabel;
     private javax.swing.JLabel FormTitle;
-    private javax.swing.JButton activeRentals;
     private javax.swing.JButton bookedCarBtn;
     private javax.swing.JComboBox<String> carIdComboBox;
     private javax.swing.JTable carsTable;
@@ -410,7 +379,6 @@ public class UserRentalPage extends CommonFunctionality {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton MainMenu;
     private com.toedter.calendar.JDateChooser rentalEndDate;
-    private javax.swing.JButton rentalHistoryBtn;
     private com.toedter.calendar.JDateChooser rentalStartDate;
     private javax.swing.JLabel totalLabel;
     private javax.swing.JLabel totalPrice;
