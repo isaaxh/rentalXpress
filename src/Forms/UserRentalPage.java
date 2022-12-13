@@ -284,13 +284,9 @@ public class UserRentalPage extends CommonFunctionality {
             rentals.addRental(newRental);
             cars.setCarAsRented(carIdSelected);
             totalPrice.setText("RM " + newRental.getTotalCost());
-
+            JOptionPane.showMessageDialog(null, "Booking successful");
+            backToMainMenu();
         }
-        // if any of the date are empty send messgae
-        // if start date is greater than enddate
-        // set the price based on the car chosen and the days
-        // if()
-
     }//GEN-LAST:event_bookedCarBtnActionPerformed
 
     private void mainMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_logOutBtnActionPerformed
