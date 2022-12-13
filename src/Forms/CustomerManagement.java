@@ -355,6 +355,7 @@ public class CustomerManagement extends CommonFunctionality {
             String newUserId = UUID.randomUUID().toString();
             Customer newCustomer = new Customer(newUserId, Name, Email, Password);
             customers.addCustomer(newCustomer);
+            addDataToTable();
             JOptionPane.showMessageDialog(null, "new user created");
         }
     }// GEN-LAST:event_btnAddActionPerformed
@@ -381,11 +382,13 @@ public class CustomerManagement extends CommonFunctionality {
 
             for (int i = 0; i < customersArrSize; i++) {
                 Customer currCustomer = allCustomers.get(i);
-                String tableData[] = { currCustomer.getId(),
-                        currCustomer.getName(),
-                        currCustomer.getEmail()
-                };
-                customerDefaultTableModel.addRow(tableData);
+                if (!currCustomer.getEmail().equals("admin@a.com")) {
+                    String tableData[] = { currCustomer.getId(),
+                            currCustomer.getName(),
+                            currCustomer.getEmail()
+                    };
+                    customerDefaultTableModel.addRow(tableData);
+                }
             }
         }
 
