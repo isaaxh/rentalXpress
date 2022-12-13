@@ -2,8 +2,6 @@ package Forms;
 
 import HelperClasses.AllCustomers;
 import HelperClasses.Customer;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.regex.Pattern;
@@ -299,6 +297,10 @@ public class CustomerManagement extends CommonFunctionality {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         String customerId= customerIdTextInput.getText();
+        if (customerId.equals("")) {
+            JOptionPane.showMessageDialog(null, "Please select a customer to delete");
+            return;
+        }
         int SelectedRow = customerTable.getSelectedRow();
         customers.removeCustomer(customerId);
         ((DefaultTableModel) customerTable.getModel()).removeRow(SelectedRow);
@@ -309,6 +311,11 @@ public class CustomerManagement extends CommonFunctionality {
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEditActionPerformed
         boolean passwordEdited = false;
+        String customerId = customerIdTextInput.getText();
+        if (customerId.equals("")) {
+            JOptionPane.showMessageDialog(null, "Please select a customer to edit");
+            return;
+        }
         if (!passwordTextInput.getText().equals("")) {
             passwordEdited = true;
         }
