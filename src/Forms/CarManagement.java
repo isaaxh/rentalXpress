@@ -402,6 +402,7 @@ public class CarManagement extends CommonFunctionality {
             Car newCar = new Car(CarId, Make, Model, Year, isAvailable == "true", Integer.parseInt(price));
             cars.EditCar(CarId, newCar);
             addDataToTable();
+            resetAllFields();
             JOptionPane.showMessageDialog(null, "Car edited successfully");
         }
     }//GEN-LAST:event_editCarBtnActionPerformed
@@ -410,14 +411,25 @@ public class CarManagement extends CommonFunctionality {
         backToMainMenu();
     }
 
+    private void resetAllFields() {
+        carIdTextInput.setText("");
+        carMakeTextInput.setText("");
+        carModelTextInput.setText("");
+        carYearTextInput.setText("");
+        rentalPriceTextInput.setText("");
+        carIsAvailable.setSelectedItem(true);
+    }
+
     private void deleteCarBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteCarBtnActionPerformed
-        // TODO add your handling code here:
         String CarId = carIdTextInput.getText();
+        if (CarId.equals("")) {
+            JOptionPane.showMessageDialog(null, "Please select a car");
+            return;
+        }
         int SelectedRow = carTable.getSelectedRow();
-        System.out.println(CarId);
         cars.removeCar(CarId);
         ((DefaultTableModel) carTable.getModel()).removeRow(SelectedRow);
-        // addDataToTable();
+        resetAllFields();
         JOptionPane.showMessageDialog(null, "Car deleted successfully");
     }// GEN-LAST:event_deleteCarBtnActionPerformed
 
@@ -506,6 +518,7 @@ public class CarManagement extends CommonFunctionality {
             Integer.parseInt(price));
     cars.addCar(newCar);
     addDataToTable();
+    resetAllFields();
     JOptionPane.showMessageDialog(null, "new car created");
 }
     }// GEN-LAST:event_addCarBtnActionPerformed

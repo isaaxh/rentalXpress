@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import HelperClasses.AllCars;
 import HelperClasses.AllCustomers;
@@ -189,6 +190,10 @@ public class AdminRentalPage extends CommonFunctionality {
         rentalEndDate.setMinimumSize(new java.awt.Dimension(250, 30));
         rentalEndDate.setPreferredSize(new java.awt.Dimension(250, 30));
 
+        Date currDate = new Date();
+        rentalStartDate.setDate(currDate);
+        rentalEndDate.setDate(currDate);
+
         javax.swing.GroupLayout sidebarPanelLayout = new javax.swing.GroupLayout(sidebarPanel);
         sidebarPanel.setLayout(sidebarPanelLayout);
         sidebarPanelLayout.setHorizontalGroup(
@@ -231,7 +236,7 @@ public class AdminRentalPage extends CommonFunctionality {
                         .addGap(39, 39, 39)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        ))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         sidebarPanelLayout.setVerticalGroup(
@@ -263,7 +268,7 @@ public class AdminRentalPage extends CommonFunctionality {
                 .addGap(38, 38, 38)
                 .addGroup(sidebarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
-                    .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                )
                 .addGap(591, 591, 591))
         );
 
@@ -427,12 +432,31 @@ public class AdminRentalPage extends CommonFunctionality {
     }
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSaveActionPerformed
+        if (cars.getAllCars().size() < 1) {
+            JOptionPane.showMessageDialog(null, "No cars are available");
+            return;
+        }
+
+        if (customers.getAllCustomers().size() < 1) {
+            JOptionPane.showMessageDialog(null, "You have no customers");
+            return;
+        }
+
         String rentalId = UUID.randomUUID().toString();
         String carId = carIdCombo.getSelectedItem().toString();
         String customerId = customerIdCombo.getSelectedItem().toString();
         Date rentStartDate = rentalStartDate.getDate();
         Date rentEndDate = rentalEndDate.getDate();
         Date currentDate = new Date();
+
+        if (customerId.equals("")) {
+            JOptionPane.showMessageDialog(null, "Select a valid customer id");
+            return;
+        }
+        if (carId.equals("")) {
+            JOptionPane.showMessageDialog(null, "Select a valid car id");
+            return;
+        }
         Rental newRental = new Rental(rentalId, carId, customerId, rentStartDate,
                 rentEndDate, currentDate);
         allRentals.addRental(newRental);

@@ -2,16 +2,12 @@ package Forms;
 
 import HelperClasses.AllCars;
 import HelperClasses.AllRentals;
-import HelperClasses.Car;
 import HelperClasses.Customer;
 import HelperClasses.Rental;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -45,8 +41,7 @@ public class SalesReport extends CommonFunctionality {
                 jLabel3 = new javax.swing.JLabel();
                 showReportBtn = new javax.swing.JButton();
                 generateAnalysisBtn = new javax.swing.JButton();
-                backBtn = new javax.swing.JButton();
-                meainMenuBtn = new javax.swing.JButton();
+                mainMenuBtn = new javax.swing.JButton();
                 jPanel3 = new javax.swing.JPanel();
                 salesTabPanel = new javax.swing.JTabbedPane();
                 reportTablePanel = new javax.swing.JPanel();
@@ -61,8 +56,8 @@ public class SalesReport extends CommonFunctionality {
                 averageSalesLabel = new javax.swing.JLabel();
                 lowestSaleLabel = new javax.swing.JLabel();
                 highestSaleLabel = new javax.swing.JLabel();
-                jLabel10 = new javax.swing.JLabel();
-                noOfRentalsLabel = new javax.swing.JLabel();
+                numberOfRentalsLabel = new javax.swing.JLabel();
+                noOfRentalsText = new javax.swing.JLabel();
                 jLabel12 = new javax.swing.JLabel();
 
                 javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -109,10 +104,12 @@ public class SalesReport extends CommonFunctionality {
                         }
                 });
 
-                backBtn.setText("Back");
-
-                meainMenuBtn.setText("Main Menu");
-
+                mainMenuBtn.setText("Main Menu");
+                mainMenuBtn.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                mainMenuBtnActionPerformed(evt);
+                        }
+                });
                 javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
                 sidePanel.setLayout(sidePanelLayout);
                 sidePanelLayout.setHorizontalGroup(
@@ -168,22 +165,17 @@ public class SalesReport extends CommonFunctionality {
                                                                                                                                 javax.swing.GroupLayout.Alignment.LEADING,
                                                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                Short.MAX_VALUE)
-                                                                                                                .addComponent(backBtn,
-                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                240,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                                                                                Short.MAX_VALUE)))
                                                                                 .addGroup(sidePanelLayout
                                                                                                 .createSequentialGroup()
                                                                                                 .addGap(17, 17, 17)
-                                                                                                .addComponent(meainMenuBtn)))
+                                                                                                .addComponent(mainMenuBtn)))
                                                                 .addContainerGap(72, Short.MAX_VALUE)));
                 sidePanelLayout.setVerticalGroup(
                                 sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(sidePanelLayout.createSequentialGroup()
                                                                 .addGap(17, 17, 17)
-                                                                .addComponent(meainMenuBtn)
+                                                                .addComponent(mainMenuBtn)
                                                                 .addGap(18, 18, 18)
                                                                 .addComponent(jLabel1,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
@@ -221,14 +213,15 @@ public class SalesReport extends CommonFunctionality {
                                                                 .addComponent(generateAnalysisBtn)
                                                                 .addPreferredGap(
                                                                                 javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(backBtn)
                                                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                 Short.MAX_VALUE)));
 
                 jPanel1.add(sidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 460));
 
                 jPanel3.setBackground(new java.awt.Color(250, 250, 254));
-
+                Date currDate = new Date();
+                startDateChooser.setDate(currDate);
+                endDateChooser.setDate(currDate);
                 javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
                 jPanel3.setLayout(jPanel3Layout);
                 jPanel3Layout.setHorizontalGroup(
@@ -276,20 +269,18 @@ public class SalesReport extends CommonFunctionality {
                 jLabel7.setText("Highest sale:");
 
                 totalSalesLabel.setFont(new java.awt.Font("Ubuntu", 0, 16)); // NOI18N
-                totalSalesLabel.setText("jLabel11");
+                totalSalesLabel.setText("");
 
                 averageSalesLabel.setFont(new java.awt.Font("Ubuntu", 0, 16)); // NOI18N
-                averageSalesLabel.setText("jLabel13");
+                averageSalesLabel.setText("");
 
                 lowestSaleLabel.setFont(new java.awt.Font("Ubuntu", 0, 16)); // NOI18N
-                lowestSaleLabel.setText("jLabel15");
+                lowestSaleLabel.setText("");
 
                 highestSaleLabel.setFont(new java.awt.Font("Ubuntu", 0, 16)); // NOI18N
-                highestSaleLabel.setText("jLabel17");
+                highestSaleLabel.setText("");
 
-                jLabel10.setText("Number of rentals:");
-
-                noOfRentalsLabel.setText("jLabel11");
+                numberOfRentalsLabel.setText("Number of rentals:");
 
                 jLabel12.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
                 jLabel12.setText("Report Analysis");
@@ -306,7 +297,7 @@ public class SalesReport extends CommonFunctionality {
                                                                                 .addComponent(jLabel6)
                                                                                 .addComponent(jLabel5)
                                                                                 .addComponent(jLabel4)
-                                                                                .addComponent(jLabel10))
+                                                                                .addComponent(numberOfRentalsLabel))
                                                                 .addPreferredGap(
                                                                                 javax.swing.LayoutStyle.ComponentPlacement.RELATED,
                                                                                 144, Short.MAX_VALUE)
@@ -316,7 +307,7 @@ public class SalesReport extends CommonFunctionality {
                                                                                 .addComponent(lowestSaleLabel)
                                                                                 .addComponent(averageSalesLabel)
                                                                                 .addComponent(totalSalesLabel)
-                                                                                .addComponent(noOfRentalsLabel))
+                                                                                .addComponent(noOfRentalsText))
                                                                 .addGap(48, 48, 48))
                                                 .addGroup(analysisTabPanelLayout.createSequentialGroup()
                                                                 .addGap(107, 107, 107)
@@ -351,8 +342,8 @@ public class SalesReport extends CommonFunctionality {
                                                                 .addGap(18, 18, 18)
                                                                 .addGroup(analysisTabPanelLayout.createParallelGroup(
                                                                                 javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                .addComponent(jLabel10)
-                                                                                .addComponent(noOfRentalsLabel))
+                                                                                .addComponent(numberOfRentalsLabel)
+                                                                                .addComponent(noOfRentalsText))
                                                                 .addContainerGap(86, Short.MAX_VALUE)));
 
                 salesTabPanel.addTab("tab1", analysisTabPanel);
@@ -386,7 +377,7 @@ public class SalesReport extends CommonFunctionality {
                 model.addRow(values);
         }
 
-        private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_showReportBtnActionPerformed
+        private void mainMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_showReportBtnActionPerformed
                 backToMainMenu();
         }
 
@@ -409,12 +400,9 @@ public class SalesReport extends CommonFunctionality {
                         for (int i = 0; i < dateRangeRentals.size(); i++) {
                                 Rental currRental = dateRangeRentals.get(i);
                                 addRows(currRental);
-                                System.out.println(currRental.getTotalCost());
                         }
 
                 }
-                // if any of date fields are empty throw error
-                // if end date is greater than start date throw error
         }// GEN-LAST:event_showReportBtnActionPerformed
 
         private void addDataToTable() {
@@ -422,7 +410,6 @@ public class SalesReport extends CommonFunctionality {
 
                 ArrayList<Rental> allRentals = rentals.getAllRental();
                 int rentalArrSize = allRentals.size();
-                System.out.print("number of rentals from user: " + rentalArrSize);
                 salesReportTableModel.getDataVector().removeAllElements();
                 if (rentalArrSize > 0) {
 
@@ -440,56 +427,64 @@ public class SalesReport extends CommonFunctionality {
         }
 
         private void generateAnalysisBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_generateAnalysisBtnActionPerformed
-                // hide table & show new table
-                salesTabPanel.setSelectedIndex(1);
-                long totalSales = 0;
                 long averageSales;
+                System.out.println("END DATE === >>" + startDateChooser);
 
                 Date startDate = startDateChooser.getDate();
                 Date endDate = endDateChooser.getDate();
                 long diff = endDate.getTime() - startDate.getTime();
+                // long days = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
                 if (diff < 0) {
                         JOptionPane.showMessageDialog(null, "Report end date cannot be before start date");
-                } else {
-                        dateRangeRentals = rentals.getSpecificDateRentals(startDate, endDate);
-
-                        // calculate total sales
-                        for (int i = 0; i < dateRangeRentals.size(); i++) {
-                                Rental currRental = dateRangeRentals.get(i);
-                                totalSales = totalSales + currRental.getTotalCost();
-                        }
-                        totalSalesLabel.setText("RM " + Long.toString(totalSales));
-                        // calculate average
-                        averageSales = totalSales / dateRangeRentals.size();
-                        averageSalesLabel.setText("RM " + Long.toString(averageSales));
-
-                        // highest sale
-                        long max = 0;
-                        ArrayList<Long> rentCosts = new ArrayList<Long>();
-
-                        for (int i = 0; i < dateRangeRentals.size(); i++) {
-                                Rental currRental = dateRangeRentals.get(i);
-                                rentCosts.add(currRental.getTotalCost());
-                        }
-
-                        max = Collections.max(rentCosts);
-                        highestSaleLabel.setText("RM " + Long.toString(max));
-
-                        // lowest sale
-                        long min = Collections.min(rentCosts);
-                        lowestSaleLabel.setText("RM " + Long.toString(min));
+                        return;
                 }
+                dateRangeRentals = rentals.getSpecificDateRentals(startDate, endDate);
+
+                if (dateRangeRentals.size() < 1) {
+                        JOptionPane.showMessageDialog(null, "No Rentals exist for selected Date range");
+                        return;
+                }
+
+                // hide table & show new table
+                long totalSales = 0;
+                salesTabPanel.setSelectedIndex(1);
+                // calculate total sales
+                for (int i = 0; i < dateRangeRentals.size(); i++) {
+                        Rental currRental = dateRangeRentals.get(i);
+                        totalSales = totalSales + currRental.getTotalCost();
+                }
+
+                totalSalesLabel.setText("RM " + Long.toString(totalSales));
+                // calculate average
+                averageSales = totalSales / dateRangeRentals.size();
+                averageSalesLabel.setText("RM " + Long.toString(averageSales));
+
+                // highest sale
+                long max = 0;
+                ArrayList<Long> rentCosts = new ArrayList<Long>();
+
+                for (int i = 0; i < dateRangeRentals.size(); i++) {
+                        Rental currRental = dateRangeRentals.get(i);
+                        rentCosts.add(currRental.getTotalCost());
+                }
+
+                max = Collections.max(rentCosts);
+                highestSaleLabel.setText("RM " + Long.toString(max));
+
+                // lowest sale
+                long min = Collections.min(rentCosts);
+                lowestSaleLabel.setText("RM " + Long.toString(min));
+                noOfRentalsText.setText(Integer.toString(dateRangeRentals.size()));
         }// GEN-LAST:event_generateAnalysisBtnActionPerformed
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
         private javax.swing.JPanel analysisTabPanel;
         private javax.swing.JLabel averageSalesLabel;
-        private javax.swing.JButton backBtn;
         private com.toedter.calendar.JDateChooser endDateChooser;
         private javax.swing.JButton generateAnalysisBtn;
         private javax.swing.JLabel highestSaleLabel;
         private javax.swing.JLabel jLabel1;
-        private javax.swing.JLabel jLabel10;
+        private javax.swing.JLabel numberOfRentalsLabel;
         private javax.swing.JLabel jLabel12;
         private javax.swing.JLabel jLabel2;
         private javax.swing.JLabel jLabel3;
@@ -501,8 +496,8 @@ public class SalesReport extends CommonFunctionality {
         private javax.swing.JPanel jPanel3;
         private javax.swing.JPanel jPanel4;
         private javax.swing.JLabel lowestSaleLabel;
-        private javax.swing.JButton meainMenuBtn;
-        private javax.swing.JLabel noOfRentalsLabel;
+        private javax.swing.JButton mainMenuBtn;
+        private javax.swing.JLabel noOfRentalsText;
         private javax.swing.JScrollPane reportTabPanel;
         private javax.swing.JPanel reportTablePanel;
         private javax.swing.JTable salesReportTable;
