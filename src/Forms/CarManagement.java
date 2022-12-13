@@ -382,8 +382,7 @@ public class CarManagement extends CommonFunctionality {
         }
     }
 
-    private void editCarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCarBtnActionPerformed
-        // TODO add your handling code here:
+    private void editCarBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_editCarBtnActionPerformed
         String CarId = carIdTextInput.getText();
         String Make = carMakeTextInput.getText();
         String Model = carModelTextInput.getText();
@@ -434,28 +433,22 @@ public class CarManagement extends CommonFunctionality {
     }// GEN-LAST:event_deleteCarBtnActionPerformed
 
     private void carModelTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_carModelTextInputActionPerformed
-        // TODO add your handling code here:
     }// GEN-LAST:event_carModelTextInputActionPerformed
 
     private void rentalPriceTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_rentalPriceTextInputActionPerformed
-        // TODO add your handling code here:
     }// GEN-LAST:event_rentalPriceTextInputActionPerformed
 
     private void carMakeTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_carMakeTextInput1ActionPerformed
-        // TODO add your handling code here:
     }// GEN-LAST:event_carMakeTextInput1ActionPerformed
 
     private void carYearTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_carMakeTextInput1ActionPerformed
-        // TODO add your handling code here:
     }// GEN-LAST:event_carMakeTextInput1ActionPerformed
 
     private void carIdTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_carMakeTextInput1ActionPerformed
-        // TODO add your handling code here:
     }// GEN-LAST:event_carMakeTextInput1ActionPerformed
 
 
     private void carTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_carTableMouseClicked
-        // TODO add your handling code here:
         // setting the contained data to the text field
         int SelectedRow = carTable.getSelectedRow();
         String RegNum = carTable.getValueAt(SelectedRow, 0).toString();

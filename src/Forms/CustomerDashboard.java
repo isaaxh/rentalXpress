@@ -144,32 +144,20 @@ public class CustomerDashboard extends CommonFunctionality {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bookingHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bookingHistoryBtnActionPerformed
-        // TODO add your handling code here:
-        CustomerBookingHistory bookingHistory = new CustomerBookingHistory(loggedInCustomer);
-        dispose();
-        bookingHistory.setVisible(true);
+        changeWindow("customerBookingHistory");
     }// GEN-LAST:event_bookingHistoryBtnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_logoutBtnActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        Login login = new Login();
-        login.setVisible(true);
+        changeWindow("login");
     }// GEN-LAST:event_logoutBtnActionPerformed
 
     private void bookACarBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bookACarBtnActionPerformed
-        // TODO add your handling code here:
-        UserRentalPage userRentalPage = new UserRentalPage(loggedInCustomer);
-        dispose();
-        userRentalPage.setVisible(true);
+        changeWindow("userRentalPage");
 
     }// GEN-LAST:event_bookACarBtnActionPerformed
 
     private void editProfileBtnBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_bookACarBtnActionPerformed
-        // TODO add your handling code here:
-        EditProfile EditProfile = new EditProfile(loggedInCustomer);
-        dispose();
-        EditProfile.setVisible(true);
+        changeWindow("editProfile");
 
     }// GEN-LAST:event_bookACarBtnActionPerformed
 

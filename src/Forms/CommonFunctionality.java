@@ -2,6 +2,7 @@ package Forms;
 
 import HelperClasses.Customer;
 
+
 public class CommonFunctionality extends javax.swing.JFrame {
     protected Customer loggedInCustomer;
 
@@ -15,6 +16,27 @@ public class CommonFunctionality extends javax.swing.JFrame {
     }
 
     protected void changeWindow(String windowName) {
+        dispose();
+        switch (windowName) {
+            case "userRentalPage":
+                new UserRentalPage(loggedInCustomer).setVisible(true);
+                break;
+            case "customerBookingHistory":
+                new CustomerBookingHistory(loggedInCustomer).setVisible(true);
+                break;
+            case "editProfile":
+                new EditProfile(loggedInCustomer).setVisible(true);
+                break;
+            case "login":
+                new Login().setVisible(true);
+                break;
+            default:
+                // code block
+
+        }
+    }
+
+    protected void changeWindow(String windowName, boolean isAdmin) {
         dispose();
         switch (windowName) {
             case "carManagement":
@@ -40,4 +62,5 @@ public class CommonFunctionality extends javax.swing.JFrame {
 
         }
     }
+
 }

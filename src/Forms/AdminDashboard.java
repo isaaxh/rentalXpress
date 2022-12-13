@@ -190,32 +190,30 @@ public class AdminDashboard extends CommonFunctionality {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
-        changeWindow("logout");
+        changeWindow("logout", true);
     }//GEN-LAST:event_btnLogOutActionPerformed
 
     private void btnCarManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarManagementActionPerformed
-        changeWindow("carManagement");
+        changeWindow("carManagement", true);
     }//GEN-LAST:event_btnCarManagementActionPerformed
 
     private void btnCarRentalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarRentalActionPerformed
-        changeWindow("adminCarRental");
+        changeWindow("adminCarRental", true);
     }//GEN-LAST:event_btnCarRentalActionPerformed
 
     private void btnCustomerManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerManagementActionPerformed
-        changeWindow("customerManagement");
+        changeWindow("customerManagement", true);
     }//GEN-LAST:event_btnCustomerManagementActionPerformed
 
     private void editProfileBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_editProfileBtnActionPerformed
-        changeWindow("editProfile");
+        changeWindow("editProfile", true);
     }// GEN-LAST:event_editProfileBtnActionPerformed
 
     private void salesReportBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_salesReportBtnActionPerformed
-        // TODO add your handling code here:
-        changeWindow("salesReport");
+        changeWindow("salesReport", true);
     }// GEN-LAST:event_salesReportBtnActionPerformed
 
     private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_logoutBtnActionPerformed
-        // TODO add your handling code here:
     }// GEN-LAST:event_logoutBtnActionPerformed
 
     /**
@@ -225,48 +223,6 @@ public class AdminDashboard extends CommonFunctionality {
         WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
     }
-
-
-
-    // public static void main(String args[]) {
-    // /* Set the Nimbus look and feel */
-    // //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-    // (optional) ">
-    // /* If Nimbus (introduced in Java SE 6) is not available, stay with the
-    // default look and feel.
-    // * For details see
-    // http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-    // */
-    // try {
-    // for (javax.swing.UIManager.LookAndFeelInfo info :
-    // javax.swing.UIManager.getInstalledLookAndFeels()) {
-    // if ("Nimbus".equals(info.getName())) {
-    // javax.swing.UIManager.setLookAndFeel(info.getClassName());
-    // break;
-    // }
-    // }
-    // } catch (ClassNotFoundException ex) {
-    // java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE,
-    // null, ex);
-    // } catch (InstantiationException ex) {
-    // java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE,
-    // null, ex);
-    // } catch (IllegalAccessException ex) {
-    // java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE,
-    // null, ex);
-    // } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-    // java.util.logging.Logger.getLogger(AdminDashboard.class.getName()).log(java.util.logging.Level.SEVERE,
-    // null, ex);
-    // }
-    // //</editor-fold>
-
-    // /* Create and display the form */
-    // java.awt.EventQueue.invokeLater(new Runnable() {
-    // public void run() {
-    // new AdminDashboard().setVisible(true);
-    // }
-    // });
-    // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel backgroundPanel;
