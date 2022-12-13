@@ -146,15 +146,12 @@ public class Registration extends CommonFunctionality {
     }// </editor-fold>//GEN-END:initComponents
 
     private void passwordTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_passwordTextInputActionPerformed
-        // TODO add your handling code here:
     }// GEN-LAST:event_passwordTextInputActionPerformed
 
     private void nameTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_nameTextInputActionPerformed
-        // TODO add your handling code here:
     }// GEN-LAST:event_nameTextInputActionPerformed
 
     private void emailTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_emailTextInputActionPerformed
-        // TODO add your handling code here:
     }// GEN-LAST:event_emailTextInputActionPerformed
 
     AllCustomers customers = new AllCustomers();
@@ -196,15 +193,12 @@ public class Registration extends CommonFunctionality {
     }// GEN-LAST:event_createUserButtonActionPerformed
 
     private void pasword1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pasword1ActionPerformed
-        // TODO add your handling code here:
     }// GEN-LAST:event_pasword1ActionPerformed
 
     private void confirmPasswordTextInputActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_confirmPasswordTextInputActionPerformed
-        // TODO add your handling code here:
     }// GEN-LAST:event_confirmPasswordTextInputActionPerformed
 
     private void pasword3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_pasword3ActionPerformed
-        // TODO add your handling code here:
     }// GEN-LAST:event_pasword3ActionPerformed
 
 

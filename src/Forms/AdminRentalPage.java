@@ -420,7 +420,6 @@ public class AdminRentalPage extends CommonFunctionality {
 
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEditActionPerformed
-        // TODO add your handling code here:
     }// GEN-LAST:event_btnEditActionPerformed
 
     private void mainMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEditActionPerformed
@@ -428,7 +427,6 @@ public class AdminRentalPage extends CommonFunctionality {
     }// GEN-LAST:event_btnEditActionPerformed
 
     private void tableCarListMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_carTableMouseClicked
-        // TODO add your handling code here:
         // setting the contained data to the text field
         int SelectedRow = tableCarList.getSelectedRow();
         String RegNum = tableCarList.getValueAt(SelectedRow, 0).toString();

@@ -290,12 +290,10 @@ public class UserRentalPage extends CommonFunctionality {
     }//GEN-LAST:event_bookedCarBtnActionPerformed
 
     private void mainMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_logOutBtnActionPerformed
-        // TODO add your handling code here:
         backToMainMenu();
     }//GEN-LAST:event_logOutBtnActionPerformed
 
     private void carsTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_carsTableMouseClicked
-        // TODO add your handling code here:
         int row = carsTable.getSelectedRow();
         String carId = carsTable.getValueAt(row, 0).toString();
         carIdComboBox.setSelectedItem(carId);
