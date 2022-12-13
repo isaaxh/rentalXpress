@@ -182,6 +182,12 @@ public class AdminRentalPage extends CommonFunctionality {
             }
         });
 
+        tableCarList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableCarListMouseClicked(evt);
+            }
+        });
+
         rentalStartDate.setMaximumSize(new java.awt.Dimension(250, 30));
         rentalStartDate.setMinimumSize(new java.awt.Dimension(250, 30));
         rentalStartDate.setPreferredSize(new java.awt.Dimension(250, 30));
@@ -293,6 +299,14 @@ public class AdminRentalPage extends CommonFunctionality {
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            boolean[] canEdit = new boolean[] {
+                    false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            };
         });
         tableCarsOnRent.setGridColor(new java.awt.Color(8, 65, 118));
         jScrollPane3.setViewportView(tableCarsOnRent);
@@ -341,7 +355,15 @@ public class AdminRentalPage extends CommonFunctionality {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
-            }
+            };
+
+            boolean[] canEdit = new boolean[] {
+                    false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            };
         });
         tableCarList.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tableCarList.setGridColor(new java.awt.Color(8, 65, 118));
@@ -396,6 +418,7 @@ public class AdminRentalPage extends CommonFunctionality {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_btnEditActionPerformed
@@ -403,6 +426,15 @@ public class AdminRentalPage extends CommonFunctionality {
     private void mainMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnEditActionPerformed
         backToMainMenu();
     }// GEN-LAST:event_btnEditActionPerformed
+
+    private void tableCarListMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_carTableMouseClicked
+        // TODO add your handling code here:
+        // setting the contained data to the text field
+        int SelectedRow = tableCarList.getSelectedRow();
+        String RegNum = tableCarList.getValueAt(SelectedRow, 0).toString();
+
+        carIdCombo.setSelectedItem(RegNum);
+    }// GEN-LAST:event_carTableMouseClicked
 
     // action button responders
     // ======================================================================================================
