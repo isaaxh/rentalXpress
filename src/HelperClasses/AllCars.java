@@ -9,14 +9,11 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import groovyjarjarantlr4.v4.parse.ANTLRParser.parserRule_return;
-
 public class AllCars {
     private ArrayList<Car> allCars = new ArrayList<Car>();
 
     public AllCars() {
         getCars();
-        System.out.println("customers");
     }
 
     private void storeCarData() {
@@ -37,7 +34,6 @@ public class AllCars {
             try {
                 saveToFile(carData);
             } catch (IOException e) {
-                System.out.println("could store car data: " + currCar.getId());
                 e.printStackTrace();
             }
         }
@@ -51,7 +47,6 @@ public class AllCars {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 String[] items = line.split("\\|");
-                System.out.println("Available ====>>>> " + items[4].equals("true"));
                 Car currCar = new Car(items[0], items[1], items[2], items[3], items[4].equals("true"),
                         Integer.parseInt(items[5]));
                 allCars.add(currCar);
@@ -91,9 +86,7 @@ public class AllCars {
 
     public void removeCar(String carId) {
         int arrSize = allCars.size();
-        System.out.println(arrSize);
         for (int i = 0; i < arrSize; i++) {
-            System.out.println("I ran");
             Car currCar = allCars.get(i);
 
             if (currCar.getId().equals(carId)) {
