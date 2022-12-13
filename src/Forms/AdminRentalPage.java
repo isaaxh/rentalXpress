@@ -456,7 +456,6 @@ public class AdminRentalPage extends CommonFunctionality {
         ArrayList<Car> availableCars = cars.getAvailableCars();
         int arrSize = availableCars.size();
         String carIds[] = new String[arrSize];
-        System.out.println(arrSize);
         for (int i = 0; i < arrSize; i++) {
             carIds[i] = availableCars.get(i).getId();
         }

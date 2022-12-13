@@ -138,7 +138,6 @@ public class CustomerBookingHistory extends CommonFunctionality {
 
         ArrayList<Rental> userRentals = rentals.getUserRentals(loggedInCustomer.getId());
         int rentalArrSize = userRentals.size();
-        System.out.print("number of rentals from user: " + rentalArrSize);
         bookingDefaultTableModel.getDataVector().removeAllElements();
         if (rentalArrSize > 0) {
 

@@ -481,8 +481,6 @@ public class CarManagement extends CommonFunctionality {
 
         ArrayList<Car> allCars = cars.getAllCars();
         int carArrSize = allCars.size();
-        System.out.println("CAr size=>");
-        System.out.println(carArrSize);
         carTableModel.getDataVector().removeAllElements();
         if (carArrSize > 0) {
 

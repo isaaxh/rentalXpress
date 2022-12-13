@@ -344,11 +344,6 @@ public class EditProfile extends CommonFunctionality {
         } catch (HeadlessException e) {
             System.out.println("Something went wrong!");
         }
-        System.out.println("======");
-        System.out.println(loggedInCustomer.getName());
-        System.out.println(loggedInCustomer.getEmail());
-        System.out.println(loggedInCustomer.getPassword());
-
         }// GEN-LAST:event_btnSaveChangesActionPerformed
 
     private void mainMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_mainMenuBtnActionPerformed

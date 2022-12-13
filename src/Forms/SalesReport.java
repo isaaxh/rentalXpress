@@ -428,8 +428,6 @@ public class SalesReport extends CommonFunctionality {
 
         private void generateAnalysisBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_generateAnalysisBtnActionPerformed
                 long averageSales;
-                System.out.println("END DATE === >>" + startDateChooser);
-
                 Date startDate = startDateChooser.getDate();
                 Date endDate = endDateChooser.getDate();
                 long diff = endDate.getTime() - startDate.getTime();
