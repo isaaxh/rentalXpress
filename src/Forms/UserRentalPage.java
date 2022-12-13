@@ -223,6 +223,9 @@ public class UserRentalPage extends CommonFunctionality {
                                 .addContainerGap(90, Short.MAX_VALUE))
         );
 
+        Date currDate = new Date();
+        rentalStartDate.setDate(currDate);
+        rentalEndDate.setDate(currDate);
         carsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -282,11 +285,14 @@ public class UserRentalPage extends CommonFunctionality {
     AllRentals rentals = new AllRentals();
 
     private void bookedCarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookedCarBtnActionPerformed
+        if (cars.getAvailableCars().size() < 1) {
+            JOptionPane.showMessageDialog(null, "There are no cars currently available for rental");
+            return;
+        }
         long RentalStartDate = rentalStartDate.getDate().getTime();
         long RentalEndDate = rentalEndDate.getDate().getTime();
         long diff = RentalEndDate - RentalStartDate;
         long days = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
-        System.out.println(days);
         if (diff == 0) {
             JOptionPane.showMessageDialog(null, "Your rental has to at minimum be a day long");
         } else if (diff < 0) {
@@ -295,12 +301,10 @@ public class UserRentalPage extends CommonFunctionality {
             String carIdSelected = carIdComboBox.getSelectedItem().toString();
             String rentalId = UUID.randomUUID().toString();
             Date currentDate = new Date();
-            System.out.println(rentalStartDate.getDate());
-            System.out.println(rentalEndDate.getDate());
-            System.out.println("LOGGED IN CUSTOMER ====>> " + loggedInCustomer.getId());
             Rental newRental = new Rental(rentalId, carIdSelected, loggedInCustomer.getId(), rentalStartDate.getDate(),
                     rentalEndDate.getDate(), currentDate);
             rentals.addRental(newRental);
+            cars.setCarAsRented(carIdSelected);
             totalPrice.setText("RM " + newRental.getTotalCost());
 
         }
@@ -351,7 +355,6 @@ public class UserRentalPage extends CommonFunctionality {
         ArrayList<Car> availableCars = cars.getAvailableCars();
         int arrSize = availableCars.size();
         String carIds[] = new String[arrSize];
-        System.out.println(arrSize);
         for (int i = 0; i < arrSize; i++) {
             carIds[i] = availableCars.get(i).getId();
         }

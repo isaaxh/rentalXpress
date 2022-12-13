@@ -9,6 +9,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import groovyjarjarantlr4.v4.parse.ANTLRParser.parserRule_return;
+
 public class AllCars {
     private ArrayList<Car> allCars = new ArrayList<Car>();
 
@@ -118,4 +120,14 @@ public class AllCars {
         return null;
     }
 
+    public void setCarAsRented(String CarId) {
+        int arrSize = allCars.size();
+        for (int i = 0; i < arrSize; i++) {
+            Car currCar = allCars.get(i);
+            if (currCar.getId().equals(CarId)) {
+                currCar.setIsAvailable(false);
+            }
+        }
+        storeCarData();
+    }
 }
