@@ -2,13 +2,8 @@ package Forms;
 
 import HelperClasses.Customer;
 import HelperClasses.AllCustomers;
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.HeadlessException;
-import java.util.UUID;
-import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 public class EditProfile extends CommonFunctionality {
 
@@ -18,7 +13,6 @@ public class EditProfile extends CommonFunctionality {
     public EditProfile(Customer aLoggedUser) {
         loggedInCustomer = aLoggedUser;
         initComponents();
-
     }
 
     @SuppressWarnings("unchecked")

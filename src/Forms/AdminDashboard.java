@@ -1,7 +1,6 @@
 package Forms;
 
 import HelperClasses.Customer;
-import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 

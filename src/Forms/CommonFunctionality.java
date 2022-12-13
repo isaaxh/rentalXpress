@@ -3,7 +3,7 @@ package Forms;
 import HelperClasses.Customer;
 
 
-public class CommonFunctionality extends javax.swing.JFrame {
+abstract public class CommonFunctionality extends javax.swing.JFrame {
     protected Customer loggedInCustomer;
 
     protected void backToMainMenu() {
@@ -15,6 +15,7 @@ public class CommonFunctionality extends javax.swing.JFrame {
         }
     }
 
+    // Using method overloading
     protected void changeWindow(String windowName) {
         dispose();
         switch (windowName) {
@@ -31,8 +32,7 @@ public class CommonFunctionality extends javax.swing.JFrame {
                 new Login().setVisible(true);
                 break;
             default:
-                // code block
-
+                System.out.println("window name is not valid: " + windowName);
         }
     }
 
@@ -58,8 +58,7 @@ public class CommonFunctionality extends javax.swing.JFrame {
                 new Login().setVisible(true);
                 break;
             default:
-                // code block
-
+                System.out.println("window name is not valid: " + windowName);
         }
     }
 

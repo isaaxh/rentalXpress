@@ -1,7 +1,6 @@
 package HelperClasses;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 public class Customer implements Serializable {
 
@@ -9,11 +8,6 @@ public class Customer implements Serializable {
     private String email;
     private String password;
     private String userId;
-
-    public Customer(String aEmail, String aaPassword) {
-        email = aEmail;
-        password = aaPassword;
-    }
 
     public Customer(String aUserId, String aName, String anEmail, String aPassword) {
         name = aName;
