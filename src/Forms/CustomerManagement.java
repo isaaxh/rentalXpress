@@ -376,12 +376,14 @@ public class CustomerManagement extends CommonFunctionality {
             Customer newCustomer = new Customer(newUserId, Name, Email, Password);
             customers.addCustomer(newCustomer);
             addDataToTable();
+            resetAllFields();
             JOptionPane.showMessageDialog(null, "new user created");
         }
     }// GEN-LAST:event_btnAddActionPerformed
     AllCustomers customers = new AllCustomers();
 
     private void customerTableMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_customerTableMouseClicked
+        resetAllFields();
         int SelectedRow = customerTable.getSelectedRow();
         String customerId = customerTable.getValueAt(SelectedRow, 0).toString();
         Customer selectedCustomer = customers.getCustomer(customerId);

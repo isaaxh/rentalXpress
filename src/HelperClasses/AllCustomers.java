@@ -79,6 +79,7 @@ public class AllCustomers {
             Customer currentCus = customers.get(i);
             if (currentCus.getId().equals(customerId)) {
                 customers.remove(i);
+                arrSize--;
             }
         }
         storeUserData();
