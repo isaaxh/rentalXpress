@@ -389,6 +389,10 @@ public class CarManagement extends CommonFunctionality {
         String Year = carYearTextInput.getText();
         String isAvailable = carIsAvailable.getSelectedItem().toString();
         String price = rentalPriceTextInput.getText();
+        if (CarId.equals("")) {
+            JOptionPane.showMessageDialog(null, "Please select a car to edit");
+            return;
+        }
         if (Make.equals("")) {
             JOptionPane.showMessageDialog(null, "Please enter a valid car Make");
         } else if (Model.equals("")) {
@@ -495,6 +499,12 @@ public class CarManagement extends CommonFunctionality {
         String Year = carYearTextInput.getText();
         String isAvailable = carIsAvailable.getSelectedItem().toString();
         String price = rentalPriceTextInput.getText();
+        String carId = carIdTextInput.getText();
+        if (!carId.equals("")) {
+            resetAllFields();
+            JOptionPane.showMessageDialog(null, "Please enter your cars details");
+            return;
+        }
         if (Make.equals("")) {
             JOptionPane.showMessageDialog(null, "Please enter a valid car Make");
         } else if (Model.equals("")) {

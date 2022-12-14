@@ -91,8 +91,8 @@ public class AllCars {
 
             if (currCar.getId().equals(carId)) {
                 allCars.remove(i);
+                arrSize--;
             }
-            arrSize--;
         }
         storeCarData();
     }
