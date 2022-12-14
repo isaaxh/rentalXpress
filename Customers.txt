@@ -1,2 +1,5 @@
 c7bbb8da-7aba-4777-b76f-7f1ab28605cb|admin|admin@a.com|admin123
+8298097e-19d9-437f-8eaa-0c5e68bfd95e|Susan|sus@s.com|1234
+f5555561-6853-47c7-bf53-a4590f14b123|Lori|lori@l.com|1234
+90fe0d83-2649-4ef3-a5f9-7c58b27dce9f|Lor|lri@l.com|1234
 ada7fd14-9ed8-4b8f-ba51-f183c38bbb2a|Jack|jack@j.com|1234
