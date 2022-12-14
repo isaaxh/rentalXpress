@@ -30,9 +30,9 @@ public class CustomerManagement extends CommonFunctionality {
         labelEmail = new javax.swing.JLabel();
         emailTextInput = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        passwordTextInput = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        confirmPasswordTextInput = new javax.swing.JTextField();
+        passwordTextInput = new javax.swing.JPasswordField();
+        confirmPasswordTextInput = new javax.swing.JPasswordField();
         mainMenuBtn = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
@@ -97,11 +97,12 @@ public class CustomerManagement extends CommonFunctionality {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(passwordTextInput)
                     .addComponent(nameTextInput)
                     .addComponent(emailTextInput, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(passwordTextInput, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(confirmPasswordTextInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 34, Short.MAX_VALUE))
+                                        .addComponent(confirmPasswordTextInput, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                220, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,12 +117,14 @@ public class CustomerManagement extends CommonFunctionality {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(passwordTextInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(passwordTextInput, javax.swing.GroupLayout.PREFERRED_SIZE, 28,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(confirmPasswordTextInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(67, 67, 67))
+                                        .addComponent(confirmPasswordTextInput, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         mainMenuBtn.setText("Main Menu");
@@ -206,7 +209,8 @@ public class CustomerManagement extends CommonFunctionality {
                     .addComponent(customerIdLabel)
                     .addGroup(sidePanelLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(customerIdTextInput, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)))
+                                                .addComponent(customerIdTextInput, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        45, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
@@ -295,6 +299,14 @@ public class CustomerManagement extends CommonFunctionality {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void resetAllFields() {
+        customerIdTextInput.setText("");
+        nameTextInput.setText("");
+        emailTextInput.setText("");
+        passwordTextInput.setText("");
+        confirmPasswordTextInput.setText("");
+    }
+
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         String customerId= customerIdTextInput.getText();
         if (customerId.equals("")) {
@@ -305,6 +317,7 @@ public class CustomerManagement extends CommonFunctionality {
         customers.removeCustomer(customerId);
         ((DefaultTableModel) customerTable.getModel()).removeRow(SelectedRow);
         // addDataToTable();
+        resetAllFields();
         JOptionPane.showMessageDialog(null, "Customer deleted successfully");
 
     }//GEN-LAST:event_btnDeleteActionPerformed
@@ -411,7 +424,7 @@ public class CustomerManagement extends CommonFunctionality {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
-    private javax.swing.JTextField confirmPasswordTextInput;
+    private javax.swing.JPasswordField confirmPasswordTextInput;
     private javax.swing.JLabel customerIdLabel;
     private javax.swing.JTextField customerIdTextInput;
     private javax.swing.JTable customerTable;
@@ -427,7 +440,7 @@ public class CustomerManagement extends CommonFunctionality {
     private javax.swing.JLabel lebelCustomerManagement;
     private javax.swing.JButton mainMenuBtn;
     private javax.swing.JTextField nameTextInput;
-    private javax.swing.JTextField passwordTextInput;
+    private javax.swing.JPasswordField passwordTextInput;
     private javax.swing.JPanel sidePanel;
     // End of variables declaration//GEN-END:variables
 }

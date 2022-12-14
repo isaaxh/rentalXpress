@@ -13,7 +13,6 @@ import javax.swing.table.DefaultTableModel;
 
 public class SalesReport extends CommonFunctionality {
 
-        ArrayList<Rental> dateRangeRentals = new ArrayList<Rental>();
         String[] columns = { "Rental ID", "Date rented", "Sale" };
         DefaultTableModel model = new DefaultTableModel();
         int row;
@@ -84,13 +83,13 @@ public class SalesReport extends CommonFunctionality {
 
                 jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 16)); // NOI18N
                 jLabel2.setForeground(new java.awt.Color(254, 254, 254));
-                jLabel2.setText("Start date:");
+                jLabel2.setText("Start date (not inclusive):");
 
                 jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 16)); // NOI18N
                 jLabel3.setForeground(new java.awt.Color(254, 254, 254));
-                jLabel3.setText("End date:");
+                jLabel3.setText("End date (inclusive):");
 
-                showReportBtn.setText("Show report");
+                showReportBtn.setText("Show Rentals in range");
                 showReportBtn.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 showReportBtnActionPerformed(evt);
@@ -383,6 +382,7 @@ public class SalesReport extends CommonFunctionality {
 
         AllRentals rentals = new AllRentals();
         AllCars cars = new AllCars();
+        ArrayList<Rental> dateRangeRentals = new ArrayList<Rental>();
 
         private void showReportBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_showReportBtnActionPerformed
 
@@ -393,17 +393,33 @@ public class SalesReport extends CommonFunctionality {
                 if (diff < 0) {
                         JOptionPane.showMessageDialog(null, "Report end date cannot be before start date");
                 } else {
-                        DefaultTableModel salesReportTableModel = (DefaultTableModel) salesReportTable.getModel();
-
                         dateRangeRentals = rentals.getSpecificDateRentals(startDate, endDate);
-                        salesReportTableModel.getDataVector().removeAllElements();
-                        for (int i = 0; i < dateRangeRentals.size(); i++) {
-                                Rental currRental = dateRangeRentals.get(i);
-                                addRows(currRental);
+                        if (dateRangeRentals.size() < 1) {
+                                JOptionPane.showMessageDialog(null, "No Rentals exist for selected Date range");
+                                return;
                         }
-
+                        addDataToTable(dateRangeRentals);
                 }
         }// GEN-LAST:event_showReportBtnActionPerformed
+
+        private void addDataToTable(ArrayList<Rental> rentals) {
+                DefaultTableModel salesReportTableModel = (DefaultTableModel) salesReportTable.getModel();
+                int rentalArrSize = rentals.size();
+                salesReportTableModel.getDataVector().removeAllElements();
+                if (rentalArrSize > 0) {
+
+                        for (int i = 0; i < rentalArrSize; i++) {
+                                Rental currRental = rentals.get(i);
+                                SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+                                String bookedDate = formatter.format(currRental.getDateBooked());
+                                String tableData[] = { currRental.getCarId(),
+                                                bookedDate,
+                                                currRental.getTotalCost().toString(), };
+                                salesReportTableModel.addRow(tableData);
+                        }
+                }
+
+        }
 
         private void addDataToTable() {
                 DefaultTableModel salesReportTableModel = (DefaultTableModel) salesReportTable.getModel();

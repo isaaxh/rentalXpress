@@ -136,7 +136,7 @@
                           <Component id="customerIdLabel" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                              <Component id="customerIdTextInput" pref="28" max="32767" attributes="0"/>
+                              <Component id="customerIdTextInput" pref="45" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -204,12 +204,12 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="passwordTextInput" max="32767" attributes="0"/>
                               <Component id="nameTextInput" alignment="0" max="32767" attributes="0"/>
                               <Component id="emailTextInput" alignment="1" max="32767" attributes="0"/>
-                              <Component id="passwordTextInput" alignment="1" max="32767" attributes="0"/>
-                              <Component id="confirmPasswordTextInput" alignment="1" min="-2" pref="220" max="-2" attributes="0"/>
+                              <Component id="confirmPasswordTextInput" pref="220" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -228,14 +228,14 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <Component id="passwordTextInput" min="-2" max="-2" attributes="0"/>
+                              <Component id="passwordTextInput" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <Component id="confirmPasswordTextInput" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="confirmPasswordTextInput" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                          <EmptySpace pref="40" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -278,8 +278,6 @@
                     <Property name="text" type="java.lang.String" value="Password:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="passwordTextInput">
-                </Component>
                 <Component class="javax.swing.JLabel" name="jLabel4">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -291,7 +289,9 @@
                     <Property name="text" type="java.lang.String" value="Confirm Password:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="confirmPasswordTextInput">
+                <Component class="javax.swing.JPasswordField" name="passwordTextInput">
+                </Component>
+                <Component class="javax.swing.JPasswordField" name="confirmPasswordTextInput">
                 </Component>
               </SubComponents>
             </Container>
